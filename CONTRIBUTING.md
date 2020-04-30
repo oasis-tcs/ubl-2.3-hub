@@ -11,8 +11,7 @@ means any TC role or office other than OASIS TC Observer, per the
 
 Persons who are not TC members are invited to open issues and provide comments using this repository's 
 [GitHub Issues](https://github.com/oasis-tcs/ubl-2.3-hub/issues/new) tracking facility or using 
-the TC's [comment facility](https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=ubl).  
-All such content created in GitHub Issues and/or posted to the TC's 
+the TC's [comment facility](https://www.oasis-open.org/committees/comments/index.php?wg_abbrev=ubl). All such content created in GitHub Issues and/or posted to the TC's 
 [archived comment list](https://lists.oasis-open.org/archives/ubl-comment/) is governed by the terms 
 of the [OASIS Feedback License](https://www.oasis-open.org/policies-guidelines/ipr#appendixa)
 
