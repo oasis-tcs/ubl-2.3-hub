@@ -38,7 +38,14 @@ repository [LICENSE](https://github.com/oasis-tcs/ubl-2.3-hub/blob/master/LICENS
 
 ## Further Description of this Repository
 
-*Any narrative content may be provided here by the TC, for example, if the Members wish to provide an extended statement of purpose.*
+Distributions for UBL 2.0 through 2.3 have comprised two main collections of information, the documentation and the artefacts.
+
+This repository is for the documentation:
+- assembly of edited material into distributed material
+- publishing of distributed material in its consumable forms
+- integrity checking of the self-consistency of distributed materials
+
+See https://github.com/oasis-tcs/ubl-2.3-artefacts for the artefacts. Note that some components of the edited material rely on outputs from the generation of the artefacts.
 
 ## Contact
 
