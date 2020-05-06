@@ -55,6 +55,7 @@ The build process is:
   - localDateTime (e.g. "now" for current time, or "CCYYMMDD-hhmm" in local time as in "20200405-2250z" for EDT -0400)
   - serverUsername (for those editors with publishing privileges)
   - serverPassword (for those editors with publishing privileges)
+- without publishing privileges, at least the XML assembly is performed
 
 ## Contact
 
