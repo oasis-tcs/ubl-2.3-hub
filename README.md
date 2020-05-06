@@ -40,12 +40,21 @@ repository [LICENSE](https://github.com/oasis-tcs/ubl-2.3-hub/blob/master/LICENS
 
 Distributions for UBL 2.0 through 2.3 have comprised two main collections of information, the documentation and the artefacts.
 
-This repository is for the documentation:
+This repository is for the documentation with which the resulting distribution is built incorporating artefacts:
 - assembly of edited material into distributed material
 - publishing of distributed material in its consumable forms
 - integrity checking of the self-consistency of distributed materials
 
 See https://github.com/oasis-tcs/ubl-2.3-artefacts for the artefacts. Note that some components of the edited material rely on outputs from the generation of the artefacts.
+
+The build process is:
+- `sh publishUBL23Docs.sh ../results stage label localDateTime serverUsername serverPassword`
+  - pre-existing target directory (without trailing "/")
+  - stage (e.g. "csd02wd03", "csprd01", "os", etc.)
+  - label (e.g. "CCYYMMDD-hhmmz" UTC time as in "20200406-0250z", or any string for testing purposes)
+  - localDateTime (e.g. "now" for current time, or "CCYYMMDD-hhmm" in local time as in "20200405-2250z" for EDT -0400)
+  - serverUsername (for those editors with publishing privileges)
+  - serverPassword (for those editors with publishing privileges)
 
 ## Contact
 

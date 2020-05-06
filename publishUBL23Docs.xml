@@ -1,0 +1,183 @@
+<project default="make">
+
+<target name="make">
+  <!--documentation-->
+  <echo message="stage=${stage}"/>
+  <echo message="version=${version}"/>
+  <echo message="datetimelocal=${datetimelocal}"/>
+
+  <antcall target="-make-xml"/>
+
+  <antcall target="-make-docs"/>
+  
+  <antcall target="-package"/>
+</target>
+
+<target name="-check-xml">
+  <uptodate targetfile="${dir}/UBL-2.3.xml"
+            property=  "docs-UBL-xml-okay">
+    <srcfiles dir=".">
+      <include name="UBL.xml"/>
+    </srcfiles>
+  </uptodate>  
+</target>
+
+<target name="-make-xml" depends="-check-xml" unless="docs-UBL-xml-okay">
+  <delete file="${dir}/UBL-2.3.xml"/>
+  <!--assemble XML-->
+  <echo message="Assembling UBL-2.3.xml"/>
+  <java failonerror="yes" classname="net.sf.saxon.Transform">
+     <arg value="-xsl:assembleEntities.xsl"/>
+     <arg value="-s:UBL.xml"/>
+     <arg value="-o:${dir}/UBL-2.3.xml"/>
+  </java>
+</target>
+
+<target name="-check-docs">
+  <uptodate targetfile="${dir}/UBL-2.3.html"
+            property=  "docs-UBL-html-okay">
+    <srcfiles dir=".">
+      <include name="UBL.xml"/>
+    </srcfiles>
+  </uptodate>  
+  <uptodate targetfile="${dir}/UBL-2.3.pdf"
+            property=  "docs-UBL-pdf-okay">
+    <srcfiles dir=".">
+      <include name="UBL.xml"/>
+    </srcfiles>
+  </uptodate>
+  <uptodate targetfile="${dir}/iso-iec-19845-draft.pdf"
+            property=  "docs-UBL-iso-okay">
+    <srcfiles dir=".">
+      <include name="UBL.xml"/>
+    </srcfiles>
+  </uptodate>
+  <condition property="docs-UBL-okay">
+    <and>
+      <istrue value="${docs-UBL-xml-okay}"/>
+      <istrue value="${docs-UBL-html-okay}"/>
+      <istrue value="${docs-UBL-pdf-okay}"/>
+      <istrue value="${docs-UBL-iso-okay}"/>
+    </and>
+  </condition>
+</target>
+
+<target name="-make-docs" depends="-check-docs" unless="docs-UBL-okay">
+  <!--remove old results-->
+  <delete file="${dir}/UBL-2.3.html"/>
+  <delete file="${dir}/UBL-2.3.pdf"/>
+  <delete file="${dir}/iso-iec-19845-draft.pdf"/>
+  <delete file="${dir}/UBL-2.3-pub.zip"/>
+  <!--package inputs to the publishing process-->
+  <zip destfile="${dir}/UBL-2.3-pub.zip">
+    <fileset dir="${dir}">
+      <include name="UBL-2.3.xml"/>
+    </fileset>
+    <fileset dir=".">
+      <include name="setare-user-parameters.xml"/>
+      <include name="art/**"/>
+    </fileset>
+  </zip>
+  <!--create publishing outputs-->
+  <echo message="Submitting print job..."/>
+  <property name="serverScript" location="SetareServerAnt.xml"/> 
+  <ant antfile="${serverScript}" dir="${dir}">
+    <property name="entrypoint" value="OASIS-spec2pdfhtml-ISO-pdf"/>
+    <property name="fileupload"
+              value="UBL-2.3-pub.zip"/>
+    <property name="dateprefix" value="UBL 2.3"/>
+  </ant>
+  <echo message="Check and cleanup..."/>
+  <available property="ready-pdf" file="${dir}/UBL-2.3.docbook.pdf"/>
+  <fail unless="ready-pdf" message="PDF not created"/>
+  <available property="ready-iso" file="${dir}/UBL-2.3.iso.pdf"/>
+  <fail unless="ready-iso" message="ISO PDF not created"/>
+  <available property="ready-html" file="${dir}/UBL-2.3.docbook.html"/>
+  <fail unless="ready-html" message="HTML not created"/>
+  <!--these touches are necessary because unzip doesn't preserve time of day-->
+  <touch file="${dir}/UBL-2.3.docbook.pdf"/>
+  <touch file="${dir}/UBL-2.3.iso.pdf"/>
+  <touch file="${dir}/UBL-2.3.docbook.html"/>
+  <!--the names needed are not the names created-->
+  <move file="${dir}/UBL-2.3.docbook.pdf" tofile="${dir}/UBL-2.3.pdf"/>
+  <move file="${dir}/UBL-2.3.docbook.html" tofile="${dir}/UBL-2.3.html"/>
+  <move file="${dir}/UBL-2.3.iso.pdf" tofile="${dir}/iso-iec-19845-draft.pdf"/>
+  <!--intermediate file no longer needed-->
+  <delete file="${dir}/UBL-2.3-pub.zip"/>
+</target>
+
+<target name="-package">
+  <echo message="Checking existence of results..."/>
+  <available property="xml-made" file="${dir}/UBL-2.3.html"/>
+  <available property="html-made" file="${dir}/UBL-2.3.html"/>
+  <available property="pdf-made" file="${dir}/UBL-2.3.pdf"/>
+  <available property="iso-made" file="${dir}/iso-iec-19845-draft.pdf"/>
+  <condition property="docs-not-made">
+    <not>
+      <and>
+        <istrue value="${xml-made}"/>
+        <istrue value="${html-made}"/>
+        <istrue value="${pdf-made}"/>
+        <istrue value="${iso-made}"/>
+      </and>
+    </not>
+  </condition>
+  <fail if="docs-not-made" message="Problem with creating the documentation"/>
+
+  <delete dir="${dir}/hub-UBL-2.3-${stage}-${version}"/>
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}"/>
+  <copy todir="${dir}/hub-UBL-2.3-${stage}-${version}">
+    <fileset dir="${dir}">
+      <include name="UBL-2.3.xml"/>
+      <include name="UBL-2.3.html"/>
+      <include name="UBL-2.3.pdf"/>
+      <include name="iso-iec-19845-draft.pdf"/>
+    </fileset>
+  </copy>
+  <!--<mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/iso-iec-19845-draft-sts"/>
+  <copy todir="${dir}/hub-UBL-2.3-${stage}-${version}/iso-iec-19845-draft-sts">
+    <fileset dir=".">
+      <include name="UBL-2.3.iso.graphics/**"/>
+      <include name="iso-iec-19845-draft.xml"/>
+    </fileset>
+  </copy>-->
+
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/db"/>
+  <copy todir="${dir}/hub-UBL-2.3-${stage}-${version}/db">
+    <fileset dir="db/spec-0.8/htmlruntime">
+     <include name="**"/>
+    </fileset>
+  </copy>
+
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/art"/>
+  <copy todir="${dir}/hub-UBL-2.3-${stage}-${version}/art">
+    <fileset dir="htmlart">
+     <include name="*"/>
+    </fileset>
+  </copy>
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/art/artpdf"/>
+  <copy todir="${dir}/hub-UBL-2.3-${stage}-${version}/art/artpdf">
+    <fileset dir="art">
+     <include name="*"/>
+    </fileset>
+  </copy>
+
+  <delete file="${dir}/hub-UBL-2.3-${stage}-${version}.zip"/>
+  <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
+    <fileset dir="${dir}/hub-UBL-2.3-${stage}-${version}"/>
+  </touch>
+
+  <zip destfile="${dir}/hub-UBL-2.3-${stage}-${version}.zip"
+       basedir="${dir}" includes="hub-UBL-2.3-${stage}-${version}/**"/>
+  <delete dir="${dir}/hub-UBL-2.3-${stage}-${version}"/>
+  <unzip src="${dir}/hub-UBL-2.3-${stage}-${version}.zip" 
+         dest="${dir}"/>
+
+  <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
+    <fileset dir="${dir}">
+      <include name="hub-UBL-2.3-${stage}-${version}.zip"/>
+    </fileset>
+  </touch>
+</target>
+
+</project>
