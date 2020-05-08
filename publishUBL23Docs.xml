@@ -9,13 +9,17 @@
   <!--copy all entity replacements generated from the artefacts, preserving
       the date and time stamp so that the file can be checked for changes-->
   <copy preservelastmodified="true" todir="." 
-file="../results/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.2-documents-ent.xml"/>
+file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.2-documents-ent.xml"/>
   <copy preservelastmodified="true" todir="."
-file="../results/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.2-library-ent.xml"/>
+file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.2-library-ent.xml"/>
   <copy preservelastmodified="true" todir="."
-file="../results/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-documents-ent.xml"/>
+file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-documents-ent.xml"/>
   <copy preservelastmodified="true" todir="."
-file="../results/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-library-ent.xml"/>
+file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-library-ent.xml"/>
+  <!--remove any vestiges of a previous run indicating missing results-->
+  <delete  file="${dir}/missing---UBL-2.3-html---missing.txt"/>
+  <delete  file="${dir}/missing---UBL-2.3-pdf---missing.txt"/>
+  <delete  file="${dir}/missing---iso-iec-19845-draft-pdf---missing.txt"/>
 
   <antcall target="-make-xml"/>
 
@@ -248,6 +252,7 @@ file="../results/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final
       <include name="UBL-2.3.html"/>
       <include name="UBL-2.3.pdf"/>
       <include name="iso-iec-19845-draft.pdf"/>
+      <include name="missing*missing.txt"/>
     </fileset>
   </copy>
   <!--<mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/iso-iec-19845-draft-sts"/>
