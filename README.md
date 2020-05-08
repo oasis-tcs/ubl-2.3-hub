@@ -65,7 +65,7 @@ Source files, processing stylesheets, and resulting entities generated in the bu
 
 The artefacts must have already been created in the target directory, and they must have the same stage and label as the process invocation for the creation of the documentation and final results:
 - input artefacts:
-  - artefacts-UBL-2.3-{stage}-{label}.zip
+  - `artefacts-UBL-2.3-{stage}-{label}.zip`
 
 The build process is:
 - `sh publishUBL23Docs.sh ../results stage label localDateTime serverUsername serverPassword`
