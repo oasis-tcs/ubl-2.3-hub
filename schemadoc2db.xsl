@@ -9,8 +9,9 @@
   <!--warning: this was hacked 2017-09-30 and attempted to be restored-->
   
 <xsl:template match="/">
-<docs>
+ <xsl:result-document href="summary-namespaces-ent.xml">
   <xsl:comment select="'a total of',count(/*/schema),'document types'"/>
+
   <legalnotice role="namespaces">
     <title>Declared XML Namespaces</title>
     
@@ -34,7 +35,7 @@
       </member>
     </simplelist>
     
-    <para/>
+    <para conformance="skip"/>
     
     <simplelist lang="none">
       <xsl:for-each select="/schemadocs/schema">
@@ -44,15 +45,8 @@
       </xsl:for-each>
     </simplelist>
   </legalnotice>
-<xsl:comment/>
-  <xsl:comment>Don't forget replacement!</xsl:comment>
-<section id="S-UBL-2.3-DOCUMENT-SCHEMAS" role="documentSchemas">
-  <title>UBL 2.3 Document Schemas</title>
-  <!--======================================================-->
-  <section id="S-UBL-2.3-DOCUMENT-SCHEMAS-INTRODUCTION" role="....">
-    ...
-</section>
-  <!--======================================================-->
+ </xsl:result-document>
+ <xsl:result-document href="summary-schemas-ent.xml">
   <xsl:for-each select="/schemadocs/schema">
     <xsl:sort select="name"/>
     <xsl:variable name="normname" select="normalize-space(name)"/>
@@ -163,9 +157,8 @@
       </informaltable>
     </section>
   </xsl:for-each>
-</section>
-  <xsl:comment/>
-  <xsl:comment>Examples</xsl:comment>
+ </xsl:result-document>
+ <xsl:result-document href="summary-examples-ent.xml">
   <blockquote role="summaryExamples">
     <simplelist>
       <xsl:for-each select="//example">
@@ -178,7 +171,7 @@
       </xsl:for-each>
     </simplelist>
   </blockquote>
-</docs>
+ </xsl:result-document>
 </xsl:template>
 
 <xsl:template match="link[@schema]">

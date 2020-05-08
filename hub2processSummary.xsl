@@ -18,13 +18,11 @@
 <xsl:key name="ids" match="*[@id]" use="@id"/>
   
 <xsl:template match="/">
-<docs>
   <xsl:for-each select="//section[@role='processes']">
     <itemizedlist spacing="compact" mark="none" role="processLinkSummary">
       <xsl:apply-templates select="section[position()>1]"/>
     </itemizedlist>
   </xsl:for-each>
-</docs>
 </xsl:template>
 
 <xsl:template match="section">

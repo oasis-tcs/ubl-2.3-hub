@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" 
-  href="db/spec-0.7/stylesheets/oasis-specification-html-offline.xsl"?>
+  href="db/spec-0.8/stylesheets/oasis-specification-html-offline.xsl"?>
+<?oasis-spec-base-uri db/spec-0.8/?>
 <!--
+  
+  
+  This file has been modified so that the top-level processing instructions
+  and the PUBLIC and SYSTEM identifiers support OASIS "spec-0.8" instead of
+  "spec-0.7" that was in play at the time UBL 2.2 was created.
+  
+  
   $Id: UBL-2.2.xml,v 1.138 2018/07/08 19:50:31 admin Exp $
   Single quote: &#8217; Double quotes: &#8220;&#8221; 
   Search strings: "gentext" "reviewtext"
@@ -9,8 +17,8 @@
   old2new 
 -->
 <!DOCTYPE article
-  PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
-  "db/spec-0.7/docbook/docbookx.dtd"
+  PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "db/spec-0.8/docbook/docbookx.dtd"
 [ 
 <!-- the document properties-->
 <!ENTITY name "UBL">

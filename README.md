@@ -45,7 +45,23 @@ This repository is for the documentation with which the resulting distribution i
 - publishing of distributed material in its consumable forms
 - integrity checking of the self-consistency of distributed materials
 
-See https://github.com/oasis-tcs/ubl-2.3-artefacts for the artefacts. Note that some components of the edited material rely on outputs from the generation of the artefacts.
+See https://github.com/oasis-tcs/ubl-2.3-artefacts for the artefacts. Note that this publishing process presumes that the artefacts have been created already in the same target directory as is used for the hub results, with the same stage and label values as passed here for hub results, thus matching the artefacts with the document to produce the result.
+
+Entities generated in the building of the artefacts:
+- `old2newDocBook-UBL-2.3-csprd03-UBL-2.2-documents.xml`
+- `old2newDocBook-UBL-2.3-csprd03-UBL-2.2-library.xml`
+- `old2newDocBook-UBL-2.3-csprd03-UBL-2.3-csprd02-documents.xml`
+- `old2newDocBook-UBL-2.3-csprd03-UBL-2.3-csprd02-library.xml`
+
+Source files, processing stylesheets, and resulting entities generated in the building of the hub document:
+- `UBL-2.2.xml` and `UBL.xml` processed by `hub2processSummary.xsl`:
+  - `summary-processes-ent.xml`
+- `UBL-2.3-Party-summary-information.xml` processed by `partydoc2db.xsl`:
+  - `summary-parties-ent.xml`
+- `UBL-2.3-Schema-summary-information.xml` processed by `schemadoc2db.xsl`:
+  - `summary-namespaces-ent.xml`
+  - `summary-schemas-ent.xml`
+  - `summary-examples-ent.xml`
 
 The build process is:
 - `sh publishUBL23Docs.sh ../results stage label localDateTime serverUsername serverPassword`
