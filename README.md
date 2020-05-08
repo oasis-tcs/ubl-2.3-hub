@@ -48,10 +48,10 @@ This repository is for the documentation with which the resulting distribution i
 See https://github.com/oasis-tcs/ubl-2.3-artefacts for the artefacts. Note that this publishing process presumes that the artefacts have been created already in the same target directory as is used for the hub results, with the same stage and label values as passed here for hub results, thus matching the artefacts with the document to produce the result.
 
 Entities generated in the building of the artefacts:
-- `old2newDocBook-UBL-2.3-csprd03-UBL-2.2-documents.xml`
-- `old2newDocBook-UBL-2.3-csprd03-UBL-2.2-library.xml`
-- `old2newDocBook-UBL-2.3-csprd03-UBL-2.3-csprd02-documents.xml`
-- `old2newDocBook-UBL-2.3-csprd03-UBL-2.3-csprd02-library.xml`
+- `old2newDocBook-UBL-2.3-csprd03-UBL-2.2-documents-ent.xml`
+- `old2newDocBook-UBL-2.3-csprd03-UBL-2.2-library-ent.xml`
+- `old2newDocBook-UBL-2.3-csprd03-UBL-2.3-csprd02-documents-ent.xml`
+- `old2newDocBook-UBL-2.3-csprd03-UBL-2.3-csprd02-library-ent.xml`
 
 Source files, processing stylesheets, and resulting entities generated in the building of the hub document:
 - `UBL-2.2.xml` and `UBL.xml` processed by `hub2processSummary.xsl`:
