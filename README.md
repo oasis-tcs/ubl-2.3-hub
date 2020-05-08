@@ -80,6 +80,12 @@ IMPORTANT NOTE!
 - without publishing privileges, the PDF and HTML files are not updated, but the process continues through completion for the purposes of consistency checking
 - opening the resulting UBL-2.3.xml in an XSLT-aware browser (e.g. Safari) allows one to peruse the final document as if it had been published in HTML
 
+The build result in the target directory:
+- `hub-UBL-2.3-{stage}-{label}.zip`
+- `hub-UBL-2.3-{stage}-{label}/`
+- `UBL-2.3-{stage}-{label}.zip`
+- `UBL-2.3-{stage}-{label}/`
+
 ## Contact
 
 Please send questions or comments about 
