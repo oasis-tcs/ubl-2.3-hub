@@ -9,19 +9,49 @@
   <!--copy all entity replacements generated from the artefacts, preserving
       the date and time stamp so that the file can be checked for changes-->
   <copy preservelastmodified="true" todir="." 
-file="../results/artefacts-ubl-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.2-documents-ent.xml"/>
+file="../results/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.2-documents-ent.xml"/>
   <copy preservelastmodified="true" todir="."
-file="../results/artefacts-ubl-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.2-library-ent.xml"/>
+file="../results/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.2-library-ent.xml"/>
   <copy preservelastmodified="true" todir="."
-file="../results/artefacts-ubl-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-documents-ent.xml"/>
+file="../results/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-documents-ent.xml"/>
   <copy preservelastmodified="true" todir="."
-file="../results/artefacts-ubl-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-library-ent.xml"/>
+file="../results/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-library-ent.xml"/>
 
   <antcall target="-make-xml"/>
 
+  <!--if not attempting to update files, ignore the update of PDF and HTML
+      by making the assumption that the files are up-to-date already, but
+      then delete them -->
+  <condition property="not-attempting-to-produce-necessary-results">
+    <and>
+      <not>
+        <isset property="docs-UBL-xml-okay"/>
+      </not>
+      <equals arg1="${setareuser}" arg2=""/>
+    </and>
+  </condition>
+  <condition property="docs-UBL-okay">
+    <isset property="not-attempting-to-produce-necessary-results"/>
+  </condition>
+  <antcall target="-delete-results-not-being-produced"/>
+  
+  <!--At this point either the results are up-to-date because of no changes,
+      the results are not up-to-date and they've been deleted because there
+      is no access to the server, or the results are not up-to-date and the
+      server will be called to update them.
+      This allows someone without server access to process the XML to get
+      almost a complete result.
+  -->
+
   <antcall target="-make-docs"/>
   
-  <antcall target="-package"/>
+  <antcall target="-package-docs"/>
+
+  <!--At this point all of the documentation has been zipped up in its own
+      package, ready to use. The artefacts are assumed to have been zipped
+      up already before this process has run-->
+
+  <antcall target="-package-distribution"/>
 </target>
 
 <target name="-check-xml">
@@ -85,6 +115,17 @@ file="../results/artefacts-ubl-2.3-${stage}-${version}/archive-only-not-in-final
      <arg value="-s:UBL.xml"/>
      <arg value="-o:${dir}/UBL-2.3.xml"/>
   </java>
+</target>
+
+<target name="-delete-results-not-being-produced" 
+        if="not-attempting-to-produce-necessary-results">
+  <delete file="${dir}/UBL-2.3.html"/>
+  <delete file="${dir}/UBL-2.3.pdf"/>
+  <delete file="${dir}/iso-iec-19845-draft.pdf"/>
+  <delete file="${dir}/UBL-2.3-pub.zip"/>
+  <echo   file="${dir}/missing---UBL-2.3-html---missing.txt"/>
+  <echo   file="${dir}/missing---UBL-2.3-pdf---missing.txt"/>
+  <echo   file="${dir}/missing---iso-iec-19845-draft-pdf---missing.txt"/>
 </target>
 
 <target name="-check-docs">
@@ -169,9 +210,9 @@ file="../results/artefacts-ubl-2.3-${stage}-${version}/archive-only-not-in-final
   <delete file="${dir}/UBL-2.3-pub.zip"/>
 </target>
 
-<target name="-package">
+<target name="-package-docs">
   <echo message="Checking existence of results..."/>
-  <available property="xml-made" file="${dir}/UBL-2.3.html"/>
+  <available property="xml-made" file="${dir}/UBL-2.3.xml"/>
   <available property="html-made" file="${dir}/UBL-2.3.html"/>
   <available property="pdf-made" file="${dir}/UBL-2.3.pdf"/>
   <available property="iso-made" file="${dir}/iso-iec-19845-draft.pdf"/>
@@ -179,13 +220,24 @@ file="../results/artefacts-ubl-2.3-${stage}-${version}/archive-only-not-in-final
     <not>
       <and>
         <istrue value="${xml-made}"/>
-        <istrue value="${html-made}"/>
-        <istrue value="${pdf-made}"/>
-        <istrue value="${iso-made}"/>
+        <or>
+          <isset property="not-attempting-to-produce-necessary-results"/>
+          <and>
+            <istrue value="${html-made}"/>
+            <istrue value="${pdf-made}"/>
+            <istrue value="${iso-made}"/>
+          </and>
+        </or>
       </and>
     </not>
   </condition>
-  <fail if="docs-not-made" message="Problem with creating the documentation"/>
+  <property name="xml-made" value="false"/>
+  <property name="html-made" value="false"/>
+  <property name="pdf-made" value="false"/>
+  <property name="iso-made" value="false"/>
+  <property name="not-attempting-to-produce-necessary-results" value="false"/>
+  <fail if="docs-not-made"
+        message="Problem with creating the documentation XML:${xml-made}, HTML:${html-made}, PDF:${pdf-made}, ISO:${iso-made}, SKIP:${not-attempting-to-produce-necessary-results}"/>
 
   <delete dir="${dir}/hub-UBL-2.3-${stage}-${version}"/>
   <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}"/>
@@ -229,11 +281,6 @@ file="../results/artefacts-ubl-2.3-${stage}-${version}/archive-only-not-in-final
     </fileset>
   </copy>
 
-  <delete file="${dir}/hub-UBL-2.3-${stage}-${version}.zip"/>
-  <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
-    <fileset dir="${dir}/hub-UBL-2.3-${stage}-${version}"/>
-  </touch>
-
   <zip destfile="${dir}/hub-UBL-2.3-${stage}-${version}.zip"
        basedir="${dir}" includes="hub-UBL-2.3-${stage}-${version}/**"/>
   <delete dir="${dir}/hub-UBL-2.3-${stage}-${version}"/>
@@ -245,6 +292,92 @@ file="../results/artefacts-ubl-2.3-${stage}-${version}/archive-only-not-in-final
       <include name="hub-UBL-2.3-${stage}-${version}.zip"/>
     </fileset>
   </touch>
+</target>
+
+<target name="-package-distribution">
+  <!--old results no longer helpful-->
+  <delete  dir="${dir}/UBL-2.3-${stage}-${version}"/>
+  <delete  dir="${dir}/UBL-2.3-${stage}-${version}-archive-only"/>
+  <delete file="${dir}/UBL-2.3-${stage}-${version}.zip"/>
+  <delete file="${dir}/UBL-2.3-${stage}-${version}-archive-only.zip"/>
+  
+ <!--start the distribution directory with the contents of the artefacts zip-->
+  <unzip src="${dir}/artefacts-UBL-2.3-${stage}-${version}.zip" 
+         dest="${dir}/UBL-2.3-${stage}-${version}"/>
+  <move todir="${dir}/UBL-2.3-${stage}-${version}">
+    <fileset 
+dir="${dir}/UBL-2.3-${stage}-${version}/artefacts-UBL-2.3-${stage}-${version}">
+      <include name="**"/>
+    </fileset>
+  </move>
+  <!--directory is empty now-->
+  <delete
+dir="${dir}/UBL-2.3-${stage}-${version}/artefacts-UBL-2.3-${stage}-${version}"/>
+
+  <unzip src="${dir}/hub-UBL-2.3-${stage}-${version}.zip" 
+         dest="${dir}/UBL-2.3-${stage}-${version}"/>
+  <move todir="${dir}/UBL-2.3-${stage}-${version}">
+    <fileset 
+dir="${dir}/UBL-2.3-${stage}-${version}/hub-UBL-2.3-${stage}-${version}">
+      <include name="**"/>
+    </fileset>
+  </move>
+  <delete
+dir="${dir}/UBL-2.3-${stage}-${version}/hub-UBL-2.3-${stage}-${version}"/>
+  <!--peel off the STS results into the archive-->
+  <move file="${dir}/UBL-2.3-${stage}-${version}/iso-iec-19845-draft-sts"
+todir="${dir}/UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"
+        failonerror="false"/>
+  <!--use "copy" to distribute to all, "move" for only archive-->
+  <copy file="${dir}/UBL-2.3-${stage}-${version}/iso-iec-19845-draft.pdf"
+todir="${dir}/UBL-2.3-${stage}-${version}/"
+        failonerror="false"/>
+  <!--artefacts archive moved to distribution archive-->  
+  <move tofile="${dir}/UBL-2.3-${stage}-${version}-archive-only"
+file="${dir}/UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"
+   />
+  
+  <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
+    <fileset dir="${dir}/UBL-2.3-${stage}-${version}"/>
+  </touch>
+
+  <zip destfile="${dir}/UBL-2.3-${stage}-${version}-archive-only.zip"
+       basedir="${dir}" includes="UBL-2.3-${stage}-${version}-archive-only/**"/>
+  <delete dir="${dir}/UBL-2.3-${stage}-${version}-archive-only"/>
+  <unzip src="${dir}/UBL-2.3-${stage}-${version}-archive-only.zip" 
+         dest="${dir}"/>
+  <zip destfile="${dir}/UBL-2.3-${stage}-${version}.zip"
+       basedir="${dir}" includes="UBL-2.3-${stage}-${version}/**"/>
+  <delete dir="${dir}/UBL-2.3-${stage}-${version}"/>
+  <unzip src="${dir}/UBL-2.3-${stage}-${version}.zip" 
+         dest="${dir}"/>
+
+  <!--okay to stamp the ZIP files-->
+  <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
+    <fileset dir="${dir}">
+      <include name="UBL-2.3-${stage}-${version}.zip"/>
+      <include name="UBL-2.3-${stage}-${version}-archive-only.zip"/>
+    </fileset>
+  </touch>
+  
+  <!--final consistency checks-->
+  
+  <echo message="Creating: ${dir}/UBL-2.3-${stage}-${version}-dir-listing.xml..."/>
+  <exec executable="sh" failonerror="true">
+    <arg value="utilities/xml-dir/bin/xml-dir-listing"/>
+    <arg value="-o"/>
+    <arg value="${dir}/UBL-2.3-${stage}-${version}-dir-listing.xml"/>
+    <arg value="${dir}/UBL-2.3-${stage}-${version}"/>    
+  </exec>
+  <echo message="Creating: ${dir}/UBL-2.3-${stage}-${version}-gentext.xml..."/>
+  <java failonerror="yes" append="true" classname="net.sf.saxon.Transform">
+     <arg value="-xsl:hub-integrity.xsl"/>
+     <arg value="-s:${dir}/UBL-2.3-${stage}-${version}-dir-listing.xml"/>
+     <arg value="-o:${dir}/UBL-2.3-${stage}-${version}-gentext.xml"/>
+     <arg value="hub-uri=${dir}/UBL-2.3-${stage}-${version}/UBL-2.3.xml"/>
+     <arg value="gc-uri=${dir}/UBL-2.3-${stage}-${version}/mod/UBL-Entities-2.3.gc"/>
+    <arg value="pub-version=2.3"/>
+  </java>
 </target>
 
 </project>

@@ -15,7 +15,7 @@ content.
 
 ## Description
 
-For the development of the hub document associated with the UBL 2.3 delivery.
+For the development of the hub document associated with the UBL 2.3 delivery, and the packaging of the UBL 2.3 distribution results.
 
 ## Contributions
 
@@ -63,6 +63,10 @@ Source files, processing stylesheets, and resulting entities generated in the bu
   - `summary-schemas-ent.xml`
   - `summary-examples-ent.xml`
 
+The artefacts must have already been created in the target directory, and they must have the same stage and label as the process invocation for the creation of the documentation and final results:
+- input artefacts:
+  - artefacts-UBL-2.3-{stage}-{label}.zip
+
 The build process is:
 - `sh publishUBL23Docs.sh ../results stage label localDateTime serverUsername serverPassword`
   - pre-existing target directory (without trailing "/")
@@ -71,7 +75,10 @@ The build process is:
   - localDateTime (e.g. "now" for current time, or "CCYYMMDD-hhmm" in local time as in "20200405-2250z" for EDT -0400)
   - serverUsername (for those editors with publishing privileges)
   - serverPassword (for those editors with publishing privileges)
-- without publishing privileges, at least the XML assembly is performed
+
+IMPORTANT NOTE!
+- without publishing privileges, the PDF and HTML files are not updated, but the process continues through completion for the purposes of consistency checking
+- opening the resulting UBL-2.3.xml in an XSLT-aware browser (e.g. Safari) allows one to peruse the final document as if it had been published in HTML
 
 ## Contact
 
