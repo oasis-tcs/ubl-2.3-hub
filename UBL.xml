@@ -2340,7 +2340,7 @@
           </section>
           <section id="S-GOODS-ITEM-PASSPORT-CARNET">
             <title>Goods Item Passport (Carnet)</title>
-            <section id="S-GOODS-ITEM-PASSPORT-INTRODUCTION" role="process-introduction">
+            <section id="S-GOODS-ITEM-PASSPORT-INTRODUCTION">
               <title>Goods Item Passport Introduction</title>
               <para>When travelling with goods not for sale a temporary export declaration is needed. Several countries have signed the ATA Convention that, for two examples, allows goods to be presented at exhibitions, or for sportsmen to carry their equipment with them for international
                 competitions without paying customs for all the countries they pass. The agreement is jointly administered by the World Customs Organisation (WCO) and the International Chamber of Commerce (ICC). It states that in case the goods are not returned in time, the ICC member from the
@@ -2986,13 +2986,13 @@
         <blockquote>
           <para><emphasis role="bold" lang="none">CCTS_CCT_SchemaModule</emphasis></para>
           <blockquote>
-            <para><literal><ulink url="xsd/common/CCTS_CCT_SchemaModule-2.3.xsd">xsd/common/CCTS_CCT_SchemaModule-2.3.xsd</ulink></literal></para>
+            <para><literal><ulink url="xsd/common/BDNDR-CCTS_CCT_SchemaModule-1.1.xsd">xsd/common/BDNDR-CCTS_CCT_SchemaModule-1.1.xsd</ulink></literal></para>
             <para>This schema provides Core Component Types as defined by <xref linkend="ccts"/>. These types are used to construct higher-level data types in a standardized and consistent manner. This schema is defined by UN/CEFACT and should not be modified. It is imported by the UBL Unqualified
               Data Type Schema, and its types are the basis upon which UBL&#8217;s unqualified data types are defined.</para>
           </blockquote>
           <para><emphasis role="bold" lang="none">UnqualifiedDataTypes</emphasis></para>
           <blockquote>
-            <para><literal><ulink url="xsd/common/UBL-UnqualifiedDataTypes-2.3.xsd">xsd/common/UBL-UnqualifiedDataTypes-2.3.xsd</ulink></literal></para>
+            <para><literal><ulink url="xsd/common/BDNDR-UnqualifiedDataTypes-1.1.xsd">xsd/common/BDNDR-UnqualifiedDataTypes-1.1.xsd</ulink></literal></para>
             <para>This schema defines Unqualified Data Types for BBIE definition. These types are derived from the Core Component Types in <literal>CCTS_CCT_SchemaModule</literal>. Where an unqualified type is not based solely on an XSD data type, all CCTS supplementary components are made available
               in the UBL UDT from the CCTS CCT.</para>
           </blockquote>
@@ -4202,16 +4202,12 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
             </listitem>
           </itemizedlist>
           <para>The following table sums up the differences between the XML elements in the UBL 2.2 Common Library and those in the UBL 2.3 Common Library.</para>
-          <table id="T-SUMMARY-CHANGES-TO-LIBRARY-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-CSPRD03-TO-2.2">
-            &summary-old2new-version-library;
-          </table>
+          <table id="T-SUMMARY-CHANGES-TO-LIBRARY-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-CSPRD03-TO-2.2">&summary-old2new-version-library;</table>
         </section>
         <section id="S-CHANGES-TO-DOCUMENT-ELEMENTS-UBL-2.2-TO-UBL-2.3">
           <title>Changes to Document Elements, UBL 2.2 to UBL 2.3</title>
           <para>The following table sums up the differences between the XML elements in the UBL 2.2 document schemas and those in the UBL 2.3 document schemas.</para>
-          <table id="T-SUMMARY-CHANGES-TO-DOCUMENT-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-CSPRD03-TO-2.2">
-            &summary-old2new-version-documents;
-          </table>
+          <table id="T-SUMMARY-CHANGES-TO-DOCUMENT-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-CSPRD03-TO-2.2">&summary-old2new-version-documents;</table>
         </section>
       </section>
       <section id="S-SCHEMA-CHANGES-FROM-UBL-2.3-CSPRD02-TO-UBL-2.3-CSPRD03">
@@ -4225,16 +4221,12 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
         <section id="S-CHANGES-TO-LIBRARY-ELEMENTS-UBL-2.3-CSPRD02-TO-UBL-2.3-CSPRD03">
           <title>Changes to Library Elements, UBL 2.3 csprd02 to UBL 2.3 csprd03</title>
           <para>The following table sums up the differences between the XML elements in the common libraries of development versions.</para>
-          <table id="T-SUMMARY-CHANGES-TO-LIBRARY-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-CSPRD03-TO-2.3-CSPRD02">
-            &summary-old2new-stage-library;
-          </table>
+          <table id="T-SUMMARY-CHANGES-TO-LIBRARY-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-CSPRD03-TO-2.3-CSPRD02">&summary-old2new-stage-library;</table>
         </section>
         <section id="S-CHANGES-TO-DOCUMENT-ELEMENTS-UBL-2.3-CSPRD02-TO-UBL-2.3-CSPRD03">
           <title>Changes to Document Elements, UBL 2.3 csprd02 to UBL 2.3 csprd03</title>
           <para>The following table sums up the differences between the XML elements in the common libraries of development versions.</para>
-          <table id="T-SUMMARY-CHANGES-TO-DOCUMENT-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-CSPRD03-TO-2.3-CSPRD02">
-            &summary-old2new-stage-documents;
-          </table>
+          <table id="T-SUMMARY-CHANGES-TO-DOCUMENT-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-CSPRD03-TO-2.3-CSPRD02">&summary-old2new-stage-documents;</table>
         </section>
       </section>
       <section id="S-EDITORIAL-CHANGES-FROM-UBL-2.2-TO-UBL-2.3">
@@ -4464,13 +4456,13 @@ xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
         expressed as attributes, and the CCTS names &#8220;Amount. Currency. Identifier&#8221;and &#8220;Currency. Code List Version. Identifier&#8221; are transformed into the XML attribute names <literal>currencyID</literal> and <literal>currencyCodeListVersionID</literal>, respectively. All of
         these CCTS-based types and attributes are declared in the CCTS Core Component Type schema module:</para>
       <blockquote>
-        <para><literal><ulink url="xsd/common/CCTS_CCT_SchemaModule-2.3.xsd">xsd/common/CCTS_CCT_SchemaModule-2.3.xsd</ulink></literal></para>
+        <para><literal><ulink url="xsd/common/BDNDR-CCTS_CCT_SchemaModule-1.1.xsd">xsd/common/BDNDR-CCTS_CCT_SchemaModule-1.1.xsd</ulink></literal></para>
       </blockquote>
       <para>Note that this schema module comes from UN/CEFACT, not UBL; that it does not implement all of the supplementary components of core component types defined by <xref linkend="ccts"/>; and that all of the attributes it does declare are defined as optional. In UBL, however, the attributes
           <literal>currencyID</literal> and <literal>mimeCode</literal> are required, not optional. In order to impose its own restrictions, therefore, and also to supply a full set of supplementary component attributes, UBL provides an Unqualified Data Types module that imports the CCTS module and
         then overrides those definitions as needed:</para>
       <blockquote>
-        <para><literal><ulink url="xsd/common/UBL-UnqualifiedDataTypes-2.3.xsd">xsd/common/UBL-UnqualifiedDataTypes-2.3.xsd</ulink></literal></para>
+        <para><literal><ulink url="xsd/common/BDNDR-UnqualifiedDataTypes-1.1.xsd">xsd/common/BDNDR-UnqualifiedDataTypes-1.1.xsd</ulink></literal></para>
       </blockquote>
       <para>Further information about UBL data types can be found in <xref linkend="A-DATA-TYPE-QUALIFICATIONS-IN-UBL"/>. Note in particular <xref linkend="T-UBL-UNQUALIFIED-DATA-TYPES"/>, which includes a list of all the attributes associated with UBL unqualified data types. A reverse lookup of the
         implied occurrence of each attribute in the data models is provided in this summary report: </para>

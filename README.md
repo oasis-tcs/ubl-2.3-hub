@@ -65,7 +65,7 @@ Source files, processing stylesheets, and resulting entities generated in the bu
 
 The artefacts must have already been created in the target directory, and they must have the same stage and label as the process invocation for the creation of the documentation and final results:
 - input artefacts:
-  - artefacts-UBL-2.3-{stage}-{label}.zip
+  - `artefacts-UBL-2.3-{stage}-{label}.zip`
 
 The build process is:
 - `sh publishUBL23Docs.sh ../results stage label localDateTime serverUsername serverPassword`
@@ -79,6 +79,12 @@ The build process is:
 IMPORTANT NOTE!
 - without publishing privileges, the PDF and HTML files are not updated, but the process continues through completion for the purposes of consistency checking
 - opening the resulting UBL-2.3.xml in an XSLT-aware browser (e.g. Safari) allows one to peruse the final document as if it had been published in HTML
+
+The build result in the target directory:
+- `hub-UBL-2.3-{stage}-{label}.zip`
+- `hub-UBL-2.3-{stage}-{label}/`
+- `UBL-2.3-{stage}-{label}.zip`
+- `UBL-2.3-{stage}-{label}/`
 
 ## Contact
 
