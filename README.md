@@ -67,6 +67,12 @@ The artefacts must have already been created in the target directory, and they m
 - input artefacts:
   - `artefacts-UBL-2.3-{stage}-{label}.zip`
 
+Support subdirectories:
+- [`art`]( art ) - high-res artwork for PDF publishing
+- [`db`]( db ) - HTMl runtime event for DocBook from OASIS DocBook templates
+- [`htmlart`]( htmlart ) - low-res artwork for HTML publishing
+- [`utilities`]( utilities ) - tools used to generate outputs
+
 The build process is:
 - `sh publishUBL23Docs.sh ../results stage label localDateTime serverUsername serverPassword`
   - pre-existing target directory (without trailing "/")
