@@ -1,7 +1,7 @@
 if [ "$4" == "" ]
 then 
 echo Missing target dir, stage, dateZ, date, user, password arguments
-exit
+exit 1
 fi
 
 if [ ! -d "$1/." ]

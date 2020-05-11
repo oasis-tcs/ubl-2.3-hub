@@ -1,6 +1,9 @@
 <project default="make">
 
 <target name="make">
+  <condition property="is-dos">
+    <os family="windows"/>
+  </condition>
   <!--documentation-->
   <echo message="stage=${stage}"/>
   <echo message="version=${version}"/>
@@ -8,13 +11,13 @@
 
   <!--copy all entity replacements generated from the artefacts, preserving
       the date and time stamp so that the file can be checked for changes-->
-  <copy preservelastmodified="true" todir="." 
+  <copy preservelastmodified="true" todir="." failonerror="false"
 file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.2-documents-ent.xml"/>
-  <copy preservelastmodified="true" todir="."
+  <copy preservelastmodified="true" todir="." failonerror="false"
 file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.2-library-ent.xml"/>
-  <copy preservelastmodified="true" todir="."
+  <copy preservelastmodified="true" todir="." failonerror="false"
 file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-documents-ent.xml"/>
-  <copy preservelastmodified="true" todir="."
+  <copy preservelastmodified="true" todir="." failonerror="false"
 file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-library-ent.xml"/>
   <!--remove any vestiges of a previous run indicating missing results-->
   <delete  file="${dir}/missing---UBL-2.3-html---missing.txt"/>
@@ -80,6 +83,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
 
 <target name="-make-xml" depends="-check-xml" unless="docs-UBL-xml-okay">
   <delete file="${dir}/UBL-2.3.xml"/>
+  <delete file="${dir}/UBL-2.3-assembled.xml"/>
   <!--create all entity replacements generated from contribution files-->
   <echo message="Distilling entities from various inputs"/>
   <!--empty all entity replacements in case last generation was faulty-->
@@ -100,31 +104,53 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
     <arg value="-o:summary-processes-ent.xml"/>
     <arg value="old=UBL-2.2-modified.xml"/>
   </java>
+  <java failonerror="yes" jar="db/spec-0.8/validate/xjparse.jar" fork="true">
+    <arg value="-v"/>
+    <arg value="UBL-2.3-Party-summary-information.xml"/>
+  </java>
   <java failonerror="yes" classname="net.sf.saxon.Transform">
     <arg value="-xsl:partydoc2db.xsl"/>
     <arg value="-s:UBL-2.3-Party-summary-information.xml"/>
     <arg value="-o:summary-parties-ent.xml"/>
   </java>
+  <java failonerror="yes" jar="db/spec-0.8/validate/xjparse.jar" fork="true">
+    <arg value="-v"/>
+    <arg value="UBL-2.3-Schema-summary-information.xml"/>
+  </java>
   <java failonerror="yes" classname="net.sf.saxon.Transform">
     <arg value="-xsl:schemadoc2db.xsl"/>
     <arg value="-s:UBL-2.3-Schema-summary-information.xml"/>
-    <!--        summary-namespaces-ent.xml
-                summary-schemas-ent.xml
-                summary-examples-ent.xml-->
   </java>
   <!--assemble XML-->
   <echo message="Assembling UBL-2.3.xml"/>
   <java failonerror="yes" classname="net.sf.saxon.Transform">
      <arg value="-xsl:assembleEntities.xsl"/>
      <arg value="-s:UBL.xml"/>
-     <arg value="-o:${dir}/UBL-2.3.xml"/>
+     <arg value="-o:${dir}/UBL-2.3-assembled.xml"/>
   </java>
   <!--confirm the input file is valid-->
+  <antcall target="-validate">
+    <param name="source" value="${dir}/UBL-2.3-assembled.xml"/>
+  </antcall>
+  <move file="${dir}/UBL-2.3-assembled.xml" tofile="${dir}/UBL-2.3.xml"/>
+  <delete file="output.txt"/>
+</target>
+
+<target name="-validate" depends="-validate-shell,-validate-dos"/>
+
+<target name="-validate-shell" unless="${is-dos}">
   <exec failonerror="yes" executable="sh">
     <arg value="db/spec-0.8/validate/validate.sh"/>
-    <arg value="${dir}/UBL-2.3.xml"/>
+    <arg value="${source}"/>
   </exec>
-  <delete file="output.txt"/>
+</target>
+
+<target name="-validate-dos" if="${is-dos}">
+  <exec failonerror="yes" executable="cmd.exe">
+    <arg value="/c"/>
+    <arg value="db\spec-0.8\validate\validate.bat"/>
+    <arg value="${source}"/>
+  </exec>
 </target>
 
 <target name="-delete-results-not-being-produced" 
@@ -299,7 +325,13 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   </touch>
 </target>
 
-<target name="-package-distribution">
+<target name="-check-package-distribution">
+  <available property="ready-package-distribution"
+             file="${dir}/artefacts-UBL-2.3-${stage}-${version}.zip"/>
+</target>
+
+<target name="-package-distribution" depends="-check-package-distribution" 
+        if="ready-package-distribution">
   <!--old results no longer helpful-->
   <delete  dir="${dir}/UBL-2.3-${stage}-${version}"/>
   <delete  dir="${dir}/UBL-2.3-${stage}-${version}-archive-only"/>
