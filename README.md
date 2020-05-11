@@ -71,6 +71,7 @@ Support subdirectories:
 - [`art`]( art ) - high-res artwork for PDF publishing
 - [`db`]( db ) - HTMl runtime event for DocBook from OASIS DocBook templates
 - [`htmlart`]( htmlart ) - low-res artwork for HTML publishing
+- [`images`]( images ) - original revisable source vector artwork in `.svg` or `.drawio` (incomplete set of files because many originals have been lost; please add originals here using same base name as published; PNG images in the `art/` and `htmlart/` subdirectories must be made manually)
 - [`utilities`]( utilities ) - tools used to generate outputs
 
 The build process is:
