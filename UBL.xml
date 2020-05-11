@@ -1237,7 +1237,7 @@
           </section>
         </section>
       </section>
-      <section id="S-SOURCE-PROCUREMENT">
+      <section id="S-PROCUREMENT">
         <title>Procurement</title>
 	<para>The procurement process is mainly performed by 3 roles: the buyer (ie contracting authority), the economic operator and in case of public procurement the publication body. It starts with the identification of the procurement need and ends with the final payment of a contract. The process is traditionally split between the pre-award phase and the post-award phase. The Contract signature is the event that creates the separation of the two phases as depicts the figure below:</para>     
          <figure id="F-PROCUREMENT-PROCESS">
@@ -1251,7 +1251,7 @@
                 </textobject>
               </mediaobject>
             </figure>
-	  <section id="S-TENDERING-PRE-AWARD">
+	  <section id="S-PRE-AWARD">
           <title>Pre-award</title>
 	  <para>The most used pre-award processes in public procurement are schematized below:</para>
 	  <figure id="F-THE-TENDERING-PROCESS">
