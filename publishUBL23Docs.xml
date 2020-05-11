@@ -155,6 +155,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
 
 <target name="-delete-results-not-being-produced" 
         if="not-attempting-to-produce-necessary-results">
+  <delete file="${dir}/UBL-2.3-preview.html"/>
   <delete file="${dir}/UBL-2.3.html"/>
   <delete file="${dir}/UBL-2.3.pdf"/>
   <delete file="${dir}/iso-iec-19845-draft.pdf"/>
@@ -162,6 +163,12 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   <echo   file="${dir}/missing---UBL-2.3-html---missing.txt"/>
   <echo   file="${dir}/missing---UBL-2.3-pdf---missing.txt"/>
   <echo   file="${dir}/missing---iso-iec-19845-draft-pdf---missing.txt"/>
+  <echo message="Preparing a preview of the content in HTML..."/>
+  <java failonerror="yes" classname="net.sf.saxon.Transform">
+    <arg value="-xsl:db/spec-0.8/htmlruntime/spec-0.8/stylesheets/oasis-specification-html-offline.xsl"/>
+    <arg value="-s:UBL.xml"/>
+    <arg value="-o:${dir}/UBL-2.3-preview.html"/>
+  </java>
 </target>
 
 <target name="-check-docs">
@@ -195,6 +202,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
 
 <target name="-make-docs" depends="-check-docs" unless="docs-UBL-okay">
   <!--remove old results-->
+  <delete file="${dir}/UBL-2.3-preview.html"/>
   <delete file="${dir}/UBL-2.3.html"/>
   <delete file="${dir}/UBL-2.3.pdf"/>
   <delete file="${dir}/iso-iec-19845-draft.pdf"/>
@@ -275,6 +283,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
         todir="${dir}/hub-UBL-2.3-${stage}-${version}">
     <fileset dir="${dir}">
       <include name="UBL-2.3.xml"/>
+      <include name="UBL-2.3-preview.html"/>
       <include name="UBL-2.3.html"/>
       <include name="UBL-2.3.pdf"/>
       <include name="iso-iec-19845-draft.pdf"/>
