@@ -1474,14 +1474,26 @@
           <section id="S-TENDER-CONTRACT">
             <title>Tender Contract</title>
             <para>A process whereby a Contracting Authority sends information to the Economic Operator describing the final contract after a tendering process has been awarded.</para>
-            <figure id="F-TENDER-CONTRACT">
-              <title>Tender Contract</title>
+            <figure id="F-TENDER-CONTRACT-PRE-SIGNING-BY-INITIATING-PARTY">
+              <title>Tender Contract Pre-signing by Initiating Party</title>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="art/UBL-2.2-Tender-Contract.png"/>
+                  <imagedata fileref="art/UBL-2.3-Tender-Contract-Pre.png"/>
                 </imageobject>
                 <textobject>
-                  <phrase>[Tender Contract Diagram]</phrase>
+                  <phrase>[Tender Contract Pre-signing Diagram]</phrase>
+                </textobject>
+              </mediaobject>
+            </figure>
+            <para>A process whereby a Contracting Authority sends information to the Economic Operator describing the final contract after a tendering process has been awarded.</para>
+            <figure id="F-TENDER-CONTRACT-POST-SIGNING-BY-INITIATING-PARTY">
+              <title>Tender Contract Post-signing by Initiating Party</title>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="art/UBL-2.3-Tender-Contract-Post.png"/>
+                </imageobject>
+                <textobject>
+                  <phrase>[Tender Contract Post-signing Diagram]</phrase>
                 </textobject>
               </mediaobject>
             </figure>
