@@ -74,10 +74,11 @@ Support subdirectories:
 - [`utilities`]( utilities ) - tools used to generate outputs
 
 The build process is:
-- `sh publishUBL23Docs.sh ../results stage label localDateTime serverUsername serverPassword`
+- `publishUBL23Docs.bat   ..\results stage label localDateTime {serverUsername serverPassword}`
+- `sh publishUBL23Docs.sh ../results stage label localDateTime {serverUsername serverPassword}`
   - pre-existing target directory (without trailing "/")
-  - stage (e.g. "csd02wd03", "csprd01", "os", etc.)
-  - label (e.g. "CCYYMMDD-hhmmz" UTC time as in "20200406-0250z", or any string for testing purposes)
+  - stage (e.g. "csd02wd03", "csprd01", "os", etc., or any string for testing purposes e.g. "test")
+  - label (e.g. "CCYYMMDD-hhmmz" UTC time as in "20200406-0250z", or any string for testing purposes e.g. "test")
   - localDateTime (e.g. "now" for current time, or "CCYYMMDD-hhmm" in local time as in "20200405-2250z" for EDT -0400)
   - serverUsername (for those editors with publishing privileges)
   - serverPassword (for those editors with publishing privileges)
