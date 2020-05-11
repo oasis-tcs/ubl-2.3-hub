@@ -1253,7 +1253,7 @@
             </figure>
 	  <section id="S-PRE-AWARD">
           <title>Pre-award</title>
-	  <para>The most used pre-award processes in public procurement are schematized below:</para>
+	  <para>The most used pre-award processes in public procurement are schematized below. This schema reflects only some possible scenarios. In particular, several sourcing patterns are possible to find tenderers and receive tenders.</para>
 	  <figure id="F-PRE-AWARD-PROCESS">
               <title>Pre-award Process</title>
               <mediaobject>
@@ -1265,8 +1265,7 @@
                 </textobject>
               </mediaobject>
             </figure>
-	    <para>This schema reflects only some possible scenarios. In particular, several sourcing patterns are possible to find tenderers and receive tenders.</para>
-          <section id="S-TENDERING-INTRODUCTION">
+	    <section id="S-TENDERING-INTRODUCTION">
             <title>Tendering Introduction</title>
             <para>The tendering subprocess aims at buyers receiving tenders from potential suppliers generally starting from a publication of a notice and where the interest of economic operators drives the sourcing. A similar but less formally defined process than tendering is quotation (see <xref linkend="S-QUOTATION"/>).</para>
           </section>
