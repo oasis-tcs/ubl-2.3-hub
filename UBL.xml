@@ -1679,7 +1679,7 @@
         </section>
         <section id="S-QUOTATION">
           <title>Quotation</title>
-          <para>Less formally defined than a tender (see <xref linkend="S-TENDERING-PRE-AWARD"/>), a quotation process is the case where the Originator asks for a <link linkend="S-QUOTATION-SCHEMA">Quotation</link> via a <link linkend="S-REQUEST-FOR-QUOTATION-SCHEMA">Request For Quotation</link>, as
+          <para>Less formally defined than a tender (see <xref linkend="S-PRE-AWARD"/>), a quotation process is the case where the Originator asks for a <link linkend="S-QUOTATION-SCHEMA">Quotation</link> via a <link linkend="S-REQUEST-FOR-QUOTATION-SCHEMA">Request For Quotation</link>, as
             shown in the following diagram.</para>
           <figure id="F-QUOTATION-PROCESS">
             <title>Quotation Process</title>
