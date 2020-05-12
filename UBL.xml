@@ -1239,7 +1239,11 @@
       </section>
       <section id="S-PROCUREMENT">
         <title>Procurement</title>
-	<para>The procurement process is mainly performed by 3 roles: the buyer (ie contracting authority), the economic operator and in case of public procurement the publication body. It starts with the identification of the procurement need and ends with the final payment of a contract. The process is traditionally split between the pre-award phase and the post-award phase. The Contract signature is the event that creates the separation of the two phases as depicts the figure below:</para>     
+	  <section id="S-PRE-AWARD">
+          <title>Pre-award</title>
+	    <section id="S-TENDERING-INTRODUCTION">
+            <title>Tendering Introduction</title>
+		    	<para>The procurement process is mainly performed by 3 roles: the buyer (ie contracting authority), the economic operator and in case of public procurement the publication body. It starts with the identification of the procurement need and ends with the final payment of a contract. The process is traditionally split between the pre-award phase and the post-award phase. The Contract signature is the event that creates the separation of the two phases as depicts the figure below:</para>     
          <figure id="F-PROCUREMENT-PROCESS">
               <title>Procurement Process</title>
               <mediaobject>
@@ -1251,10 +1255,8 @@
                 </textobject>
               </mediaobject>
             </figure>
-	  <section id="S-PRE-AWARD">
-          <title>Pre-award</title>
-	  <para>The most used pre-award processes in public procurement are schematized below. This schema reflects only some possible scenarios. In particular, several sourcing patterns are possible to find tenderers and receive tenders.</para>
-	  <figure id="F-PRE-AWARD-PROCESS">
+	    <para>The most used pre-award processes in public procurement are schematized below. This schema reflects only some possible scenarios. In particular, several sourcing patterns are possible to find tenderers and receive tenders.</para>
+	    <figure id="F-PRE-AWARD-PROCESS">
               <title>Pre-award Process</title>
               <mediaobject>
                 <imageobject>
@@ -1264,9 +1266,7 @@
                   <phrase>[Pre-award Process Diagram]</phrase>
                 </textobject>
               </mediaobject>
-            </figure>
-	    <section id="S-TENDERING-INTRODUCTION">
-            <title>Tendering Introduction</title>
+            </figure>	    
             <para>The tendering subprocess aims at buyers receiving tenders from potential suppliers generally starting from a publication of a notice and where the interest of economic operators drives the sourcing. A similar but less formally defined process than tendering is quotation (see <xref linkend="S-QUOTATION"/>).</para>
           </section>
           <section id="S-CONTRACT-INFORMATION-PREPARATION">
