@@ -22,16 +22,16 @@
 <!ENTITY pversion "NONE">
 <!ENTITY version  "2.3">
 <!ENTITY pstage   "csprd02">
-<!ENTITY stage    "csd03wd02">
+<!ENTITY stage    "csd03wd03">
 <!ENTITY isostage "WD">
 <!ENTITY standard  "Committee Specification Public Review Draft 03">
 <!ENTITY stagetext "Committee Specification Public Review Draft 03">
-<!ENTITY standard  "Committee Specification Draft 03 / Working Draft 02">
-<!ENTITY stagetext "Committee Specification Draft 03 Working Draft 02">
+<!ENTITY standard  "Committee Specification Draft 03 / Working Draft 03xxxxx">
+<!ENTITY stagetext "Committee Specification Draft 03 Working Draft 03xxxxx">
 <!ENTITY this-loc     "https://docs.oasis-open.org/ubl/&stage;-UBL-2.3">
 <!ENTITY previous-loc "https://docs.oasis-open.org/ubl/&pstage;-UBL-2.3">
 <!ENTITY latest-loc   "https://docs.oasis-open.org/ubl">
-<!ENTITY pubdate     "27 April 2020"><!--remove time from pub date-->
+<!ENTITY pubdate     "12 May 2020"><!--remove time from pub date-->
 <!ENTITY pubyear     "2020">
 <!ENTITY pubdate-iso "ccyy-mm-dd">
 <!ENTITY reldate-iso "ccyy-mm">
