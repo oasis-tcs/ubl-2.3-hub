@@ -1483,9 +1483,9 @@
               </mediaobject>
             </figure>
           </section>
-          <section id="S-TENDER-CONTRACT">
-            <title>Tender Contract</title>
-            <para>A process whereby a Contracting Authority sends information to the Economic Operator describing the final contract after a tendering process has been awarded.</para>
+          <section id="S-CONTRACT">
+            <title>Contract</title>
+            <para>A process whereby an initiator sends the Contract information (TenderContract) to the recipient describing the final contract after a tendering process has been awarded in order to proceed with signing the Contract. The initiator may be the Economic Operator or the Contracting Authority. A simple scenario is depicted below:</para>
             <figure id="F-TENDER-CONTRACT-PRE-SIGNING-BY-INITIATING-PARTY">
               <title>Tender Contract Pre-signing by Initiating Party</title>
               <mediaobject>
@@ -1497,7 +1497,7 @@
                 </textobject>
               </mediaobject>
             </figure>
-            <para>A process whereby a Contracting Authority sends information to the Economic Operator describing the final contract after a tendering process has been awarded.</para>
+            <para>Depending on the financial rules of the initiator, he may be obliged to sign last. This more complex scenario is depicted in the process below:</para>
             <figure id="F-TENDER-CONTRACT-POST-SIGNING-BY-INITIATING-PARTY">
               <title>Tender Contract Post-signing by Initiating Party</title>
               <mediaobject>
