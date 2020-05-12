@@ -2,7 +2,7 @@
 #
 # Syntax: validate.sh docbook-file
 
-DP0=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+DP0=$(dirname $(readlink -f "$0"))
 
 echo
 echo "############################################################"
