@@ -45,7 +45,7 @@
         <name>Awarded Notification</name>
         <description>The document used to communicate a contract award to the winner.</description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Contracting Authority</submitterRole>
         <receiverRole>Tenderer</receiverRole>
@@ -68,7 +68,7 @@
         <description>A document used by a Contracting Party to define a procurement project to buy
           goods, services, or works during a specified period.</description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Contracting Authority</submitterRole>
         <receiverRole>Tenderer</receiverRole>
@@ -152,7 +152,7 @@
         <description>A document published by a Contracting Party to announce the awarding of a
           procurement project.</description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Contracting Authority</submitterRole>
         <receiverRole>Tenderer</receiverRole>
@@ -163,7 +163,7 @@
         <description>A document used by a Contracting Party to announce a project to buy goods, services
           or works.</description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Contracting Authority</submitterRole>
         <receiverRole>Tenderer</receiverRole>
@@ -331,7 +331,7 @@
         <name>Guarantee Certificate</name>
         <description>A document to notify the deposit of a bid bond guarantee.</description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Tenderer</submitterRole>
         <receiverRole>Contracting Authority</receiverRole>
@@ -472,7 +472,7 @@
         <description>A document used by a contracting party to declare the intention to buy goods,
           services, or works during a specified period.</description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Contracting Authority</submitterRole>
         <receiverRole>Tenderer</receiverRole>
@@ -631,7 +631,7 @@
           tender) to a contracting authority to execute an order for the supply or purchase of goods, or
           for the execution of work, according to the terms of a proposed contract.</description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Tenderer</submitterRole>
         <receiverRole>Contracting Authority</receiverRole>
@@ -642,7 +642,7 @@
         <description>A document sent by a contracting party to an economic operator acknowledging
           receipt of a Tender.</description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Contracting Authority</submitterRole>
         <receiverRole>Tenderer</receiverRole>
@@ -652,7 +652,7 @@
         <name>Tenderer Qualification</name>
         <description>A document declaring the qualifications of a tenderer.</description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Tenderer</submitterRole>
         <receiverRole>Contracting Authority</receiverRole>
@@ -663,7 +663,7 @@
         <description>A document issued by a procurement organization to notify an economic operator
           whether it has been admitted to or excluded from the tendering process.</description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Contracting Authority</submitterRole>
         <receiverRole>Tenderer</receiverRole>
@@ -792,7 +792,7 @@
         <description>A document communicating to a tenderer that the contract has been awarded to
           different tenderer.</description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Contracting Authority</submitterRole>
         <receiverRole>Tenderer</receiverRole>
@@ -835,7 +835,7 @@
         <description>A document whereby a Contracting Authority accepts receiving an Expression Of
           Interest from an Economic Operator (the tenderer) </description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Contracting Authority</submitterRole>
         <receiverRole>Tenderer (Economic Operator)</receiverRole>
@@ -846,7 +846,7 @@
         <description>A document whereby an Economic Operator (the tenderer) makes an Expression Of
           Interest in a Call For Tenders to a Contracting Authority </description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Tenderer (Economic Operator)</submitterRole>
         <receiverRole>Contracting Authority</receiverRole>
@@ -859,7 +859,7 @@
         <description>A document whereby a Contracting Authority makes a description of the required
           qualification Application (In Europe: ESPD Request) to an Economic Operator (the tenderer) </description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Contracting Authority</submitterRole>
         <receiverRole>Tenderer (Economic Operator)</receiverRole>
@@ -870,7 +870,7 @@
         <description>A document whereby an Economic Operator (the tenderer) makes a description of the
           required qualification Application (In Europe: ESPD Response) to an Contracting Authority </description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Tenderer (Economic Operator)</submitterRole>
         <receiverRole>Contracting Authority</receiverRole>
@@ -881,7 +881,7 @@
         <description>A document whereby a Contracting Authority sends information to the Economic
           Operator describing the final contract after a tendering procedure.</description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Contracting Authority</submitterRole>
         <receiverRole>Tenderer (Economic Operator)</receiverRole>
@@ -892,7 +892,7 @@
         <description>A document whereby an Economic Operator (the tenderer) asking about the details and
           status of a tendering procedure </description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Tenderer (Economic Operator)</submitterRole>
         <receiverRole>Contracting Authority</receiverRole>
@@ -903,7 +903,7 @@
         <description>A document whereby a Contracting Authority sends information to the Economic
           Operator describing the status of a tendering procedure.</description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Contracting Authority</submitterRole>
         <receiverRole>Tenderer (Economic Operator)</receiverRole>
@@ -914,7 +914,7 @@
         <description>A document whereby an Economic Operator (the tenderer) makes a Tender Withdrawal to
           a Contracting Authority </description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Tenderer (Economic Operator)</submitterRole>
         <receiverRole>Contracting Authority</receiverRole>
@@ -925,7 +925,7 @@
         <description>A document whereby a Contracting Authority accepts receiving an Unsubscribe From
           Procedure from an Economic Operator (the tenderer) and sends a confirmation</description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Contracting Authority</submitterRole>
         <receiverRole>Tenderer (Economic Operator)</receiverRole>
@@ -936,7 +936,7 @@
         <description>A document whereby an Economic Operator (the tenderer) wants to Unsubscribe From
           Procedure and sends it to Contracting Authority </description>
         <processes>
-          <process>Tendering (pre-award)</process>
+          <process>Pre-award</process>
         </processes>
         <submitterRole>Tenderer (Economic Operator)</submitterRole>
         <receiverRole>Contracting Authority</receiverRole>
