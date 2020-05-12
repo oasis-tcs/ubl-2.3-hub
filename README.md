@@ -68,12 +68,12 @@ The artefacts must have already been created in the target directory, and they m
   - `artefacts-UBL-2.3-{stage}-{label}.zip`
 
 Support subdirectories:
-- [`art`]( art ) - high-res artwork for PDF publishing (max width: 5.7in/14.5cm)
+- [`art`]( art ) - high-res PNG artwork for print publishing (max width: 5.7in/14.5cm)
   - at a resolution of 600dpi: max width: 3425 pixels
   - at a resolution of 400dpi: max width: 2283 pixels
   - at a resolution of 300dpi (minimum): max width: 1713 pixels
-- [`db`]( db ) - HTMl runtime event for DocBook from OASIS DocBook templates
-- [`htmlart`]( htmlart ) - low-res artwork for HTML publishing (max width: 750 pixels)
+- [`db`]( db ) - XML on-the-fly rendering runtime environment for DocBook from OASIS DocBook templates
+- [`htmlart`]( htmlart ) - low-res PNG artwork for web publishing (max width: 750 pixels)
 - [`images`]( images ) - original revisable source vector artwork in `.svg` or `.drawio` (incomplete set of files because many originals have been lost; please add originals here using same base name as published; PNG images in the `art/` and `htmlart/` subdirectories must be made manually)
 - [`utilities`]( utilities ) - tools used to generate outputs
 
