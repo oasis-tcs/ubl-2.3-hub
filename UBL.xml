@@ -3371,6 +3371,10 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
         keys and algorithms.</para>
       <para>XAdES extends XMLDSig also aiming to support advanced and qualified electronic signatures or seals as specified in the European <xref linkend="b_eIDAS"/> regulation and other similar legal frameworks.</para>
       <para>Use of XAdES and the concept of Advanced Electronic Signature or Seal is not limited to Europe, as it is being adopted by many countries outside the EU, and, is the basis for the international standard ISO 14533-2:2012 <xref linkend="b_XAdES-ISO"/>.</para>
+      <note>
+        <para>Any aspect beyond the specification of the use of digital signatures in UBL documents is not in scope of UBL. Therefore, procedures for creation and validation of digital signatures, management of signature keys, assessment of the suitability and reliability of cryptographic keys and
+          algorithms are out of UBL scope.</para>
+      </note>
       <para>The two digital signature profiles provided in UBL represent two approaches to signing UBL documents: enveloped and detached. Each of these approaches can use either XMLDSig alone or may also include XAdES features.</para>
     </section>
     <section id="S-XML-DIGITAL-SIGNATURES">
