@@ -1509,6 +1509,7 @@
                 </textobject>
               </mediaobject>
             </figure>
+		  <para>Note that the exchange of electronic signatures depicted in the diagrams above is provided for the general understanding of the business choreography  needed in the contract process. Use of electronic signatures is further detailed in <xref linkend="S-UBL-DIGITAL-SIGNATURES-INTRODUCTION"/>.</para>  
           </section>
         </section>
         <section id="S-CATALOGUE">
