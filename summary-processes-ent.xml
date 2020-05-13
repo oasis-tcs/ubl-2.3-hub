@@ -35,17 +35,29 @@
    </listitem>
    <listitem>
       <para>
-         <xref linkend="S-SOURCE-PROCUREMENT"/>
+         <emphasis>
+            <emphasis role="bold">
+               <xref linkend="S-PROCUREMENT"/>
+            </emphasis>
+         </emphasis>
       </para>
       <itemizedlist spacing="compact" mark="none">
          <listitem>
             <para>
-               <xref linkend="S-TENDERING-PRE-AWARD"/>
+               <emphasis>
+                  <emphasis role="bold">
+                     <xref linkend="S-PRE-AWARD"/>
+                  </emphasis>
+               </emphasis>
             </para>
             <itemizedlist spacing="compact" mark="none">
                <listitem>
                   <para>
-                     <xref linkend="S-TENDERING-INTRODUCTION"/>
+                     <emphasis>
+                        <emphasis role="bold">
+                           <xref linkend="S-PRE-AWARD-INTRODUCTION"/>
+                        </emphasis>
+                     </emphasis>
                   </para>
                </listitem>
                <listitem>
@@ -110,7 +122,11 @@
                </listitem>
                <listitem>
                   <para>
-                     <xref linkend="S-TENDER-CONTRACT"/>
+                     <emphasis>
+                        <emphasis role="bold">
+                           <xref linkend="S-CONTRACT"/>
+                        </emphasis>
+                     </emphasis>
                   </para>
                </listitem>
             </itemizedlist>
