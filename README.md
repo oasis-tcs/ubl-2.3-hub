@@ -114,8 +114,16 @@ IMPORTANT NOTE!
 The build result in the target directory:
 - `hub-UBL-2.3-{stage}-{label}.zip`
 - `hub-UBL-2.3-{stage}-{label}/`
+- `hub-UBL-2.3-{stage}-{label}/archive-only-not-in-final-distribution/` - archive artefacts
 - `UBL-2.3-{stage}-{label}.zip`
 - `UBL-2.3-{stage}-{label}/`
+- `UBL-2.3-{stage}-{label}/archive-only-not-in-final-distribution/` - archive artefacts
+
+Note that in the archive directory are the files:
+- `hub.console.{label}.txt` - console log of the execution of the Ant build script
+- `hub.exitcode.{label}.txt` - exit code from the execution of the Ant build script
+
+
 
 ## Contact
 
