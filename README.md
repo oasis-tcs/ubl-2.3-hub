@@ -77,6 +77,21 @@ Support subdirectories:
 - [`images`]( images ) - original revisable source vector artwork in `.svg` or `.drawio` (incomplete set of files because many originals have been lost; please add originals here using same base name as published; PNG images in the `art/` and `htmlart/` subdirectories must be made manually)
 - [`utilities`]( utilities ) - tools used to generate outputs
 
+Image creation using the http://draw.io tool:
+- copy [`UBL-2.3-Pre-awardProcess.drawio`]( https://raw.githubusercontent.com/oasis-tcs/ubl-2.3-hub/master/images/UBL-2.3-Pre-awardProcess.drawio ) as a starting point full-width image with your own file name
+- open the copy in http://draw.io and modify it as required
+- using the menu item File / Export as / Advanced...
+  - select PNG format
+  - set the DPI to 600 using "Custom"
+  - set the width of the image to a maximum 3425 pixels
+    - the zoom should be less than or equal to 100%
+    - of course if the image is not the full width of the page the width count can be less to proportionally less than 3425
+  - turn off the transparent background and any border width
+  - ![drawio advanced export dialogue box](drawio-export.png "drawio advanced export dialogue box")
+  - put the resulting high-res PNG file into the [`art`]( art ) directory
+  - copy the high-res PNG file into the [`htmlart`]( htmlart ) directory
+  - using [ GIMP ]( https://www.gimp.org/ ) or some other pixel image manipulation tool, modify the [`htmlart`]( htmlart ) copy to be a maximum of 750 pixels (or proportionally smaller) and 96 DPI
+
 The build process is:
 - `publishUBL23Docs.bat   ..\results stage label localDateTime {serverUsername serverPassword}`
 - `sh publishUBL23Docs.sh ../results stage label localDateTime {serverUsername serverPassword}`
