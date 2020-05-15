@@ -23,7 +23,7 @@ jobs:
         mkdir target
         timestamp=$(date -u +%Y%m%d-%H%M)
         echo "::set-env name=TIMESTAMP::${timestamp}"
-        sh publishUBL23Docs.sh target github ${timestamp}z ${timestamp} ${SETARE_USERNAME:-} ${SETARE_PASSWORD:-}
+        bash publishUBL23Docs.sh target github ${timestamp}z ${timestamp} ${SETARE_USERNAME:-} ${SETARE_PASSWORD:-}
 
     - uses: actions/upload-artifact@v2
       with:
