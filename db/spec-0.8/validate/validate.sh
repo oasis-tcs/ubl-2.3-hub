@@ -2,7 +2,7 @@
 #
 # Syntax: validate.sh docbook-file
 
-DP0=$(dirname "$0")
+DP0=$( cd "$(dirname "$0")" ; pwd -P )
 
 echo
 echo "############################################################"
