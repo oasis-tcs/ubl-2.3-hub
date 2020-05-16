@@ -23,9 +23,10 @@ jobs:
         mkdir target
         timestamp=$(date -u +%Y%m%d-%H%M)
         echo "::set-env name=TIMESTAMP::${timestamp}"
-        bash publishUBL23Docs.sh target github ${timestamp}z ${timestamp} ${SETARE_USERNAME:-} ${SETARE_PASSWORD:-}
+        bash publishUBL23Docs.sh target github ${timestamp}z ${timestamp} "${SETARE_USERNAME:-}" "${SETARE_PASSWORD:-}" DELETE-REPOSITORY-FILES-AS-WELL
 
     - uses: actions/upload-artifact@v2
       with:
         name: hub-UBL-2.3-github-${{ env.TIMESTAMP }}z
-        path: target/hub-UBL-2.3-github-${{ env.TIMESTAMP }}z/*
+        path: ./*
+        #path: target/hub-UBL-2.3-github-${{ env.TIMESTAMP }}z/*
