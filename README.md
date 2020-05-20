@@ -83,16 +83,23 @@ Image creation using the http://draw.io tool:
 It is easy for committee members to contribute to the improvement of the hub document following these steps:
 
 1. Fork this repository to be one of your own private repositories.
-1. Modify any of the input XML files above
+1. Enable the running of workflows: click on 'Actions' tab at the top and press button "I understand my workflows, go ahead and run them"
+1. From the repository home page click the green "clone or download" button for the repository name of your private repository to clone to your local machine: `git clone {repository}`
+1. Modify locally any of the input XML files above
 1. Add any new images at least to the [`image`]( image ) and [`art`]( art ) directories (if you have the tools to create the image for the [`htmlart`]( htmlart ), all the better)
+1. Review the list of changed files: `git status`
 1. Stage your changes: `git add .`
+1. Review the list of staged files: `git status`
 1. Commit your changes: `git commit -m "Description of your change"`
 1. Submit your changes: `git push`
-1. The push triggers a "GitHub action" on the GitHub server:
-  - at the top of the GitHub screen, go to the "Actions" tab and you will see a workflow whose title is the same as the description you used for the commit message
-  - click on the bold-face title string (it is a hyperlink)
-  - under "Artifacts" download the ZIP file to view your results
-
+1. The push triggers a "GitHub action" on the GitHub server: at the top of the GitHub screen, go to the "Actions" tab and you will see a workflow whose title is the same as the description you used for the commit message; click on the bold-face title string (it is a hyperlink); from the "Artifacts" box download the ZIP file to view your results when they are completed (the box remains empty while the job is being run and may need to be refreshed after )
+1. Repeat from step 4 until your submission is ready
+1. From the repository home page press the "New pull request" button to generate a request for the editors to pull your work into the main repository
+1. On the "Comparing changes" page that comes up, review the work that is being submitted
+1. Press the "Create pull request" button
+1. Title the pull request (default is your last commit message) and outline the changes made in the description
+1. Press the "Crane pull request" below and to the right of the description
+1. The pull request now is in the hands of the editors for action
 
 ---
 
