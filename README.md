@@ -55,17 +55,17 @@ Source files for the hub document:
 - `UBL-2.3-Schema-summary-information.xml` - the list of all document types, their associated parties and roles, the processes in which they are used, and the list of example documents in the package that conform to their schema
 
 Support subdirectories:
+- [`images`]( images ) - original revisable source vector artwork in `.svg` or `.drawio` (incomplete set of files because many originals have been lost; please add originals here using same base name as published)
 - [`art`]( art ) - high-res PNG artwork for print publishing (max width: 5.7in/14.5cm)
   - at a resolution of 600dpi: max width: 3425 pixels
   - at a resolution of 400dpi: max width: 2283 pixels
   - at a resolution of 300dpi (minimum): max width: 1713 pixels
 - [`htmlart`]( htmlart ) - low-res PNG artwork for web publishing (max width: 750 pixels)
-- [`images`]( images ) - original revisable source vector artwork in `.svg` or `.drawio` (incomplete set of files because many originals have been lost; please add originals here using same base name as published; PNG images in the `art/` and `htmlart/` subdirectories must be made manually)
 
 Image creation using the http://draw.io tool:
 - copy [`UBL-2.3-Pre-awardProcess.drawio`]( https://raw.githubusercontent.com/oasis-tcs/ubl-2.3-hub/master/images/UBL-2.3-Pre-awardProcess.drawio ) as a starting point full-width image with your own file name
 - open the copy in http://draw.io and modify it as required
-- save the vector file in the [`image`]( image ) directory
+- save the vector file in the [`images`]( images ) directory
 - using the menu item File / Export as / Advanced...
   - select PNG format
   - set the DPI to 600 using "Custom"
