@@ -79,7 +79,7 @@
          >&latest-loc;/&name;-&version;.xml</releaseinfo> -->
     <title>Universal Business Language Version&#xa0;2.3</title>
     <releaseinfo role="committee"><ulink url="https://www.oasis-open.org/committees/ubl/" conformance="skip">OASIS Universal
-      Business Language TC</ulink></releaseinfo>
+      Business Language TC Ken's copy</ulink></releaseinfo>
     <authorgroup>
       <editor>
         <firstname>G. Ken</firstname>
