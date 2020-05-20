@@ -36,6 +36,8 @@ project. Content in this repository is intended to be part of the UBL TC's perma
 visible and freely available for all to use, subject to applicable OASIS policies, as presented in the 
 repository [LICENSE](https://github.com/oasis-tcs/ubl-2.3-hub/blob/master/LICENSE.md). 
 
+---
+
 ## Further Description of this Repository
 
 Distributions for UBL 2.0 through 2.3 have comprised two main collections of information, the documentation and the artefacts.
@@ -47,11 +49,67 @@ This repository is for the documentation with which the resulting distribution i
 
 See https://github.com/oasis-tcs/ubl-2.3-artefacts for the artefacts. Note that this publishing process presumes that the artefacts have been created already in the same target directory as is used for the hub results, with the same stage and label values as passed here for hub results, thus matching the artefacts with the document to produce the result.
 
-Entities generated in the building of the artefacts:
-- `old2newDocBook-UBL-2.3-csprd03-UBL-2.2-documents-ent.xml`
-- `old2newDocBook-UBL-2.3-csprd03-UBL-2.2-library-ent.xml`
-- `old2newDocBook-UBL-2.3-csprd03-UBL-2.3-csprd02-documents-ent.xml`
-- `old2newDocBook-UBL-2.3-csprd03-UBL-2.3-csprd02-library-ent.xml`
+Source files for the hub document:
+- `UBL.xml` - main body of the document
+- `UBL-2.3-Party-summary-information.xml` - the table describing the parties cited in the schema summary information
+- `UBL-2.3-Schema-summary-information.xml` - the list of all document types, their associated parties and roles, the processes in which they are used, and the list of example documents in the package that conform to their schema
+
+Support subdirectories:
+- [`art`]( art ) - high-res PNG artwork for print publishing (max width: 5.7in/14.5cm)
+  - at a resolution of 600dpi: max width: 3425 pixels
+  - at a resolution of 400dpi: max width: 2283 pixels
+  - at a resolution of 300dpi (minimum): max width: 1713 pixels
+- [`htmlart`]( htmlart ) - low-res PNG artwork for web publishing (max width: 750 pixels)
+- [`images`]( images ) - original revisable source vector artwork in `.svg` or `.drawio` (incomplete set of files because many originals have been lost; please add originals here using same base name as published; PNG images in the `art/` and `htmlart/` subdirectories must be made manually)
+
+Image creation using the http://draw.io tool:
+- copy [`UBL-2.3-Pre-awardProcess.drawio`]( https://raw.githubusercontent.com/oasis-tcs/ubl-2.3-hub/master/images/UBL-2.3-Pre-awardProcess.drawio ) as a starting point full-width image with your own file name
+- open the copy in http://draw.io and modify it as required
+- save the vector file in the [`image`]( image ) directory
+- using the menu item File / Export as / Advanced...
+  - select PNG format
+  - set the DPI to 600 using "Custom"
+  - set the width of the image to a maximum 3425 pixels
+    - the zoom should be less than or equal to 100%
+    - of course if the image is not the full width of the page the width count can be less to proportionally less than 3425
+  - turn off the transparent background and any border width
+  - ![drawio advanced export dialogue box](drawio-export.png "drawio advanced export dialogue box")
+  - save the resulting high-res PNG file into the [`art`]( art ) directory
+  - copy the high-res PNG file into the [`htmlart`]( htmlart ) directory
+  - using [ GIMP ]( https://www.gimp.org/ ) or some other pixel image manipulation tool, scale the [`htmlart`]( htmlart ) copy to be a maximum of 750 pixels (or proportionally smaller) and 96 DPI
+
+## Online GitHub use for development purposes by committee members
+
+It is easy for committee members to contribute to the improvement of the hub document following these steps:
+
+1. Fork this repository to be one of your own private repositories.
+1. Modify any of the input XML files above
+1. Add any new images at least to the [`image`]( image ) and [`art`]( art ) directories (if you have the tools to create the image for the [`htmlart`]( htmlart ), all the better)
+1. Stage your changes: `git add .`
+1. Commit your changes: `git commit -m "Description of your change"`
+1. Submit your changes: `git push`
+1. The push triggers a "GitHub action" on the GitHub server:
+  - at the top of the GitHub screen, go to the "Actions" tab and you will see a workflow whose title is the same as the description you used for the commit message
+  - click on the bold-face title string (it is a hyperlink)
+  - under "Artifacts" download the ZIP file to view your results
+
+
+---
+
+## Offline use for production purposes by project editors
+
+Additional support subdirectory:
+- [`db`]( db ) - XML on-the-fly rendering runtime environment for DocBook from OASIS DocBook templates
+- [`utilities`]( utilities ) - tools used to generate outputs
+
+The artefacts must have already been created in the target directory, and they must have the same stage and label as the process invocation for the creation of the documentation and final results:
+- input artefacts:
+  - `artefacts-UBL-2.3-{stage}-{label}.zip`
+  - includes input entities used in published annexes:
+    - `old2newDocBook-UBL-2.3-csprd03-UBL-2.2-documents-ent.xml`
+    - `old2newDocBook-UBL-2.3-csprd03-UBL-2.2-library-ent.xml`
+    - `old2newDocBook-UBL-2.3-csprd03-UBL-2.3-csprd02-documents-ent.xml`
+    - `old2newDocBook-UBL-2.3-csprd03-UBL-2.3-csprd02-library-ent.xml`
 
 Source files, processing stylesheets, and resulting entities generated in the building of the hub document:
 - `UBL-2.2.xml` and `UBL.xml` processed by `hub2processSummary.xsl`:
@@ -62,35 +120,6 @@ Source files, processing stylesheets, and resulting entities generated in the bu
   - `summary-namespaces-ent.xml`
   - `summary-schemas-ent.xml`
   - `summary-examples-ent.xml`
-
-The artefacts must have already been created in the target directory, and they must have the same stage and label as the process invocation for the creation of the documentation and final results:
-- input artefacts:
-  - `artefacts-UBL-2.3-{stage}-{label}.zip`
-
-Support subdirectories:
-- [`art`]( art ) - high-res PNG artwork for print publishing (max width: 5.7in/14.5cm)
-  - at a resolution of 600dpi: max width: 3425 pixels
-  - at a resolution of 400dpi: max width: 2283 pixels
-  - at a resolution of 300dpi (minimum): max width: 1713 pixels
-- [`db`]( db ) - XML on-the-fly rendering runtime environment for DocBook from OASIS DocBook templates
-- [`htmlart`]( htmlart ) - low-res PNG artwork for web publishing (max width: 750 pixels)
-- [`images`]( images ) - original revisable source vector artwork in `.svg` or `.drawio` (incomplete set of files because many originals have been lost; please add originals here using same base name as published; PNG images in the `art/` and `htmlart/` subdirectories must be made manually)
-- [`utilities`]( utilities ) - tools used to generate outputs
-
-Image creation using the http://draw.io tool:
-- copy [`UBL-2.3-Pre-awardProcess.drawio`]( https://raw.githubusercontent.com/oasis-tcs/ubl-2.3-hub/master/images/UBL-2.3-Pre-awardProcess.drawio ) as a starting point full-width image with your own file name
-- open the copy in http://draw.io and modify it as required
-- using the menu item File / Export as / Advanced...
-  - select PNG format
-  - set the DPI to 600 using "Custom"
-  - set the width of the image to a maximum 3425 pixels
-    - the zoom should be less than or equal to 100%
-    - of course if the image is not the full width of the page the width count can be less to proportionally less than 3425
-  - turn off the transparent background and any border width
-  - ![drawio advanced export dialogue box](drawio-export.png "drawio advanced export dialogue box")
-  - put the resulting high-res PNG file into the [`art`]( art ) directory
-  - copy the high-res PNG file into the [`htmlart`]( htmlart ) directory
-  - using [ GIMP ]( https://www.gimp.org/ ) or some other pixel image manipulation tool, modify the [`htmlart`]( htmlart ) copy to be a maximum of 750 pixels (or proportionally smaller) and 96 DPI
 
 The build process is:
 - `publishUBL23Docs.bat   ..\results stage label localDateTime {serverUsername serverPassword}`
