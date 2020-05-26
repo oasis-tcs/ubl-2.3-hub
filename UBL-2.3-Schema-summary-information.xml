@@ -1057,7 +1057,7 @@
 		</processes>
 		<submitterRole>Importer Party</submitterRole>
 		<receiverRole>Customs Party</receiverRole>
-		<examples><example>UBL-ExportCustomsDeclaration-2.3-Example.xml</example></examples>
+		<examples><example>UBL-TransitCustomsDeclaration-2.3-Example.xml</example></examples>
 	</schema>
 	<schema>
 		<name>Goods Certificate</name>
