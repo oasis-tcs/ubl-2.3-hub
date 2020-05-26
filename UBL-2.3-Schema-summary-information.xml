@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--$Id: UBL-2.3-Schema-summary-information.xml,v 1.11 2020/01/28 20:51:18 admin Exp $-->
 <!--
   Instructions: Add new document types to the end of this document
@@ -1040,6 +1040,26 @@
 		<examples><example>UBL-ExportCustomsDeclaration-2.3-Example.xml</example></examples>
 	</schema>
 	<schema>
+		<name>Import Customs Declaration</name>
+		<description>A document used to declare goods for import</description>
+		<processes>
+			<process>Import Customs Declaration</process>
+		</processes>
+		<submitterRole>Importer Party</submitterRole>
+		<receiverRole>Customs Party</receiverRole>
+		<examples><example>UBL-ExportCustomsDeclaration-2.3-Example.xml</example></examples>
+	</schema>
+	<schema>
+		<name>Transit Customs Declaration</name>
+		<description>A document used to declare goods for import</description>
+		<processes>
+			<process>Import Customs Declaration</process>
+		</processes>
+		<submitterRole>Importer Party</submitterRole>
+		<receiverRole>Customs Party</receiverRole>
+		<examples><example>UBL-ExportCustomsDeclaration-2.3-Example.xml</example></examples>
+	</schema>
+	<schema>
 		<name>Goods Certificate</name>
 		<description>A document used to prove one or more requirements about goods under transport</description>
 		<processes>
@@ -1069,7 +1089,7 @@
 		<receiverRole>Importing Guarantor party</receiverRole>
 		<examples><example>UBL-ProofOfReexportation-2.3-Example.xml</example></examples>
 	</schema>
-  <!--
+ 
 	<schema>
 		<name>Proof Of Reexportation Reminder</name>
 		<description>A reminder that a requested Proof of Reexportation is pending</description>
@@ -1080,7 +1100,7 @@
 		<receiverRole>Exporting Guarantor party</receiverRole>
 		<examples><example>UBL-ProofOfReexportationReminder-2.3-Example.xml</example></examples>
 	</schema>
-  -->
+
 	<schema>
 		<name>Proof Of Reexportation Request</name>
 		<description>A document used request a proof of reexportation</description>
