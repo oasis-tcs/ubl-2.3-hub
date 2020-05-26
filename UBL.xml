@@ -22,16 +22,16 @@
 <!ENTITY pversion "NONE">
 <!ENTITY version  "2.3">
 <!ENTITY pstage   "csprd02">
-<!ENTITY stage    "csd03wd02">
+<!ENTITY stage    "csd03wd03">
 <!ENTITY isostage "WD">
 <!ENTITY standard  "Committee Specification Public Review Draft 03">
 <!ENTITY stagetext "Committee Specification Public Review Draft 03">
-<!ENTITY standard  "Committee Specification Draft 03 / Working Draft 02">
-<!ENTITY stagetext "Committee Specification Draft 03 Working Draft 02">
+<!ENTITY standard  "Committee Specification Draft 03 / Working Draft 03xxxxx">
+<!ENTITY stagetext "Committee Specification Draft 03 Working Draft 03xxxxx">
 <!ENTITY this-loc     "https://docs.oasis-open.org/ubl/&stage;-UBL-2.3">
 <!ENTITY previous-loc "https://docs.oasis-open.org/ubl/&pstage;-UBL-2.3">
 <!ENTITY latest-loc   "https://docs.oasis-open.org/ubl">
-<!ENTITY pubdate     "27 April 2020"><!--remove time from pub date-->
+<!ENTITY pubdate     "12 May 2020"><!--remove time from pub date-->
 <!ENTITY pubyear     "2020">
 <!ENTITY pubdate-iso "ccyy-mm-dd">
 <!ENTITY reldate-iso "ccyy-mm">
@@ -1237,25 +1237,37 @@
           </section>
         </section>
       </section>
-      <section id="S-SOURCE-PROCUREMENT">
-        <title>Source (procurement)</title>
-        <section id="S-TENDERING-PRE-AWARD">
-          <title>Tendering (pre-award)</title>
-          <section id="S-TENDERING-INTRODUCTION">
-            <title>Tendering Introduction</title>
-            <para>Tendering is the case where a contracting authority (the Originator) initiates a procurement project to buy goods, services, or works during a specified period, as shown in the following diagram.</para>
-            <figure id="F-THE-TENDERING-PROCESS">
-              <title>The Tendering Process</title>
+      <section id="S-PROCUREMENT">
+        <title>Procurement</title>
+	  <section id="S-PRE-AWARD">
+          <title>Pre-award</title>
+	    <section id="S-PRE-AWARD-INTRODUCTION">
+            <title>Pre-award Introduction</title>
+	       <para>The procurement process is mainly performed by 3 roles: the buyer (ie contracting authority), the economic operator and in case of public procurement the publication body. It starts with the identification of the procurement need and ends with the final payment of a contract. The process is traditionally split between the pre-award phase and the post-award phase. The Contract signature is the event that creates the separation of the two phases as depicts the figure below:</para>     
+               <figure id="F-PROCUREMENT-PROCESS">
+               <title>Procurement Process</title>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="art/UBL-2.2-Tender-TenderingProcess.png"/>
+                  <imagedata fileref="art/UBL-2.3-procurementProcess.png"/>
                 </imageobject>
                 <textobject>
-                  <phrase>[Tendering Process Diagram]</phrase>
+                  <phrase>[Procurement Process Diagram]</phrase>
                 </textobject>
               </mediaobject>
             </figure>
-            <para>A similar but less formally defined process than tendering is quotation (see <xref linkend="S-QUOTATION"/>).</para>
+	    <para>The most used pre-award processes in public procurement are schematized below. This schema reflects only some possible scenarios. In particular, several sourcing patterns are possible to find tenderers and receive tenders.</para>
+	    <figure id="F-PRE-AWARD-PROCESS">
+              <title>Pre-award Process</title>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="art/UBL-2.3-Pre-awardProcess.png"/>
+                </imageobject>
+                <textobject>
+                  <phrase>[Pre-award Process Diagram]</phrase>
+                </textobject>
+              </mediaobject>
+            </figure>	    
+            <para>The tendering subprocess aims at buyers receiving tenders from potential suppliers generally starting from a publication of a notice and where the interest of economic operators drives the sourcing. A similar but less formally defined process than tendering is quotation (see <xref linkend="S-QUOTATION"/>).</para>
           </section>
           <section id="S-CONTRACT-INFORMATION-PREPARATION">
             <title>Contract Information Preparation</title>
@@ -1471,9 +1483,9 @@
               </mediaobject>
             </figure>
           </section>
-          <section id="S-TENDER-CONTRACT">
-            <title>Tender Contract</title>
-            <para>A process whereby a Contracting Authority sends information to the Economic Operator describing the final contract after a tendering process has been awarded.</para>
+          <section id="S-CONTRACT">
+            <title>Contract</title>
+            <para>A process whereby the Initiating Party sends the Contract information (TenderContract) to the Responding Party describing the final contract after a procurement has been awarded in order to proceed with signing the Contract. The Initiating Party may be the Economic Operator or the Contracting Authority. A simple scenario is depicted below:</para>
             <figure id="F-TENDER-CONTRACT-PRE-SIGNING-BY-INITIATING-PARTY">
               <title>Tender Contract Pre-signing by Initiating Party</title>
               <mediaobject>
@@ -1485,7 +1497,7 @@
                 </textobject>
               </mediaobject>
             </figure>
-            <para>A process whereby a Contracting Authority sends information to the Economic Operator describing the final contract after a tendering process has been awarded.</para>
+            <para>Depending on the financial rules of the Initiating Party, he may be obliged to sign last. This more complex scenario is depicted in the process below:</para>
             <figure id="F-TENDER-CONTRACT-POST-SIGNING-BY-INITIATING-PARTY">
               <title>Tender Contract Post-signing by Initiating Party</title>
               <mediaobject>
@@ -1497,6 +1509,7 @@
                 </textobject>
               </mediaobject>
             </figure>
+		  <para>Note that the exchange of electronic signatures depicted in the diagrams above is provided for the general understanding of the business choreography  needed in the contract process. Use of electronic signatures is further detailed in <xref linkend="S-UBL-DIGITAL-SIGNATURES-INTRODUCTION"/>.</para>  
           </section>
         </section>
         <section id="S-CATALOGUE">
@@ -1666,7 +1679,7 @@
         </section>
         <section id="S-QUOTATION">
           <title>Quotation</title>
-          <para>Less formally defined than a tender (see <xref linkend="S-TENDERING-PRE-AWARD"/>), a quotation process is the case where the Originator asks for a <link linkend="S-QUOTATION-SCHEMA">Quotation</link> via a <link linkend="S-REQUEST-FOR-QUOTATION-SCHEMA">Request For Quotation</link>, as
+          <para>Less formally defined than a tender (see <xref linkend="S-PRE-AWARD"/>), a quotation process is the case where the Originator asks for a <link linkend="S-QUOTATION-SCHEMA">Quotation</link> via a <link linkend="S-REQUEST-FOR-QUOTATION-SCHEMA">Request For Quotation</link>, as
             shown in the following diagram.</para>
           <figure id="F-QUOTATION-PROCESS">
             <title>Quotation Process</title>
@@ -3371,6 +3384,10 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
         keys and algorithms.</para>
       <para>XAdES extends XMLDSig also aiming to support advanced and qualified electronic signatures or seals as specified in the European <xref linkend="b_eIDAS"/> regulation and other similar legal frameworks.</para>
       <para>Use of XAdES and the concept of Advanced Electronic Signature or Seal is not limited to Europe, as it is being adopted by many countries outside the EU, and, is the basis for the international standard ISO 14533-2:2012 <xref linkend="b_XAdES-ISO"/>.</para>
+      <note>
+        <para>Any aspect beyond the specification of the use of digital signatures in UBL documents is not in scope of UBL. Therefore, procedures for creation and validation of digital signatures, management of signature keys, assessment of the suitability and reliability of cryptographic keys and
+          algorithms are out of UBL scope.</para>
+      </note>
       <para>The two digital signature profiles provided in UBL represent two approaches to signing UBL documents: enveloped and detached. Each of these approaches can use either XMLDSig alone or may also include XAdES features.</para>
     </section>
     <section id="S-XML-DIGITAL-SIGNATURES">
