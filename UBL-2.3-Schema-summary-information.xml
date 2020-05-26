@@ -1111,5 +1111,27 @@
 		<receiverRole>Exporting Guarantor party</receiverRole>
 		<examples><example>UBL-ProofOfReexportationRequest-2.3-Example.xml</example></examples>
 	</schema>
+	
+	<schema>
+		<name>Manifest</name>
+		<description>A document used to specify the quantity and nature of cargo and personel for a single shipment stage often expressed as a set of consignments.</description>
+		<processes>
+			<process>Manifest</process>
+		</processes>
+		<submitterRole>Sending Logistic Operator party</submitterRole>
+		<receiverRole>Receiving Logistic Operator party</receiverRole>
+		<examples><example>UBL-Manifest-2.3-Example.xml</example></examples>
+	</schema>
+	
+	<schema>
+		<name>Common Transportation Report</name>
+		<description>A document used report transportation events to an authority.</description>
+		<processes>
+			<process>Common Transportation Report</process>
+		</processes>
+		<submitterRole>Reporter party</submitterRole>
+		<receiverRole>Authority party</receiverRole>
+		<examples><example>UBL-CommonTransportationReport-2.3-Example.xml</example></examples>
+	</schema>
 
 </schemadocs>
