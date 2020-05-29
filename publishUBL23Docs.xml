@@ -1,5 +1,7 @@
 <project default="make" xmlns:if="ant:if" xmlns:unless="ant:unless">
 
+<taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+
 <target name="make">
   <condition property="is-dos">
     <os family="windows"/>
@@ -24,16 +26,13 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   <delete  file="${dir}/missing---UBL-2.3-pdf---missing.txt"/>
   <delete  file="${dir}/missing---iso-iec-19845-draft-pdf---missing.txt"/>
 
-  <antcall target="-make-xml"/>
+  <antcallback target="-make-xml" return="validatedInputs"/>
 
   <!--if not attempting to update files, ignore the update of PDF and HTML
       by making the assumption that the files are up-to-date already, but
       then delete them -->
   <condition property="not-attempting-to-produce-necessary-results">
     <and>
-      <not>
-        <isset property="validatedInputs"/>
-      </not>
       <not>
         <isset property="docs-UBL-xml-okay"/>
       </not>
@@ -133,9 +132,9 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
      <arg value="-o:${dir}/UBL-2.3-assembled.xml"/>
   </java>
   <!--confirm the input file is valid-->
-  <antcall target="-validate">
+  <antcallback target="-validate" return="validatedInputs">
     <param name="source" value="${dir}/UBL-2.3-assembled.xml"/>
-  </antcall>
+  </antcallback>
   <move file="${dir}/UBL-2.3-assembled.xml" tofile="${dir}/UBL-2.3.xml"/>
   <delete file="output.txt"/>
 </target>
@@ -256,14 +255,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   <delete file="${dir}/UBL-2.3-pub.zip"/>
 </target>
 
-<target name="-package-supplemental" unless="docs-not-made">
-  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/db"/>
-  <copy preservelastmodified="true"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/db">
-    <fileset dir="db/spec-0.8/htmlruntime">
-     <include name="**"/>
-    </fileset>
-  </copy>
+<target name="-package-supplemental-html" if="html-supplemental-needed">
   <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/art"/>
   <copy preservelastmodified="true"
         todir="${dir}/hub-UBL-2.3-${stage}-${version}/art">
@@ -271,6 +263,16 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
      <include name="*"/>
     </fileset>
   </copy>
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/db"/>
+  <copy preservelastmodified="true"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/db">
+    <fileset dir="db/spec-0.8/htmlruntime">
+     <include name="**"/>
+    </fileset>
+  </copy>
+</target>
+
+<target name="-package-supplemental-other" if="other-supplemental-needed">
   <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/art/artpdf"/>
   <copy preservelastmodified="true"
         todir="${dir}/hub-UBL-2.3-${stage}-${version}/art/artpdf">
@@ -301,6 +303,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
       </and>
     </not>
   </condition>
+  <available property="preview-made" file="${dir}/UBL-2.3-preview.html"/>
   <property name="xml-made" value="false"/>
   <property name="html-made" value="false"/>
   <property name="pdf-made" value="false"/>
@@ -329,7 +332,19 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
     </fileset>
   </copy>-->
 
-  <antcall target="-package-supplemental"/>
+  <condition property="html-supplemental-needed">
+    <or>
+      <istrue value="${html-made}"/>
+      <istrue value="${preview-made}"/>
+    </or>
+  </condition>
+  <antcall target="-package-supplemental-html"/>
+  <condition property="other-supplemental-needed">
+    <or>
+      <istrue value="${pdf-made}"/>
+    </or>
+  </condition>
+  <antcall target="-package-supplemental-other"/>
 
   <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"/>
   <condition property="ent-processes-okay">
