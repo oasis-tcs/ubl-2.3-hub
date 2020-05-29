@@ -235,11 +235,14 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   </ant>
   <echo message="Check and cleanup..."/>
   <available property="ready-pdf" file="${dir}/UBL-2.3.docbook.pdf"/>
-  <echo unless="ready-pdf" message="PDF not created"/>
+  <echo unless:set="ready-pdf" message="PDF not created"/>
+  <echo if:set="ready-pdf" message="PDF created"/>
   <available property="ready-iso" file="${dir}/UBL-2.3.iso.pdf"/>
-  <echo unless="ready-iso" message="ISO PDF not created"/>
+  <echo unless:set="ready-iso" message="ISO PDF not created"/>
+  <echo if:set="ready-iso" message="ISO PDF created"/>
   <available property="ready-html" file="${dir}/UBL-2.3.docbook.html"/>
-  <echo unless="ready-html" message="HTML not created"/>
+  <echo unless:set="ready-html" message="HTML not created"/>
+  <echo if:set="ready-html" message="HTML created"/>
   <!--these touches are necessary because unzip doesn't preserve time of day-->
   <touch file="${dir}/UBL-2.3.docbook.pdf"/>
   <touch file="${dir}/UBL-2.3.iso.pdf"/>
