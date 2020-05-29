@@ -282,8 +282,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   <property name="pdf-made" value="false"/>
   <property name="iso-made" value="false"/>
   <property name="not-attempting-to-produce-necessary-results" value="false"/>
-<!--  <fail if="docs-not-made"
-        message="Problem with creating the documentation XML:${xml-made}, HTML:${html-made}, PDF:${pdf-made}, ISO:${iso-made}, SKIP:${not-attempting-to-produce-necessary-results}"/>-->
+  <!--<echo message="Diagnostics:${xml-made}, HTML:${html-made}, PDF:${pdf-made}, ISO:${iso-made}, SKIP:${not-attempting-to-produce-necessary-results} validatedInputs:${validatedInputs}"/>-->
 
   <delete dir="${dir}/hub-UBL-2.3-${stage}-${version}"/>
   <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}"/>
