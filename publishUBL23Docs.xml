@@ -1,4 +1,4 @@
-<project default="make">
+<project default="make" xmlns:if="ant:if" xmlns:unless="ant:unless">
 
 <target name="make">
   <condition property="is-dos">
@@ -318,6 +318,46 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
         todir="${dir}/hub-UBL-2.3-${stage}-${version}/art/artpdf">
     <fileset dir="art">
      <include name="*"/>
+    </fileset>
+  </copy>
+
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"/>
+  <condition property="ent-processes-okay">
+    <length file="summary-processes-ent.xml" when="greater" length="2"/>
+  </condition>
+  <copy preservelastmodified="true" if:set="ent-processes-okay"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"
+        file="summary-processes-ent.xml"/>
+  <condition property="ent-parties-okay">
+    <length file="summary-parties-ent.xml" when="greater" length="2"/>
+  </condition>
+  <copy preservelastmodified="true" if:set="ent-parties-okay"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"
+        file="summary-parties-ent.xml"/>
+  <condition property="ent-namespaces-okay">
+    <length file="summary-namespaces-ent.xml" when="greater" length="2"/>
+  </condition>
+  <copy preservelastmodified="true" if:set="ent-namespaces-okay"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"
+        file="summary-namespaces-ent.xml"/>
+  <condition property="ent-schemas-okay">
+    <length file="summary-schemas-ent.xml" when="greater" length="2"/>
+  </condition>
+  <copy preservelastmodified="true" if:set="ent-schemas-okay"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"
+        file="summary-schemas-ent.xml"/>
+  <condition property="ent-examples-okay">
+    <length file="summary-examples-ent.xml" when="greater" length="2"/>
+  </condition>
+  <copy preservelastmodified="true" if:set="ent-examples-okay"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"
+        file="summary-examples-ent.xml"/>
+  <copy preservelastmodified="true"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution">
+    <fileset dir=".">
+      <include name="UBL.xml"/>
+      <include name="UBL-2.3-Party-summary-information.xml"/>
+      <include name="UBL-2.3-Schema-summary-information.xml"/>
     </fileset>
   </copy>
 
