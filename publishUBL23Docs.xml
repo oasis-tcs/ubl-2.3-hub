@@ -40,7 +40,8 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   <condition property="docs-UBL-okay">
     <isset property="not-attempting-to-produce-necessary-results"/>
   </condition>
-  <antcall target="-delete-results-not-being-produced"/>
+  <antcall target="-delete-results-not-being-produced"
+           if:set="validatedInputs"/>
   
   <!--At this point either the results are up-to-date because of no changes,
       the results are not up-to-date and they've been deleted because there
@@ -50,7 +51,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
       almost a complete result.
   -->
 
-  <antcall target="-make-docs"/>
+  <antcall target="-make-docs" if:set="validatedInputs"/>
   
   <antcall target="-package-docs"/>
 
@@ -136,17 +137,21 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   <delete file="output.txt"/>
 </target>
 
-<target name="-validate" depends="-validate-shell,-validate-dos"/>
+<target name="-validate" depends="-validate-shell,-validate-dos">
+  <condition property="validatedInputs">
+    <equals arg1="${validateResult}" arg2="0"/>
+  </condition>
+</target>
 
 <target name="-validate-shell" unless="${is-dos}">
-  <exec failonerror="yes" executable="sh">
+  <exec resultproperty="validateResult" executable="sh">
     <arg value="db/spec-0.8/validate/validate.sh"/>
     <arg value="${source}"/>
   </exec>
 </target>
 
 <target name="-validate-dos" if="${is-dos}">
-  <exec failonerror="yes" executable="cmd.exe">
+  <exec resultproperty="validateResult" executable="cmd.exe">
     <arg value="/c"/>
     <arg value="db\spec-0.8\validate\validate.bat"/>
     <arg value="${source}"/>
