@@ -19,7 +19,7 @@ pushd $1
 7z a hub-UBL-2.3-$2-$3.zip hub-UBL-2.3-$2-$3
 popd
 
-if [ "$1" = "targetx" ]
+if [ "$1" = "target" ]
 then
 if [ "$2" = "github" ]
 then
