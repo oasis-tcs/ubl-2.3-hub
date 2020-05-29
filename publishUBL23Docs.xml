@@ -34,6 +34,9 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   <condition property="not-attempting-to-produce-necessary-results">
     <and>
       <not>
+        <isset property="validatedInputs"/>
+      </not>
+      <not>
         <isset property="docs-UBL-xml-okay"/>
       </not>
       <equals arg1="${setareuser}" arg2=""/>
