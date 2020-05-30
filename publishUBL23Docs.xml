@@ -443,7 +443,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
     </and>
   </condition>
   <delete if:set="ent-all-same" dir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"/>
-  <touch unless:set="ent-all-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/Attention-new-entities.txt"/>
+  <touch unless:set="ent-all-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/ATTENTION-new-entities.txt"/>
 <!--
     Cannot create zip until console log and error exit files added to archive. 
     
