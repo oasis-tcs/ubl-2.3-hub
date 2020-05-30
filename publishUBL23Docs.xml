@@ -89,12 +89,20 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   <delete file="${dir}/UBL-2.3-assembled.xml"/>
   <!--create all entity replacements generated from contribution files-->
   <echo message="Distilling entities from various inputs"/>
-  <!--empty all entity replacements in case last generation was faulty-->
-  <delete file="summary-processes-ent.xml"/>
-  <delete file="summary-parties-ent.xml"/>
-  <delete file="summary-namespaces-ent.xml"/>
-  <delete file="summary-schemas-ent.xml"/>
-  <delete file="summary-examples-ent.xml"/>
+  <!--empty all entity replacements in case last generation was faulty, but
+      save the files for comparison-->
+  <delete dir="${dir}/old-entities"/>
+  <mkdir  dir="${dir}/old-entities"/>
+  <move todir="${dir}/old-entities" preservelastmodified="true">
+    <fileset dir=".">
+      <include name="summary-processes-ent.xml"/>
+      <include name="summary-parties-ent.xml"/>
+      <include name="summary-namespaces-ent.xml"/>
+      <include name="summary-schemas-ent.xml"/>
+      <include name="summary-examples-ent.xml"/>
+    </fileset>
+  </move>
+  <!--reconstitute them so that the XML file can be validated without subs-->
   <touch  file="summary-processes-ent.xml"/>
   <touch  file="summary-parties-ent.xml"/>
   <touch  file="summary-namespaces-ent.xml"/>
@@ -349,36 +357,36 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   </condition>
   <antcall target="-package-supplemental-other"/>
 
-  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"/>
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"/>
   <condition property="ent-processes-okay">
     <length file="summary-processes-ent.xml" when="greater" length="2"/>
   </condition>
   <copy preservelastmodified="true" if:set="ent-processes-okay"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"
         file="summary-processes-ent.xml"/>
   <condition property="ent-parties-okay">
     <length file="summary-parties-ent.xml" when="greater" length="2"/>
   </condition>
   <copy preservelastmodified="true" if:set="ent-parties-okay"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"
         file="summary-parties-ent.xml"/>
   <condition property="ent-namespaces-okay">
     <length file="summary-namespaces-ent.xml" when="greater" length="2"/>
   </condition>
   <copy preservelastmodified="true" if:set="ent-namespaces-okay"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"
         file="summary-namespaces-ent.xml"/>
   <condition property="ent-schemas-okay">
     <length file="summary-schemas-ent.xml" when="greater" length="2"/>
   </condition>
   <copy preservelastmodified="true" if:set="ent-schemas-okay"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"
         file="summary-schemas-ent.xml"/>
   <condition property="ent-examples-okay">
     <length file="summary-examples-ent.xml" when="greater" length="2"/>
   </condition>
   <copy preservelastmodified="true" if:set="ent-examples-okay"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"
         file="summary-examples-ent.xml"/>
   <copy preservelastmodified="true"
         todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution">
@@ -388,7 +396,47 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
       <include name="UBL-2.3-Schema-summary-information.xml"/>
     </fileset>
   </copy>
-
+  <move preservelastmodified="true"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities">
+    <fileset dir="${dir}/old-entities">
+      <include name="**"/>
+    </fileset>
+  </move>
+  <condition property="ent-processes-same">
+    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities/summary-processes-ent.xml"
+                file2="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-processes-ent.xml"/>
+  </condition>
+  <delete if:set="ent-processes-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-processes-ent.xml"/>
+  <condition property="ent-parties-same">
+    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities/summary-parties-ent.xml"
+                file2="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-parties-ent.xml"/>
+  </condition>
+  <delete if:set="ent-parties-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-parties-ent.xml"/>
+  <condition property="ent-namespaces-same">
+    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities/summary-namespaces-ent.xml"
+                file2="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-namespaces-ent.xml"/>
+  </condition>
+  <delete if:set="ent-namespaces-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-namespaces-ent.xml"/>
+  <condition property="ent-schemas-same">
+    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities/summary-schemas-ent.xml"
+                file2="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-schemas-ent.xml"/>
+  </condition>
+  <delete if:set="ent-schemas-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-schemas-ent.xml"/>
+  <condition property="ent-examples-same">
+    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities/summary-examples-ent.xml"
+                file2="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-examples-ent.xml"/>
+  </condition>
+  <delete if:set="ent-examples-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-examples-ent.xml"/>
+  <condition property="ent-all-same">
+    <and>
+      <isset property="ent-processes-same"/>
+      <isset property="ent-parties-same"/>
+      <isset property="ent-namespaces-same"/>
+      <isset property="ent-schemas-same"/>
+      <isset property="ent-examples-same"/>
+    </and>
+  </condition>
+  <delete if:set="ent-all-same" dir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"/>
 <!--
     Cannot create zip until console log and error exit files added to archive. 
     
