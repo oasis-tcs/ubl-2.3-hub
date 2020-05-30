@@ -578,9 +578,9 @@
           <actor>Party</actor>
           <role>Transit Exporter</role>
           <description>The party who makes regulatory export declarations, or on whose behalf regulatory transit customs declarations are made, and who is the owner of the goods or has similar right of disposal over them at the time when the declaration is accepted.</description>
-          <example>A Norwegian exporter may have to do a <schema>Transit Export Declaration</schema> in order to export to Russia</example>
+          <example>A Norwegian exporter may have to do a <schema>Transit Customs Declaration</schema> in order to export to Russia</example>
           <synonyms>Seller, Consignor</synonyms>
-          <sends><schema>Transit Export Declaration</schema></sends>
+          <sends><schema>Transit Customs Declaration</schema></sends>
           <receives><schema>Application Response</schema></receives>
    </entry>  
    

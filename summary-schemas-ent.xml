@@ -903,6 +903,92 @@
       </tgroup>
    </informaltable>
 </section>
+<section id="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">
+   <title>Common Transportation Report Schema</title>
+   <para>Description: A document used report transportation events to an authority.</para>
+   <informaltable>
+      <tgroup cols="2">
+         <colspec colwidth="30*"/>
+         <colspec colwidth="70*"/>
+         <tbody>
+            <row>
+               <entry>
+                  <para>Processes involved</para>
+               </entry>
+               <entry>
+                  <para>
+                     <link linkend="S-COMMON-TRANSPORTATION-REPORT">Common Transportation Report</link>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Submitter role</para>
+               </entry>
+               <entry>
+                  <para>Reporter party</para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Receiver role</para>
+               </entry>
+               <entry>
+                  <para>Authority party</para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Normative schema</para>
+               </entry>
+               <entry>
+                  <para>
+                     <literal>
+                        <ulink url="xsd/maindoc/UBL-CommonTransportationReport-2.3.xsd">xsd/maindoc/UBL-CommonTransportationReport-2.3.xsd</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Runtime schema</para>
+               </entry>
+               <entry>
+                  <para>
+                     <literal>
+                        <ulink url="xsdrt/maindoc/UBL-CommonTransportationReport-2.3.xsd">xsdrt/maindoc/UBL-CommonTransportationReport-2.3.xsd</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Summary report</para>
+               </entry>
+               <entry>
+                  <para>
+                     <literal>
+                        <ulink url="mod/summary/reports/UBL-CommonTransportationReport-2.3.html">mod/summary/reports/UBL-CommonTransportationReport-2.3.html</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>UBL 2.3 example instance</para>
+               </entry>
+               <entry role="schemaExample">
+                  <para>
+                     <literal>
+                        <ulink url="xml/UBL-CommonTransportationReport-2.3-Example.xml">xml/UBL-CommonTransportationReport-2.3-Example.xml</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </informaltable>
+</section>
 <section id="S-CONTRACT-AWARD-NOTICE-SCHEMA">
    <title>Contract Award Notice Schema</title>
    <para>Description: A document published by a Contracting Party to announce the awarding of a
@@ -2985,6 +3071,92 @@
       </tgroup>
    </informaltable>
 </section>
+<section id="S-IMPORT-CUSTOMS-DECLARATION-SCHEMA">
+   <title>Import Customs Declaration Schema</title>
+   <para>Description: A document used to declare goods for import</para>
+   <informaltable>
+      <tgroup cols="2">
+         <colspec colwidth="30*"/>
+         <colspec colwidth="70*"/>
+         <tbody>
+            <row>
+               <entry>
+                  <para>Processes involved</para>
+               </entry>
+               <entry>
+                  <para>
+                     <link linkend="S-IMPORT-CUSTOMS-DECLARATION">Import Customs Declaration</link>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Submitter role</para>
+               </entry>
+               <entry>
+                  <para>Importer Party</para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Receiver role</para>
+               </entry>
+               <entry>
+                  <para>Customs Party</para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Normative schema</para>
+               </entry>
+               <entry>
+                  <para>
+                     <literal>
+                        <ulink url="xsd/maindoc/UBL-ImportCustomsDeclaration-2.3.xsd">xsd/maindoc/UBL-ImportCustomsDeclaration-2.3.xsd</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Runtime schema</para>
+               </entry>
+               <entry>
+                  <para>
+                     <literal>
+                        <ulink url="xsdrt/maindoc/UBL-ImportCustomsDeclaration-2.3.xsd">xsdrt/maindoc/UBL-ImportCustomsDeclaration-2.3.xsd</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Summary report</para>
+               </entry>
+               <entry>
+                  <para>
+                     <literal>
+                        <ulink url="mod/summary/reports/UBL-ImportCustomsDeclaration-2.3.html">mod/summary/reports/UBL-ImportCustomsDeclaration-2.3.html</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>UBL 2.3 example instance</para>
+               </entry>
+               <entry role="schemaExample">
+                  <para>
+                     <literal>
+                        <ulink url="xml/UBL-ImportCustomsDeclaration-2.3-Example.xml">xml/UBL-ImportCustomsDeclaration-2.3-Example.xml</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </informaltable>
+</section>
 <section id="S-INSTRUCTION-FOR-RETURNS-SCHEMA">
    <title>Instruction For Returns Schema</title>
    <para>Description: A document used to initiate a return of goods. The producer is requesting the
@@ -3338,6 +3510,92 @@
                   <para>
                      <literal>
                         <ulink url="mod/summary/reports/UBL-ItemInformationRequest-2.3.html">mod/summary/reports/UBL-ItemInformationRequest-2.3.html</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </informaltable>
+</section>
+<section id="S-MANIFEST-SCHEMA">
+   <title>Manifest Schema</title>
+   <para>Description: A document used to specify the quantity and nature of cargo and personel for a single shipment stage often expressed as a set of consignments.</para>
+   <informaltable>
+      <tgroup cols="2">
+         <colspec colwidth="30*"/>
+         <colspec colwidth="70*"/>
+         <tbody>
+            <row>
+               <entry>
+                  <para>Processes involved</para>
+               </entry>
+               <entry>
+                  <para>
+                     <link linkend="S-MANIFEST">Manifest</link>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Submitter role</para>
+               </entry>
+               <entry>
+                  <para>Sending Logistic Operator party</para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Receiver role</para>
+               </entry>
+               <entry>
+                  <para>Receiving Logistic Operator party</para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Normative schema</para>
+               </entry>
+               <entry>
+                  <para>
+                     <literal>
+                        <ulink url="xsd/maindoc/UBL-Manifest-2.3.xsd">xsd/maindoc/UBL-Manifest-2.3.xsd</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Runtime schema</para>
+               </entry>
+               <entry>
+                  <para>
+                     <literal>
+                        <ulink url="xsdrt/maindoc/UBL-Manifest-2.3.xsd">xsdrt/maindoc/UBL-Manifest-2.3.xsd</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Summary report</para>
+               </entry>
+               <entry>
+                  <para>
+                     <literal>
+                        <ulink url="mod/summary/reports/UBL-Manifest-2.3.html">mod/summary/reports/UBL-Manifest-2.3.html</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>UBL 2.3 example instance</para>
+               </entry>
+               <entry role="schemaExample">
+                  <para>
+                     <literal>
+                        <ulink url="xml/UBL-Manifest-2.3-Example.xml">xml/UBL-Manifest-2.3-Example.xml</ulink>
                      </literal>
                   </para>
                </entry>
@@ -4176,6 +4434,92 @@
                   <para>
                      <literal>
                         <ulink url="xml/UBL-ProofOfReexportation-2.3-Example.xml">xml/UBL-ProofOfReexportation-2.3-Example.xml</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </informaltable>
+</section>
+<section id="S-PROOF-OF-REEXPORTATION-REMINDER-SCHEMA">
+   <title>Proof Of Reexportation Reminder Schema</title>
+   <para>Description: A reminder that a requested Proof of Reexportation is pending</para>
+   <informaltable>
+      <tgroup cols="2">
+         <colspec colwidth="30*"/>
+         <colspec colwidth="70*"/>
+         <tbody>
+            <row>
+               <entry>
+                  <para>Processes involved</para>
+               </entry>
+               <entry>
+                  <para>
+                     <link linkend="S-GOODS-ITEM-PASSPORT-PROOF-OF-RE-EXPORTATION">Goods Item Passport Proof of Re-exportation</link>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Submitter role</para>
+               </entry>
+               <entry>
+                  <para>Customs Party</para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Receiver role</para>
+               </entry>
+               <entry>
+                  <para>Exporting Guarantor party</para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Normative schema</para>
+               </entry>
+               <entry>
+                  <para>
+                     <literal>
+                        <ulink url="xsd/maindoc/UBL-ProofOfReexportationReminder-2.3.xsd">xsd/maindoc/UBL-ProofOfReexportationReminder-2.3.xsd</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Runtime schema</para>
+               </entry>
+               <entry>
+                  <para>
+                     <literal>
+                        <ulink url="xsdrt/maindoc/UBL-ProofOfReexportationReminder-2.3.xsd">xsdrt/maindoc/UBL-ProofOfReexportationReminder-2.3.xsd</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Summary report</para>
+               </entry>
+               <entry>
+                  <para>
+                     <literal>
+                        <ulink url="mod/summary/reports/UBL-ProofOfReexportationReminder-2.3.html">mod/summary/reports/UBL-ProofOfReexportationReminder-2.3.html</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>UBL 2.3 example instance</para>
+               </entry>
+               <entry role="schemaExample">
+                  <para>
+                     <literal>
+                        <ulink url="xml/UBL-ProofOfReexportationReminder-2.3-Example.xml">xml/UBL-ProofOfReexportationReminder-2.3-Example.xml</ulink>
                      </literal>
                   </para>
                </entry>
@@ -5979,6 +6323,92 @@
                   <para>
                      <literal>
                         <ulink url="xml/UBL-TradeItemLocationProfile-2.1-Example.xml">xml/UBL-TradeItemLocationProfile-2.1-Example.xml</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+         </tbody>
+      </tgroup>
+   </informaltable>
+</section>
+<section id="S-TRANSIT-CUSTOMS-DECLARATION-SCHEMA">
+   <title>Transit Customs Declaration Schema</title>
+   <para>Description: A document used to declare goods for import</para>
+   <informaltable>
+      <tgroup cols="2">
+         <colspec colwidth="30*"/>
+         <colspec colwidth="70*"/>
+         <tbody>
+            <row>
+               <entry>
+                  <para>Processes involved</para>
+               </entry>
+               <entry>
+                  <para>
+                     <link linkend="S-IMPORT-CUSTOMS-DECLARATION">Import Customs Declaration</link>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Submitter role</para>
+               </entry>
+               <entry>
+                  <para>Importer Party</para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Receiver role</para>
+               </entry>
+               <entry>
+                  <para>Customs Party</para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Normative schema</para>
+               </entry>
+               <entry>
+                  <para>
+                     <literal>
+                        <ulink url="xsd/maindoc/UBL-TransitCustomsDeclaration-2.3.xsd">xsd/maindoc/UBL-TransitCustomsDeclaration-2.3.xsd</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Runtime schema</para>
+               </entry>
+               <entry>
+                  <para>
+                     <literal>
+                        <ulink url="xsdrt/maindoc/UBL-TransitCustomsDeclaration-2.3.xsd">xsdrt/maindoc/UBL-TransitCustomsDeclaration-2.3.xsd</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>Summary report</para>
+               </entry>
+               <entry>
+                  <para>
+                     <literal>
+                        <ulink url="mod/summary/reports/UBL-TransitCustomsDeclaration-2.3.html">mod/summary/reports/UBL-TransitCustomsDeclaration-2.3.html</ulink>
+                     </literal>
+                  </para>
+               </entry>
+            </row>
+            <row>
+               <entry>
+                  <para>UBL 2.3 example instance</para>
+               </entry>
+               <entry role="schemaExample">
+                  <para>
+                     <literal>
+                        <ulink url="xml/UBL-TransitCustomsDeclaration-2.3-Example.xml">xml/UBL-TransitCustomsDeclaration-2.3-Example.xml</ulink>
                      </literal>
                   </para>
                </entry>
