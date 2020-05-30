@@ -65,6 +65,18 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
 </target>
 
 <target name="-check-xml">
+  <!--preserve old entities for archive and copmarison-->
+  <delete dir="${dir}/old-entities"/>
+  <mkdir  dir="${dir}/old-entities"/>
+  <copy todir="${dir}/old-entities" preservelastmodified="true">
+    <fileset dir=".">
+      <include name="summary-processes-ent.xml"/>
+      <include name="summary-parties-ent.xml"/>
+      <include name="summary-namespaces-ent.xml"/>
+      <include name="summary-schemas-ent.xml"/>
+      <include name="summary-examples-ent.xml"/>
+    </fileset>
+  </copy>
   <uptodate targetfile="${dir}/UBL-2.3.xml"
             property=  "docs-UBL-xml-okay">
     <srcfiles dir=".">
@@ -91,17 +103,11 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   <echo message="Distilling entities from various inputs"/>
   <!--empty all entity replacements in case last generation was faulty, but
       save the files for comparison-->
-  <delete dir="${dir}/old-entities"/>
-  <mkdir  dir="${dir}/old-entities"/>
-  <move todir="${dir}/old-entities" preservelastmodified="true">
-    <fileset dir=".">
-      <include name="summary-processes-ent.xml"/>
-      <include name="summary-parties-ent.xml"/>
-      <include name="summary-namespaces-ent.xml"/>
-      <include name="summary-schemas-ent.xml"/>
-      <include name="summary-examples-ent.xml"/>
-    </fileset>
-  </move>
+  <delete file="summary-processes-ent.xml"/>
+  <delete file="summary-parties-ent.xml"/>
+  <delete file="summary-namespaces-ent.xml"/>
+  <delete file="summary-schemas-ent.xml"/>
+  <delete file="summary-examples-ent.xml"/>
   <!--reconstitute them so that the XML file can be validated without subs-->
   <touch  file="summary-processes-ent.xml"/>
   <touch  file="summary-parties-ent.xml"/>
@@ -437,6 +443,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
     </and>
   </condition>
   <delete if:set="ent-all-same" dir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"/>
+  <touch unless:set="ent-all-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/Attention-new-entities.txt"/>
 <!--
     Cannot create zip until console log and error exit files added to archive. 
     
