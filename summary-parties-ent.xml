@@ -703,10 +703,10 @@
             <entry align="left">Party</entry>
             <entry align="left">Transit Exporter</entry>
             <entry align="left">The party who makes regulatory export declarations, or on whose behalf regulatory transit customs declarations are made, and who is the owner of the goods or has similar right of disposal over them at the time when the declaration is accepted.</entry>
-            <entry align="left">A Norwegian exporter may have to do a <link linkend="S-TRANSIT-EXPORT-DECLARATION-SCHEMA">Transit Export Declaration</link> in order to export to Russia</entry>
+            <entry align="left">A Norwegian exporter may have to do a <link linkend="S-TRANSIT-CUSTOMS-DECLARATION-SCHEMA">Transit Customs Declaration</link> in order to export to Russia</entry>
             <entry align="left">Seller, Consignor</entry>
             <entry align="left">
-               <link linkend="S-TRANSIT-EXPORT-DECLARATION-SCHEMA">Transit Export Declaration</link>
+               <link linkend="S-TRANSIT-CUSTOMS-DECLARATION-SCHEMA">Transit Customs Declaration</link>
             </entry>
             <entry align="left">
                <link linkend="S-APPLICATION-RESPONSE-SCHEMA">Application Response</link>

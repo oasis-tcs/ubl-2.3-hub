@@ -2554,7 +2554,7 @@
 						<para>The transit customs declarations process describes the process of declaring the goods for export that passes through another country. It is the transit exporter who is responsible for declaring the goods to the customs party even when they are not necessarily the one who fills out the paperwork. A declarant or a freight forwarder can act as his agent in this matter. When declaring goods, it is important to set the right tariff number and value for the goods. </para>
 						<para>An transit customs declaration is drafted by the importer or by his agent (a declarant) and issued to the customs party. If the customs party approves it he sends a positive application response back to the transit exporter. If not he sends back an application response with a descriptions of the error(s) to the transit exporter. </para>
 						<figure id="F-TRANSIT-CUSTOMS-DECLARATION-PROCESS">
-							<title>Import Customs Declaration Process</title>
+							<title>Transit Customs Declaration Process</title>
 							<mediaobject>
 								<imageobject>
 									<imagedata fileref="art/UBL-2.3-TransitDeclarationProcess.png"/>
@@ -2887,7 +2887,7 @@
 					</section>
 					
 					<section id="S-COMMON-TRANSPORTATION-REPORT">
-						<title>Transportation Reporting</title>
+						<title>Common Transportation Report</title>
 						<para>The <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link> collects and reports information about events and status of a transport means. It can be used for requirements regarding boarder crossing, ship or shore or shore to ship reporting. It is meant to be mapped to the numerous single window declaration and for other reporting to authories.</para>
 						<figure id="F-COMMON-TRANSPORTATION-REPORT">
 							<title>Common Transportation Report</title>
