@@ -1,4 +1,6 @@
-<project default="make">
+<project default="make" xmlns:if="ant:if" xmlns:unless="ant:unless">
+
+<taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
 
 <target name="make">
   <condition property="is-dos">
@@ -24,7 +26,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   <delete  file="${dir}/missing---UBL-2.3-pdf---missing.txt"/>
   <delete  file="${dir}/missing---iso-iec-19845-draft-pdf---missing.txt"/>
 
-  <antcall target="-make-xml"/>
+  <antcallback target="-make-xml" return="validatedInputs"/>
 
   <!--if not attempting to update files, ignore the update of PDF and HTML
       by making the assumption that the files are up-to-date already, but
@@ -40,7 +42,8 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   <condition property="docs-UBL-okay">
     <isset property="not-attempting-to-produce-necessary-results"/>
   </condition>
-  <antcall target="-delete-results-not-being-produced"/>
+  <antcall target="-delete-results-not-being-produced"
+           if:set="validatedInputs"/>
   
   <!--At this point either the results are up-to-date because of no changes,
       the results are not up-to-date and they've been deleted because there
@@ -50,7 +53,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
       almost a complete result.
   -->
 
-  <antcall target="-make-docs"/>
+  <antcall target="-make-docs" if:set="validatedInputs"/>
   
   <antcall target="-package-docs"/>
 
@@ -86,67 +89,79 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   <delete file="${dir}/UBL-2.3-assembled.xml"/>
   <!--create all entity replacements generated from contribution files-->
   <echo message="Distilling entities from various inputs"/>
-  <!--empty all entity replacements in case last generation was faulty-->
-  <delete file="summary-processes-ent.xml"/>
-  <delete file="summary-parties-ent.xml"/>
-  <delete file="summary-namespaces-ent.xml"/>
-  <delete file="summary-schemas-ent.xml"/>
-  <delete file="summary-examples-ent.xml"/>
+  <!--empty all entity replacements in case last generation was faulty, but
+      save the files for comparison-->
+  <delete dir="${dir}/old-entities"/>
+  <mkdir  dir="${dir}/old-entities"/>
+  <move todir="${dir}/old-entities" preservelastmodified="true">
+    <fileset dir=".">
+      <include name="summary-processes-ent.xml"/>
+      <include name="summary-parties-ent.xml"/>
+      <include name="summary-namespaces-ent.xml"/>
+      <include name="summary-schemas-ent.xml"/>
+      <include name="summary-examples-ent.xml"/>
+    </fileset>
+  </move>
+  <!--reconstitute them so that the XML file can be validated without subs-->
   <touch  file="summary-processes-ent.xml"/>
   <touch  file="summary-parties-ent.xml"/>
   <touch  file="summary-namespaces-ent.xml"/>
   <touch  file="summary-schemas-ent.xml"/>
   <touch  file="summary-examples-ent.xml"/>
   <!--now the UBL.xml file should be able to parse provided old2new are okay-->
-  <java failonerror="yes" classname="net.sf.saxon.Transform">
+  <java classname="net.sf.saxon.Transform">
     <arg value="-xsl:hub2processSummary.xsl"/>
     <arg value="-s:UBL.xml"/>
     <arg value="-o:summary-processes-ent.xml"/>
     <arg value="old=UBL-2.2-modified.xml"/>
   </java>
-  <java failonerror="yes" jar="db/spec-0.8/validate/xjparse.jar" fork="true">
+  <java jar="db/spec-0.8/validate/xjparse.jar" fork="true">
     <arg value="-v"/>
     <arg value="UBL-2.3-Party-summary-information.xml"/>
   </java>
-  <java failonerror="yes" classname="net.sf.saxon.Transform">
+  <java classname="net.sf.saxon.Transform">
     <arg value="-xsl:partydoc2db.xsl"/>
     <arg value="-s:UBL-2.3-Party-summary-information.xml"/>
     <arg value="-o:summary-parties-ent.xml"/>
   </java>
-  <java failonerror="yes" jar="db/spec-0.8/validate/xjparse.jar" fork="true">
+  <java jar="db/spec-0.8/validate/xjparse.jar" fork="true">
     <arg value="-v"/>
     <arg value="UBL-2.3-Schema-summary-information.xml"/>
   </java>
-  <java failonerror="yes" classname="net.sf.saxon.Transform">
+  <java classname="net.sf.saxon.Transform">
     <arg value="-xsl:schemadoc2db.xsl"/>
     <arg value="-s:UBL-2.3-Schema-summary-information.xml"/>
   </java>
   <!--assemble XML-->
   <echo message="Assembling UBL-2.3.xml"/>
-  <java failonerror="yes" classname="net.sf.saxon.Transform">
+  <java classname="net.sf.saxon.Transform">
      <arg value="-xsl:assembleEntities.xsl"/>
      <arg value="-s:UBL.xml"/>
      <arg value="-o:${dir}/UBL-2.3-assembled.xml"/>
   </java>
   <!--confirm the input file is valid-->
-  <antcall target="-validate">
+  <antcallback target="-validate" return="validatedInputs">
     <param name="source" value="${dir}/UBL-2.3-assembled.xml"/>
-  </antcall>
+  </antcallback>
   <move file="${dir}/UBL-2.3-assembled.xml" tofile="${dir}/UBL-2.3.xml"/>
   <delete file="output.txt"/>
 </target>
 
-<target name="-validate" depends="-validate-shell,-validate-dos"/>
+<target name="-validate" depends="-validate-shell,-validate-dos">
+  <condition property="validatedInputs">
+    <equals arg1="${validateResult}" arg2="0"/>
+  </condition>
+</target>
 
 <target name="-validate-shell" unless="${is-dos}">
-  <exec failonerror="yes" executable="sh">
+  <exec resultproperty="validateResult" executable="sh">
     <arg value="db/spec-0.8/validate/validate.sh"/>
     <arg value="${source}"/>
   </exec>
 </target>
 
 <target name="-validate-dos" if="${is-dos}">
-  <exec failonerror="yes" executable="cmd.exe">
+  <exec resultproperty="validateResult" executable="cmd.exe">
     <arg value="/c"/>
     <arg value="db\spec-0.8\validate\validate.bat"/>
     <arg value="${source}"/>
@@ -164,7 +179,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   <echo   file="${dir}/missing---UBL-2.3-pdf---missing.txt"/>
   <echo   file="${dir}/missing---iso-iec-19845-draft-pdf---missing.txt"/>
   <echo message="Preparing a preview of the content in HTML..."/>
-  <java failonerror="yes" classname="net.sf.saxon.Transform">
+  <java classname="net.sf.saxon.Transform">
     <arg value="-xsl:db/spec-0.8/htmlruntime/spec-0.8/stylesheets/oasis-specification-html-offline.xsl"/>
     <arg value="-s:UBL.xml"/>
     <arg value="-o:${dir}/UBL-2.3-preview.html"/>
@@ -228,11 +243,14 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   </ant>
   <echo message="Check and cleanup..."/>
   <available property="ready-pdf" file="${dir}/UBL-2.3.docbook.pdf"/>
-  <fail unless="ready-pdf" message="PDF not created"/>
+  <echo unless:set="ready-pdf" message="PDF not created"/>
+  <echo if:set="ready-pdf" message="PDF created"/>
   <available property="ready-iso" file="${dir}/UBL-2.3.iso.pdf"/>
-  <fail unless="ready-iso" message="ISO PDF not created"/>
+  <echo unless:set="ready-iso" message="ISO PDF not created"/>
+  <echo if:set="ready-iso" message="ISO PDF created"/>
   <available property="ready-html" file="${dir}/UBL-2.3.docbook.html"/>
-  <fail unless="ready-html" message="HTML not created"/>
+  <echo unless:set="ready-html" message="HTML not created"/>
+  <echo if:set="ready-html" message="HTML created"/>
   <!--these touches are necessary because unzip doesn't preserve time of day-->
   <touch file="${dir}/UBL-2.3.docbook.pdf"/>
   <touch file="${dir}/UBL-2.3.iso.pdf"/>
@@ -246,6 +264,33 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
         tofile="${dir}/iso-iec-19845-draft.pdf"/>
   <!--intermediate file no longer needed-->
   <delete file="${dir}/UBL-2.3-pub.zip"/>
+</target>
+
+<target name="-package-supplemental-html" if="html-supplemental-needed">
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/art"/>
+  <copy preservelastmodified="true"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/art">
+    <fileset dir="htmlart">
+     <include name="*"/>
+    </fileset>
+  </copy>
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/db"/>
+  <copy preservelastmodified="true"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/db">
+    <fileset dir="db/spec-0.8/htmlruntime">
+     <include name="**"/>
+    </fileset>
+  </copy>
+</target>
+
+<target name="-package-supplemental-other" if="other-supplemental-needed">
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/art/artpdf"/>
+  <copy preservelastmodified="true"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/art/artpdf">
+    <fileset dir="art">
+     <include name="*"/>
+    </fileset>
+  </copy>
 </target>
 
 <target name="-package-docs">
@@ -269,13 +314,13 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
       </and>
     </not>
   </condition>
+  <available property="preview-made" file="${dir}/UBL-2.3-preview.html"/>
   <property name="xml-made" value="false"/>
   <property name="html-made" value="false"/>
   <property name="pdf-made" value="false"/>
   <property name="iso-made" value="false"/>
   <property name="not-attempting-to-produce-necessary-results" value="false"/>
-  <fail if="docs-not-made"
-        message="Problem with creating the documentation XML:${xml-made}, HTML:${html-made}, PDF:${pdf-made}, ISO:${iso-made}, SKIP:${not-attempting-to-produce-necessary-results}"/>
+  <!--<echo message="Diagnostics:${xml-made}, HTML:${html-made}, PDF:${pdf-made}, ISO:${iso-made}, SKIP:${not-attempting-to-produce-necessary-results} validatedInputs:${validatedInputs}"/>-->
 
   <delete dir="${dir}/hub-UBL-2.3-${stage}-${version}"/>
   <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}"/>
@@ -298,29 +343,100 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
     </fileset>
   </copy>-->
 
-  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/db"/>
-  <copy preservelastmodified="true"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/db">
-    <fileset dir="db/spec-0.8/htmlruntime">
-     <include name="**"/>
-    </fileset>
-  </copy>
+  <condition property="html-supplemental-needed">
+    <or>
+      <istrue value="${html-made}"/>
+      <istrue value="${preview-made}"/>
+    </or>
+  </condition>
+  <antcall target="-package-supplemental-html"/>
+  <condition property="other-supplemental-needed">
+    <or>
+      <istrue value="${pdf-made}"/>
+    </or>
+  </condition>
+  <antcall target="-package-supplemental-other"/>
 
-  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/art"/>
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"/>
+  <condition property="ent-processes-okay">
+    <length file="summary-processes-ent.xml" when="greater" length="2"/>
+  </condition>
+  <copy preservelastmodified="true" if:set="ent-processes-okay"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"
+        file="summary-processes-ent.xml"/>
+  <condition property="ent-parties-okay">
+    <length file="summary-parties-ent.xml" when="greater" length="2"/>
+  </condition>
+  <copy preservelastmodified="true" if:set="ent-parties-okay"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"
+        file="summary-parties-ent.xml"/>
+  <condition property="ent-namespaces-okay">
+    <length file="summary-namespaces-ent.xml" when="greater" length="2"/>
+  </condition>
+  <copy preservelastmodified="true" if:set="ent-namespaces-okay"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"
+        file="summary-namespaces-ent.xml"/>
+  <condition property="ent-schemas-okay">
+    <length file="summary-schemas-ent.xml" when="greater" length="2"/>
+  </condition>
+  <copy preservelastmodified="true" if:set="ent-schemas-okay"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"
+        file="summary-schemas-ent.xml"/>
+  <condition property="ent-examples-okay">
+    <length file="summary-examples-ent.xml" when="greater" length="2"/>
+  </condition>
+  <copy preservelastmodified="true" if:set="ent-examples-okay"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"
+        file="summary-examples-ent.xml"/>
   <copy preservelastmodified="true"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/art">
-    <fileset dir="htmlart">
-     <include name="*"/>
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution">
+    <fileset dir=".">
+      <include name="UBL.xml"/>
+      <include name="UBL-2.3-Party-summary-information.xml"/>
+      <include name="UBL-2.3-Schema-summary-information.xml"/>
     </fileset>
   </copy>
-  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/art/artpdf"/>
-  <copy preservelastmodified="true"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/art/artpdf">
-    <fileset dir="art">
-     <include name="*"/>
+  <move preservelastmodified="true"
+        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities">
+    <fileset dir="${dir}/old-entities">
+      <include name="**"/>
     </fileset>
-  </copy>
-
+  </move>
+  <condition property="ent-processes-same">
+    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities/summary-processes-ent.xml"
+                file2="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-processes-ent.xml"/>
+  </condition>
+  <delete if:set="ent-processes-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-processes-ent.xml"/>
+  <condition property="ent-parties-same">
+    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities/summary-parties-ent.xml"
+                file2="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-parties-ent.xml"/>
+  </condition>
+  <delete if:set="ent-parties-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-parties-ent.xml"/>
+  <condition property="ent-namespaces-same">
+    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities/summary-namespaces-ent.xml"
+                file2="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-namespaces-ent.xml"/>
+  </condition>
+  <delete if:set="ent-namespaces-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-namespaces-ent.xml"/>
+  <condition property="ent-schemas-same">
+    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities/summary-schemas-ent.xml"
+                file2="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-schemas-ent.xml"/>
+  </condition>
+  <delete if:set="ent-schemas-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-schemas-ent.xml"/>
+  <condition property="ent-examples-same">
+    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities/summary-examples-ent.xml"
+                file2="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-examples-ent.xml"/>
+  </condition>
+  <delete if:set="ent-examples-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-examples-ent.xml"/>
+  <condition property="ent-all-same">
+    <and>
+      <isset property="ent-processes-same"/>
+      <isset property="ent-parties-same"/>
+      <isset property="ent-namespaces-same"/>
+      <isset property="ent-schemas-same"/>
+      <isset property="ent-examples-same"/>
+    </and>
+  </condition>
+  <delete if:set="ent-all-same" dir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"/>
 <!--
     Cannot create zip until console log and error exit files added to archive. 
     
@@ -349,7 +465,9 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
         if="ready-package-distribution">
   <!--old results no longer helpful-->
   <delete  dir="${dir}/UBL-2.3-${stage}-${version}"/>
+  <mkdir   dir="${dir}/UBL-2.3-${stage}-${version}"/>
   <delete  dir="${dir}/UBL-2.3-${stage}-${version}-archive-only"/>
+  <mkdir   dir="${dir}/UBL-2.3-${stage}-${version}-archive-only"/>
   <delete file="${dir}/UBL-2.3-${stage}-${version}.zip"/>
   <delete file="${dir}/UBL-2.3-${stage}-${version}-archive-only.zip"/>
   
@@ -417,14 +535,14 @@ file="${dir}/UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"
   <!--final consistency checks-->
   
   <echo message="Creating: ${dir}/UBL-2.3-${stage}-${version}-dir-listing.xml..."/>
-  <exec executable="sh" failonerror="true">
+  <exec executable="sh">
     <arg value="utilities/xml-dir/bin/xml-dir-listing"/>
     <arg value="-o"/>
     <arg value="${dir}/UBL-2.3-${stage}-${version}-dir-listing.xml"/>
     <arg value="${dir}/UBL-2.3-${stage}-${version}"/>    
   </exec>
   <echo message="Creating: ${dir}/UBL-2.3-${stage}-${version}-gentext.xml..."/>
-  <java failonerror="yes" append="true" classname="net.sf.saxon.Transform">
+  <java append="true" classname="net.sf.saxon.Transform">
      <arg value="-xsl:hub-integrity.xsl"/>
      <arg value="-s:${dir}/UBL-2.3-${stage}-${version}-dir-listing.xml"/>
      <arg value="-o:${dir}/UBL-2.3-${stage}-${version}-gentext.xml"/>
