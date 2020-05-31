@@ -1051,11 +1051,11 @@
 	</schema>
 	<schema>
 		<name>Transit Customs Declaration</name>
-		<description>A document used to declare goods for import</description>
+		<description>A document used to declare goods for transit</description>
 		<processes>
-			<process>Import Customs Declaration</process>
+			<process>Transit Customs Declaration</process>
 		</processes>
-		<submitterRole>Importer Party</submitterRole>
+		<submitterRole>Transit Customs Party</submitterRole>
 		<receiverRole>Customs Party</receiverRole>
 		<examples><example>UBL-TransitCustomsDeclaration-2.3-Example.xml</example></examples>
 	</schema>
