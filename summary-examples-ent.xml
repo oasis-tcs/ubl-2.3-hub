@@ -7,6 +7,11 @@
       </member>
       <member>
          <literal>
+            <ulink url="xml/UBL-CommonTransportationReport-2.3-Example.xml">xml/UBL-CommonTransportationReport-2.3-Example.xml</ulink>
+         </literal>
+      </member>
+      <member>
+         <literal>
             <ulink url="xml/UBL-CreditNote-2.0-Example.xml">xml/UBL-CreditNote-2.0-Example.xml</ulink>
          </literal>
       </member>
@@ -102,6 +107,11 @@
       </member>
       <member>
          <literal>
+            <ulink url="xml/UBL-ImportCustomsDeclaration-2.3-Example.xml">xml/UBL-ImportCustomsDeclaration-2.3-Example.xml</ulink>
+         </literal>
+      </member>
+      <member>
+         <literal>
             <ulink url="xml/UBL-InstructionForReturns-2.1-Example.xml">xml/UBL-InstructionForReturns-2.1-Example.xml</ulink>
          </literal>
       </member>
@@ -123,6 +133,11 @@
       <member>
          <literal>
             <ulink url="xml/UBL-Invoice-2.1-Example-Trivial.xml">xml/UBL-Invoice-2.1-Example-Trivial.xml</ulink>
+         </literal>
+      </member>
+      <member>
+         <literal>
+            <ulink url="xml/UBL-Manifest-2.3-Example.xml">xml/UBL-Manifest-2.3-Example.xml</ulink>
          </literal>
       </member>
       <member>
@@ -197,6 +212,11 @@
       </member>
       <member>
          <literal>
+            <ulink url="xml/UBL-ProofOfReexportationReminder-2.3-Example.xml">xml/UBL-ProofOfReexportationReminder-2.3-Example.xml</ulink>
+         </literal>
+      </member>
+      <member>
+         <literal>
             <ulink url="xml/UBL-ProofOfReexportationRequest-2.3-Example.xml">xml/UBL-ProofOfReexportationRequest-2.3-Example.xml</ulink>
          </literal>
       </member>
@@ -258,6 +278,11 @@
       <member>
          <literal>
             <ulink url="xml/UBL-TradeItemLocationProfile-2.1-Example.xml">xml/UBL-TradeItemLocationProfile-2.1-Example.xml</ulink>
+         </literal>
+      </member>
+      <member>
+         <literal>
+            <ulink url="xml/UBL-TransitCustomsDeclaration-2.3-Example.xml">xml/UBL-TransitCustomsDeclaration-2.3-Example.xml</ulink>
          </literal>
       </member>
       <member>
