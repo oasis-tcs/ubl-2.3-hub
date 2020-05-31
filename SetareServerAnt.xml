@@ -1,9 +1,11 @@
-<project default="-setare">
+<project default="-setare" xmlns:if="ant:if" xmlns:unless="ant:unless">
 
 <!--
-  $Id: 3b68901ee08b0c552bb47565a46d5cf9d845531a $
+  2020-05-31 17:50z
   
   This Ant project interacts with the Setare Server API using curl.
+  
+  Prerequisite: Ant library lib/ant-contrib-1.0b3.jar
   
   Parameters:
   ${setareuser} = server username
@@ -12,12 +14,33 @@
   ${entrypoint} = API entry point
   ${fileupload} = XML or ZIP file to publish (result in {name}.setare.zip)
   ${dateprefix} = identifier for the job (automatically suffixed with date)
+  
+  These steps never signal an Ant fail as this inhibits its use in GitHub
+  actions that will not return intermediate results when a script fails.
 -->
+
+<taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
 
 <target name="-setare">
   <property name="servername" value="run.setaresolutions.com"/>
+  <echo message="Setare server access initiated"/>
+  <antcallback target="-setare-authenticate" return="got-token, token"/>
+  <antcallback target="-setare-submit"   if:set="got-token" return="got-job-id, joburi"/>
+  <antcallback target="-setare-retrieve" if:set="got-job-id" return="fetch-okay"/>
+  <antcallback target="-setare-unpack"   if:set="fetch-okay"/>
+  <antcallback target="-setare-cleanup"  if:set="fetch-okay" return="no-problems"/>
+  <antcallback target="-setare-complete"/>
+</target>
+
+<target name="-setare-complete">
+  <echo if:set="no-problems" message="Setare server access ended without error"/>
+  <echo unless:set="no-problems" message="Setare server access ended with error"/>
+</target>
+
+<target name="-setare-authenticate">
   <echo message="Authenticating..."/>
-  <exec executable="curl" errorproperty="errAuthenticate" failonerror="true"
+  <exec executable="curl" errorproperty="errAuthenticate" 
+        resultproperty="returnAuthenticate"
         outputproperty="token">
     <arg value="--location"/>
     <arg value="--request"/><arg value="POST"/>
@@ -28,17 +51,24 @@
     <arg value="--data-raw"/><arg value="''"/>
   </exec>
   <condition property="got-token">
-    <not>
-      <equals arg1="${token}" arg2=""/>
-    </not>
+    <and>
+      <equals arg1="${returnAuthenticate}" arg2="0"/>
+      <not>
+        <equals arg1="${token}" arg2=""/>
+      </not>
+    </and>
   </condition>
-  <fail unless="${got-token}" message="Token was not returned from server"/>
-  <echo message="Returned token: ${token}"/>
+  <echo if:set="got-token" message="Returned token: ${token}"/>
+  <echo unless:set="got-token" message="Token was not returned from server"/>
+</target>
+
+<target name="-setare-submit">
   <tstamp>
     <format property="submitTime" pattern="YYYY-MM-dd HH:mm:ssZ"/>
   </tstamp>
   <echo message='Submitting "${dateprefix} ${submitTime}" to "${entrypoint}" ...'/>
-  <exec executable="curl" errorproperty="errSubmit" failonerror="true"
+  <exec executable="curl" errorproperty="errSubmit"
+        resultproperty="returnSubmit"
         outputproperty="joburi">
     <arg value="--location"/>
     <arg value="--request"/><arg value="POST"/>
@@ -50,127 +80,111 @@
     <arg value="--form"/><arg value="In-Job-Xml=@${fileupload}"/>
   </exec>
   <condition property="got-job-id">
-    <not>
-      <equals arg1="${joburi}" arg2=""/>
-    </not>
+    <and>
+      <equals arg1="${returnSubmit}" arg2="0"/>
+      <not>
+        <equals arg1="${joburi}" arg2=""/>
+      </not>
+    </and>
   </condition>
-  <fail unless="${got-job-id}" message="Job URI was not returned from server"/>
-  <echo message="Returned job URI: ${joburi}"/>
-
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <antcall target="-setare-fetch"/>
-  <condition property="fetch-okay">
-    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
-  </condition>
-  <fail unless="fetch-okay" 
-        message="Giving up on the fetch; check ${fileupload}.setare.zip in clear text for the last message from the server"/>
-  <echo message="Successful retrieval of ${fileupload}.setare.zip"/>
-  <echo message="Deleting job from server..."/>
-  <exec executable="curl" errorproperty="errDelete" failonerror="true"
-        outputproperty="clear">
-    <arg value="--location"/>
-    <arg value="--request"/><arg value="Post"/>
-    <arg value="https://${servername}/Publishing/pubapi/Clearjob"/>
-    <arg value="--output"/><arg value="-"/>
-    <arg value="--header"/><arg value="pubAuthToken:${token}"/>
-    <arg value="--header"/><arg value="pubJobUri:${joburi}"/>
-  </exec>
-  <echo message="Unzipping ${fileupload}.setare.zip PDF/HTML results..."/>
-  <unzip src="${fileupload}.setare.zip" dest=".">
-    <patternset>
-      <include name="errors.txt"/>
-      <include name="*.pdf"/>
-      <include name="*.html"/>
-      <exclude name="joblog.html"/>
-    </patternset>
-  </unzip>
-  <echo message="Disposing of temporary ${fileupload}.setare.zip..."/>
-  <delete file="${fileupload}.setare.zip"/>
-  <echo message="Server access ended without error"/>
+  <echo unless:set="got-job-id" message="Job URI was not returned from server"/>
+  <echo if:set="got-job-id" message="Returned job URI: ${joburi}"/>
 </target>
+
+<target name="-setare-retrieve">
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <antcall target="-setare-fetch" unless:set="fetch-okay"/>
+  <condition property="fetch-okay">
+    <length file="${fileupload}.setare.zip" when="greater" length="45"/>
+  </condition>
+  <echo unless:set="fetch-okay" 
+        message="Giving up on the fetch; check ${fileupload}.setare.zip in clear text for the last message from the server"/>
+  <echo if:set="fetch-okay" message="Successful retrieval of ${fileupload}.setare.zip"/>
+</target>
+
 <target name="-setare-fetch" unless="${fetch-okay}">
   <echo message="Sleeping for 10 seconds..."/>
   <sleep seconds="10"/>
@@ -185,5 +199,36 @@
     <arg value="--header"/><arg value="pubJobUri:${joburi}"/>
   </exec>
 </target>
+
+<target name="-setare-unpack">
+  <echo message="Unzipping ${fileupload}.setare.zip PDF/HTML results..."/>
+  <unzip src="${fileupload}.setare.zip" dest=".">
+    <patternset>
+      <include name="errors.txt"/>
+      <include name="*.pdf"/>
+      <include name="*.html"/>
+      <exclude name="joblog.html"/>
+    </patternset>
+  </unzip>
+  <echo message="Disposing of temporary ${fileupload}.setare.zip submission..."/>
+  <delete file="${fileupload}.setare.zip"/>
+</target>
   
+<target name="-setare-cleanup">
+  <echo message="Deleting job from server..."/>
+  <exec executable="curl" errorproperty="errDelete"
+        resultproperty="returnDelete"
+        outputproperty="clear">
+    <arg value="--location"/>
+    <arg value="--request"/><arg value="Post"/>
+    <arg value="https://${servername}/Publishing/pubapi/Clearjob"/>
+    <arg value="--output"/><arg value="-"/>
+    <arg value="--header"/><arg value="pubAuthToken:${token}"/>
+    <arg value="--header"/><arg value="pubJobUri:${joburi}"/>
+  </exec>
+  <condition property="no-problems">
+    <equals arg1="${returnDelete}" arg2="0"/>
+  </condition>
+</target>
+
 </project>
