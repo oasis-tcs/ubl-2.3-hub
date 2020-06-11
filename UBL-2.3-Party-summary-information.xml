@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--$Id: UBL-2.3-Party-summary-information.xml,v 1.6 2020/01/28 02:14:37 admin Exp $-->
 <!DOCTYPE roletable
 [
@@ -201,7 +201,9 @@
           <description>The party who makes, or on whose behalf an agent or other authorized person makes, an import declaration. This may include a person who has possession of the goods or to whom the goods are consigned.</description>
           <example>A specialized group in a company consolidates the purchase request and handles the receiving of goods.</example>
           <synonyms>Order Point, Delivery Party, Buyer, Customer, Consignee</synonyms>
-          <sends/>
+          <sends>
+			  <schema>Import Customs Declaration</schema>
+		</sends>
           <receives><schema>Certificate of Origin</schema></receives>
    </entry>
    <entry>
@@ -572,5 +574,64 @@
 			<schema>Goods Item Passport</schema>
 		</receives>				
 	</entry>
+ <entry>
+          <actor>Party</actor>
+          <role>Transit Exporter</role>
+          <description>The party who makes regulatory export declarations, or on whose behalf regulatory transit customs declarations are made, and who is the owner of the goods or has similar right of disposal over them at the time when the declaration is accepted.</description>
+          <example>A Norwegian exporter may have to do a <schema>Transit Customs Declaration</schema> in order to export to Russia</example>
+          <synonyms>Seller, Consignor</synonyms>
+          <sends><schema>Transit Customs Declaration</schema></sends>
+          <receives><schema>Application Response</schema></receives>
+   </entry>  
+   
+   <entry>
+          <actor>Party</actor>
+          <role>Receiving Logistic Operator</role>
+          <description>The party who in the role of a logistic operator is receiving a <schema>Manifest</schema></description>
+          <example>A ground handling in an airport receives a <schema>Manifest</schema> from a logistic operator.</example>
+          <synonyms/>
+          <sends/>
+          <receives><schema>Manifest</schema></receives>
+   </entry>  
+   
+   <entry>
+          <actor>Party</actor>
+          <role>Sending Logistic Operator</role>
+          <description>The party who in the role of a logistic operator is sending a <schema>Manifest</schema></description>
+          <example>A logistic operator consolidates some goods in a terminal and ships it along with a <schema>Manifest</schema> to a ground handler in an Airport</example>
+          <synonyms>Freight Forwarder</synonyms>
+          <sends><schema>Manifest</schema></sends>
+          <receives/>
+   </entry>
+  
+ <entry>
+          <actor>Party</actor>
+          <role>Customs</role>
+          <description>The party who is receiving a Customs Declaration</description>
+          <example>A Customs Party receives a <schema>Export Customs Declaration</schema> from a Exporter Party</example>
+          <synonyms/>
+          <sends><schema>Export Customs Declaration</schema></sends>
+          <receives/>
+   </entry>  
+
+<entry>
+          <actor>Party</actor>
+          <role>Authority</role>
+          <description>The party who is receiving a <schema>Common Transportation Report</schema></description>
+          <example>An Authority party receives a <schema>Common Transportation Report</schema> from a Logistics operator as reporter</example>
+          <synonyms/>
+          <sends/>
+          <receives><schema>Common Transportation Report</schema></receives>
+   </entry>     
+   
+    <entry>
+          <actor>Party</actor>
+          <role>Reporter</role>
+          <description>The party who is sending a <schema>Common Transportation Report</schema></description>
+          <example>A Logistic operator sends a <schema>Common Transportation Report</schema> to a harbour</example>
+          <synonyms>Logistics Operator</synonyms>
+          <sends><schema>Common Transportation Report</schema></sends>
+          <receives/>
+   </entry>  
   
 </roletable>
