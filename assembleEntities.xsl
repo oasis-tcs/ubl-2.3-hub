@@ -8,12 +8,10 @@
     Preserve top-level PIs for publishing/presentation purposes.
     
     Preserve the <!DOCTYPE> declaration for validation purposes.
-    
-    Indent the result for readability.
 -->
 
 <xsl:template match="/">
-  <xsl:result-document indent="yes">
+  <xsl:result-document>
     <!--start on a new line, not immediately after the XML declaration-->
     <xsl:text>&#xa;</xsl:text>
     <!--preserve all top-level PIs-->
