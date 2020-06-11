@@ -248,23 +248,23 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
     <property name="dateprefix" value="UBL 2.3"/>
   </ant>
   <echo message="Check and cleanup..."/>
-  <available property="ready-pdf" file="${dir}/UBL-2.3.docbook.pdf"/>
+  <available property="ready-pdf" file="${dir}/UBL-2.3.oasis.pdf"/>
   <echo unless:set="ready-pdf" message="PDF not created"/>
   <echo if:set="ready-pdf" message="PDF created"/>
   <available property="ready-iso" file="${dir}/UBL-2.3.iso.pdf"/>
   <echo unless:set="ready-iso" message="ISO PDF not created"/>
   <echo if:set="ready-iso" message="ISO PDF created"/>
-  <available property="ready-html" file="${dir}/UBL-2.3.docbook.html"/>
+  <available property="ready-html" file="${dir}/UBL-2.3.oasis.html"/>
   <echo unless:set="ready-html" message="HTML not created"/>
   <echo if:set="ready-html" message="HTML created"/>
   <!--these touches are necessary because unzip doesn't preserve time of day-->
-  <touch file="${dir}/UBL-2.3.docbook.pdf"/>
+  <touch file="${dir}/UBL-2.3.oasis.pdf"/>
   <touch file="${dir}/UBL-2.3.iso.pdf"/>
-  <touch file="${dir}/UBL-2.3.docbook.html"/>
+  <touch file="${dir}/UBL-2.3.oasis.html"/>
   <!--the names needed are not the names created-->
-  <move preservelastmodified="true" file="${dir}/UBL-2.3.docbook.pdf"
+  <move preservelastmodified="true" file="${dir}/UBL-2.3.oasis.pdf"
         tofile="${dir}/UBL-2.3.pdf"/>
-  <move preservelastmodified="true" file="${dir}/UBL-2.3.docbook.html"
+  <move preservelastmodified="true" file="${dir}/UBL-2.3.oasis.html"
         tofile="${dir}/UBL-2.3.html"/>
   <move preservelastmodified="true" file="${dir}/UBL-2.3.iso.pdf"
         tofile="${dir}/iso-iec-19845-draft.pdf"/>
