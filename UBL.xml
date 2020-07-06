@@ -29,7 +29,7 @@
 	<!ENTITY this-loc "https://docs.oasis-open.org/ubl/&stage;-UBL-2.3">
 	<!ENTITY previous-loc "https://docs.oasis-open.org/ubl/&pstage;-UBL-2.3">
 	<!ENTITY latest-loc "https://docs.oasis-open.org/ubl">
-	<!ENTITY pubdate "12 May 2020">
+	<!ENTITY pubdate "26 June 2020">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2020">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -4732,7 +4732,7 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
             Procedure Request</link>, <link linkend="S-UNSUBSCRIBE-FROM-PROCEDURE-RESPONSE-SCHEMA">Unsubscribe From Procedure Response</link>
         </para>
         <para>
-          <emphasis role="bold">Added UBL 2.2 document types for transportation:</emphasis>
+          <emphasis role="bold">Added UBL 2.2 document type for transportation:</emphasis>
           <link linkend="S-WEIGHT-STATEMENT-SCHEMA">Weight Statement</link>
         </para>
         <para>
@@ -4745,14 +4745,13 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
       <title>Minor Revision: UBL 2.3</title>
       <section id="S-NEW-DOCUMENT-TYPES-IN-UBL-2.3" role="newDocumentTypes23">
         <title>New Document Types in UBL 2.3</title>
-        <para>Because it preserves backward compatibility with UBL 2.2, UBL 2.1, and UBL 2.0, UBL 2.3 is technically a minor release, not a major one. However, it does add five new document types, bringing the total number of UBL business documents to 86.</para>
+        <para>Because it preserves backward compatibility with UBL 2.2, UBL 2.1, and UBL 2.0, UBL 2.3 is technically a minor release, not a major one. However, it does add ten new document types, bringing the total number of UBL business documents to 91.</para>
         <blockquote>
           <!--reviewtext-->
           <para>
-            <emphasis role="bold">Added UBL 2.3 document types for transportation: </emphasis>
-            <link linkend="S-EXPORT-CUSTOMS-DECLARATION-SCHEMA">Export Customs Declaration</link>, <link linkend="S-GOODS-ITEM-PASSPORT-SCHEMA">Goods Item Passport</link>, <link linkend="S-PROOF-OF-REEXPORTATION-SCHEMA">Proof Of Reexportation</link>, <link
-              linkend="S-PROOF-OF-REEXPORTATION-REQUEST-SCHEMA">Proof Of Reexportation Request</link>, <link linkend="S-GOODS-CERTIFICATE-SCHEMA">Goods Certificate</link>
-          </para>
+            <emphasis role="bold">Added UBL 2.3 document types for transportation: </emphasis> Common Transportation Report, <link linkend="S-EXPORT-CUSTOMS-DECLARATION-SCHEMA">Export Customs Declaration</link>, <link linkend="S-GOODS-CERTIFICATE-SCHEMA">Goods Certificate</link> , <link
+              linkend="S-GOODS-ITEM-PASSPORT-SCHEMA">Goods Item Passport</link>, Import Customs Declaration, Manifest <link linkend="S-PROOF-OF-REEXPORTATION-SCHEMA">Proof Of Reexportation</link>, Proof Of Reexportation Reminder, <link linkend="S-PROOF-OF-REEXPORTATION-REQUEST-SCHEMA">Proof Of
+              Reexportation Request</link>, Transit Customs Declaration</para>
         </blockquote>
       </section>
       <section id="S-SCHEMA-CHANGES-FROM-UBL-2.2-TO-UBL-2.3">
@@ -6884,6 +6883,12 @@ No code list validation errors.</programlisting>
           </row>
         </thead>
         <tbody>
+          <row>
+            <entry>csd03wd03</entry>
+            <entry>26 June 2020</entry>
+            <entry>GKH</entry>
+            <entry>Incorporate TSC additions.</entry>
+          </row>
           <row>
             <entry>csd03wd02</entry>
             <entry>27 April 2020</entry>
