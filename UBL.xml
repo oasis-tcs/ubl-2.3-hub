@@ -1910,7 +1910,7 @@
               <title>Ordering Process</title>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="art/UBL-2.2-OrderingProcess.png"/>
+                  <imagedata fileref="art/UBL-2.3-OrderingProcess.png"/>
                 </imageobject>
                 <textobject>
                   <phrase>[Ordering Diagram]</phrase>
