@@ -2487,7 +2487,7 @@
             <title>Manifest Process</title>
             <mediaobject>
               <imageobject>
-                <imagedata fileref="art/UBL 2.3-ManifestProcess.png"/>
+                <imagedata fileref="art/UBL-2.3-ManifestProcess.png"/>
               </imageobject>
               <textobject>
                 <phrase>[Manifest Diagram]</phrase>
@@ -2577,7 +2577,7 @@
               <title>Transit Customs Declaration Process</title>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="UBL 2.3-TransitDeclaration process.png"/>
+                  <imagedata fileref="art/UBL-2.3-TransitDeclarationProcess.png"/>
                 </imageobject>
                 <textobject>
                   <phrase>[Transit Customs Declaration Process Diagram]</phrase>
@@ -2915,7 +2915,7 @@
               <title>Common Transportation Report</title>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="art/UBL 2.3-CommonTransportationReportProcess.png"/>
+                  <imagedata fileref="art/UBL-2.3-CommonTransportationReportProcess.png"/>
                 </imageobject>
                 <textobject>
                   <phrase>[Common Transportation Report Progress]</phrase>
@@ -3691,6 +3691,9 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
       <note>
         <para>These rules first appeared in the OASIS UBL 1.0 and UBL 1.0 NDR Standards. They are listed here because logically they belong with the great majority of UBL instance constraints specified in the schemas. To aid in coordinating references between these various publications, the rules
           below retain their original &#8220;IND&#8221; labels. The former IND4 was removed in the revision process leading to UBL 2.0.</para>
+      </note>
+      <note>
+        <para>See <xref linkend="S-CUSTOMIZING-THE-DEFAULT-XSLT-FILE"/> for the reference to an illustrative example of a script implementing checks of those of these tests that can be tested with Schematron <xref linkend="schematron"/>.</para>
       </note>
       <para>Additional document constraints do not apply to the arbitrary content of extensions expressed in a UBL document as described in <xref linkend="S-EXTENSION-METHODOLOGY-AND-VALIDATION"/>.</para>
     </section>
@@ -6252,8 +6255,8 @@ xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
         </literal>
       </para>
     </blockquote>
-    <para>The <literal>val</literal> directory contains the predefined CVA associations compiled into an XSLT file, <literal>UBL-DefaultDTQ-2.3.xsl</literal>, which is used in the recommended two-phase validation process to perform a check of code list values. See <xref
-        linkend="A-UBL-2.3-CODE-LISTS-AND-TWO-PHASE-VALIDATION"/> for a description of this process. </para>
+    <para>The <literal>val</literal> directory contains the predefined CVA associations compiled into a runtime XSLT artefact used in the recommended two-phase validation process to perform a check of code list values. See <xref linkend="S-CUSTOMIZING-THE-DEFAULT-XSLT-FILE"/> for a description of
+      this process. </para>
     <blockquote>
       <para>
         <literal>
@@ -6529,9 +6532,18 @@ No code list validation errors.</programlisting>
     <section id="S-CUSTOMIZING-THE-DEFAULT-XSLT-FILE">
       <title>Customizing the Default XSLT File</title>
       <para>The validation framework provided in the <literal>val</literal> directory can be used to implement code list changes, define variant code lists to fit specific trading partner agreements, or associate different versions of the same code list with different parts of the same UBL document
-        by substituting a custom process (be it XSLT or some other language or process) for the default <literal>UBL-DefaultDTQ-2.3.xsl</literal> provided in the UBL 2.3 distribution. This allows extensive code list management without the need to change the standard UBL 2.3 schemas. Schematron-based
-          <xref linkend="schematron"/> techniques for generating a custom XSLT file to take the place of <literal>UBL-DefaultDTQ-2.3.xsl</literal> are explained in <xref linkend="cva"/> and <xref linkend="custguide"/>. See also <xref linkend="A-DATA-TYPE-QUALIFICATIONS-IN-UBL"/> for more about UBL
-        data type qualifications.</para>
+        by substituting a custom process (be it XSLT or some other language or process) for the default <literal>UBL-DefaultDTQ-2.3.xsl</literal> provided in the UBL 2.3 distribution. This allows extensive code list management without the need to change the standard UBL 2.3 schemas. </para>
+      <para>The top-level Schematron <xref linkend="schematron"/> fragment <literal><ulink url="cva/UBL-DefaultDTQ-2.3.sch">cva/UBL-DefaultDTQ-2.3.sch</ulink></literal> defining the constraints to be expressed in XSLT pulls in two fragments tailored for UBL 2.3: </para>
+      <itemizedlist>
+        <listitem>
+          <para><literal><ulink url="cva/UBL-DefaultDTQ-2.3.pattern.sch">cva/UBL-DefaultDTQ-2.3.pattern.sch</ulink></literal> with the code list constraints from <literal><ulink url="cva/UBL-DefaultDTQ-2.3.cva">cva/UBL-DefaultDTQ-2.3.cva</ulink></literal> , and </para>
+        </listitem>
+        <listitem>
+          <para><literal><ulink url="cva/UBL-DocumentConstraints-2.3.pattern.sch">cva/UBL-DocumentConstraints-2.3.pattern.sch</ulink></literal> with the subset of <xref linkend="S-ADDITIONAL-DOCUMENT-CONSTRAINTS"/> that can be tested using the technology.</para>
+        </listitem>
+      </itemizedlist>
+      <para>Schematron-based techniques for generating a custom XSLT file to take the place of <literal>UBL-DefaultDTQ-2.3.xsl</literal> are explained in <xref linkend="cva"/> and <xref linkend="custguide"/>. See also <xref linkend="A-DATA-TYPE-QUALIFICATIONS-IN-UBL"/> for more about UBL data type
+        qualifications.</para>
       <para>Since XSLT is a very powerful general-purpose XML transformation tool, the same framework can be extended to perform fairly sophisticated business rule checking by manually coding additional logic into the XSLT file that drives the second validation phase. Such modification is beyond the
         scope of the customization methodologies associated specifically with UBL, but a business analyst willing to perform XSLT programming can use this mechanism to offload a large proportion of input filtering from the back-end business application to a simpler input processing area. Additional
         XSLT scripts can be added to extract logical sub-trees of incoming UBL documents for allocation to different downstream processes and to perform even more extensive front-end processing.</para>
@@ -6565,9 +6577,8 @@ No code list validation errors.</programlisting>
           </blockquote>
         </listitem>
         <listitem>
-          <para>The file <literal>
-              <ulink url="val/UBL-DefaultDTQ-2.3.xsl">val/UBL-DefaultDTQ-2.3.xsl</ulink>
-            </literal> was created using the Schematron <xref linkend="schematron"/> implementation of CVA files for validation at</para>
+          <para>The file <literal><ulink url="val/UBL-DefaultDTQ-2.3.xsl">val/UBL-DefaultDTQ-2.3.xsl</ulink></literal> was created from the file <literal><ulink url="cva/UBL-DefaultDTQ-2.3.sch">cva/UBL-DefaultDTQ-2.3.sch</ulink></literal> using the Schematron <xref linkend="schematron"/>
+            implementation of CVA files for validation at</para>
           <blockquote>
             <para>
               <literal>
