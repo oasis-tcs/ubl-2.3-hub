@@ -1,0 +1,767 @@
+<title>Summary changes to Library Elements UBL 2.3</title>
+<tgroup cols="3"><!--Library UBL 2.3-->
+   <colspec colwidth="35*"/>
+   <colspec colwidth="35*"/>
+   <colspec colwidth="30*"/>
+   <thead>
+      <row>
+         <entry>Aggregate BIE</entry>
+         <entry>Basic or Association BIE</entry>
+         <entry>Changes for UBL</entry>
+      </row>
+   </thead>
+   <tbody>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Attestation.Details">Attestation</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Attestation.Name">Name</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Attestation.AcceptanceIndicator.Indicator">AcceptanceIndicator</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-AwardingTerms.Details">AwardingTerms</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-AwardingTerms.Prize">Prize</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-BallastWaterSummary.Details">BallastWaterSummary</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-BallastWaterTransaction.Details">BallastWaterTransaction</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Certificate.Details">Certificate</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Certificate.CertificateTypeCode.Code">CertificateTypeCode</ulink>
+         </entry>
+         <entry>Changed cardinality from 1 to 0..1</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Certificate.CertificateType.Text">CertificateType</ulink>
+         </entry>
+         <entry>Changed cardinality from 1 to 0..n</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Consignment.Details">Consignment</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Consignment.OfficeOfEntry_Location.Location">OfficeOfEntryLocation</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Consignment.OfficeOfSubSequentiallyEntry_Location.Location">OfficeOfSubSequentiallyEntryLocation</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Consignment.OfficeOfExit_Location.Location">OfficeOfExitLocation</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Consignment.OfficeOfDeparture_Location.Location">OfficeOfDepartureLocation</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Consignment.OfficeOfDestination_Location.Location">OfficeOfDestinationLocation</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Consignment.OfficeOfImport_Location.Location">OfficeOfImportLocation</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Consignment.OfficeOfExport_Location.Location">OfficeOfExportLocation</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Consignment.DocumentReference">DocumentReference</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-CrewPersonEffect.Details">CrewPersonEffect</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-DespatchLine.Details">DespatchLine</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-DespatchLine.Sub_DespatchLine.DespatchLine">SubDespatchLine</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-DocumentDistribution.Details">DocumentDistribution</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-DocumentDistribution.Identifier">ID</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-DocumentDistribution.DistributionTypeCode.Code">DistributionTypeCode</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-DocumentDistribution.DistributionType.Text">DistributionType</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-DocumentDistribution.Print_Qualifier.Text">PrintQualifier</ulink>
+         </entry>
+         <entry>Changed cardinality from 1 to 0..1</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-DocumentDistribution.Copy_Indicator.Indicator">CopyIndicator</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-DocumentDistribution.Communication">Communication</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-GoodsItem.Details">GoodsItem</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-GoodsItem.CustomsProcedureCode.Code">CustomsProcedureCode</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-GoodsItem.OrderLineReference">OrderLineReference</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-GoodsItemPassportCounterfoil.Details">GoodsItemPassportCounterfoil</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-GoodsItemPassportCounterfoil.GoodsItemPassportIdentifier.Identifier">GoodsItemPassportID</ulink>
+         </entry>
+         <entry>Changed cardinality from 1 to 0..1</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-HazardousItem.Details">HazardousItem</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-HazardousItem.UNPackingGroupCode.Code">UNPackingGroupCode</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-HazardousItem.UNPackingGroup.Text">UNPackingGroup</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-HazardousItem.TunnelRestrictionCode.Code">TunnelRestrictionCode</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ISPSRequirements.Details">ISPSRequirements</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Location.Details">Location</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Location.Storage">Storage</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-LotsGroup.Details">LotsGroup</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-LotsGroup.LotLotsGroup.Identifier">LotLotsGroupID</ulink>
+         </entry>
+         <entry>Deleted</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-LotsGroup.ProcurementProjectLot">ProcurementProjectLot</ulink>
+         </entry>
+         <entry>Deleted</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-LotsGroup.LotsGroup.Identifier">LotsGroupID</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-LotsGroup.ProcurementProjectLotReference">ProcurementProjectLotReference</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-MaritimeHealthDeclaration.Details">MaritimeHealthDeclaration</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-MaritimeTransport.Details">MaritimeTransport</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-MaritimeTransport.MMSIRegistrationIdentifier.Identifier">MMSIRegistrationID</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-MaritimeTransport.SegregatedBallast.Measure">SegregatedBallastMeasure</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-MaritimeTransport.Ship_ConfigurationCode.Code">ShipConfigurationCode</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-MaritimeTransport.INFShip_ClassCode.Code">INFShipClassCode</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-MaritimeTransport.Antenna_Location.Location">AntennaLocation</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-MaritimeTransport.VesselDynamics">VesselDynamics</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-MaritimeWaste.Details">MaritimeWaste</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Package.Details">Package</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Package.PackagingType.Text">PackagingType</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-PersonnelHealthIncident.Details">PersonnelHealthIncident</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-PortCall.Details">PortCall</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-PortCallPurpose.Details">PortCallPurpose</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-PortCallRecord.Details">PortCallRecord</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Prize.Details">Prize</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Prize.Previous_RankNumber.Numeric">PreviousRankNumberNumeric</ulink>
+         </entry>
+         <entry>Deleted</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Prize.Previous_CancellationReasonValue.Amount">PreviousCancellationReasonValueAmount</ulink>
+         </entry>
+         <entry>Deleted</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Prize.Previous_CancellationReasonDescription.Text">PreviousCancellationReasonDescription</ulink>
+         </entry>
+         <entry>Deleted</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Prize.RankCode.Code">RankCode</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Prize.Value.Amount">ValueAmount</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Prize.Description.Text">Description</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ProcurementAdditionalType.Details">ProcurementAdditionalType</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ProcurementAdditionalType.Procurement_Type.Text">ProcurementType</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-SanitaryMeasure.Details">SanitaryMeasure</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ShipStoreArticle.Details">ShipStoreArticle</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ShipToShipActivityRecord.Details">ShipToShipActivityRecord</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ShipmentStage.Details">ShipmentStage</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ShipmentStage.Destination_PortCall.PortCall">DestinationPortCall</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ShipmentStage.CrewPersonEffect">CrewPersonEffect</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ShipmentStage.MaritimeWaste">MaritimeWaste</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ShipmentStage.BallastWaterSummary">BallastWaterSummary</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ShipmentStage.ISPSRequirements">ISPSRequirements</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ShipmentStage.MaritimeHealthDeclaration">MaritimeHealthDeclaration</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Storage.Details">Storage</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Temperature.Details">Temperature</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Temperature.AttributeIdentifier.Identifier">AttributeID</ulink>
+         </entry>
+         <entry>Changed cardinality from 1 to 0..1</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Temperature.Measure">Measure</ulink>
+         </entry>
+         <entry>Changed cardinality from 1 to 0..1</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Temperature.MeasureCode.Code">MeasureCode</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-TenderingTerms.Details">TenderingTerms</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-TenderingTerms.Prize">Prize</ulink>
+         </entry>
+         <entry>Deleted</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-TenderingTerms.ProcurementLegislation_DocumentReference.DocumentReference">ProcurementLegislationDocumentReference</ulink>
+         </entry>
+         <entry>Changed cardinality from 0..1 to 0..n</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-TenderingTerms.FiscalLegislation_DocumentReference.DocumentReference">FiscalLegislationDocumentReference</ulink>
+         </entry>
+         <entry>Changed cardinality from 0..1 to 0..n</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-TenderingTerms.EnvironmentalLegislation_DocumentReference.DocumentReference">EnvironmentalLegislationDocumentReference</ulink>
+         </entry>
+         <entry>Changed cardinality from 0..1 to 0..n</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-TenderingTerms.EmploymentLegislation_DocumentReference.DocumentReference">EmploymentLegislationDocumentReference</ulink>
+         </entry>
+         <entry>Changed cardinality from 0..1 to 0..n</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-TenderingTerms.CallForTenders_DocumentReference.DocumentReference">CallForTendersDocumentReference</ulink>
+         </entry>
+         <entry>Changed cardinality from 0..1 to 0..n</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-VesselDynamics.Details">VesselDynamics</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-WHOAffectedAreaVisit.Details">WHOAffectedAreaVisit</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+   </tbody>
+</tgroup>

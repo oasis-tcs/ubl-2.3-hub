@@ -4748,13 +4748,14 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
       <title>Minor Revision: UBL 2.3</title>
       <section id="S-NEW-DOCUMENT-TYPES-IN-UBL-2.3" role="newDocumentTypes23">
         <title>New Document Types in UBL 2.3</title>
-        <para>Because it preserves backward compatibility with UBL 2.2, UBL 2.1, and UBL 2.0, UBL 2.3 is technically a minor release, not a major one. However, it does add ten new document types, bringing the total number of UBL business documents to 91.</para>
+        <para>Because it preserves backward compatibility with UBL 2.2, UBL 2.1, and UBL 2.0, UBL 2.3 is technically a minor release, not a major one. However, it does add eight new document types, bringing the total number of UBL business documents to 89.</para>
         <blockquote>
           <!--reviewtext-->
           <para>
-            <emphasis role="bold">Added UBL 2.3 document types for transportation: </emphasis> Common Transportation Report, <link linkend="S-EXPORT-CUSTOMS-DECLARATION-SCHEMA">Export Customs Declaration</link>, <link linkend="S-GOODS-CERTIFICATE-SCHEMA">Goods Certificate</link> , <link
-              linkend="S-GOODS-ITEM-PASSPORT-SCHEMA">Goods Item Passport</link>, Import Customs Declaration, Manifest <link linkend="S-PROOF-OF-REEXPORTATION-SCHEMA">Proof Of Reexportation</link>, Proof Of Reexportation Reminder, <link linkend="S-PROOF-OF-REEXPORTATION-REQUEST-SCHEMA">Proof Of
-              Reexportation Request</link>, Transit Customs Declaration</para>
+            <emphasis role="bold">Added UBL 2.3 document types for transportation: </emphasis>
+            <link linkend="S-EXPORT-CUSTOMS-DECLARATION-SCHEMA">Export Customs Declaration</link>, <link linkend="S-GOODS-CERTIFICATE-SCHEMA">Goods Certificate</link> , <link linkend="S-GOODS-ITEM-PASSPORT-SCHEMA">Goods Item Passport</link>, <link linkend="S-IMPORT-CUSTOMS-DECLARATION">Import
+              Customs Declaration</link>, <link linkend="S-PROOF-OF-REEXPORTATION-SCHEMA">Proof Of Reexportation</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REMINDER-SCHEMA">Proof Of Reexportation Reminder</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REQUEST-SCHEMA">Proof Of Reexportation
+              Request</link>, <link linkend="S-TRANSIT-CUSTOMS-DECLARATION">Transit Customs Declaration</link></para>
         </blockquote>
       </section>
       <section id="S-SCHEMA-CHANGES-FROM-UBL-2.2-TO-UBL-2.3">

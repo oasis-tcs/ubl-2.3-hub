@@ -1,0 +1,143 @@
+<title>Summary changes to Document Elements UBL 2.3</title>
+<tgroup cols="3"><!--Document UBL 2.3-->
+   <colspec colwidth="35*"/>
+   <colspec colwidth="35*"/>
+   <colspec colwidth="30*"/>
+   <thead>
+      <row>
+         <entry>Aggregate BIE</entry>
+         <entry>Basic or Association BIE</entry>
+         <entry>Changes for UBL</entry>
+      </row>
+   </thead>
+   <tbody>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-GoodsItemPassport.Details">GoodsItemPassport</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-GoodsItemPassport.Status.Code">StatusCode</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-GoodsItemPassport.Status.Text">Status</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ImportCustomsDeclaration.Details">ImportCustomsDeclaration</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ProofOfReexportation.Details">ProofOfReexportation</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ProofOfReexportation.Issuer_Party.Party">IssuerParty</ulink>
+         </entry>
+         <entry>Deleted</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ProofOfReexportation.ExportingCustoms_Party.Party">ExportingCustomsParty</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ProofOfReexportation.ImportingGuarantor_Party.Party">ImportingGuarantorParty</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ProofOfReexportation.ExportingGuarantor_Party.Party">ExportingGuarantorParty</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ProofOfReexportationReminder.Details">ProofOfReexportationReminder</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ProofOfReexportationRequest.Details">ProofOfReexportationRequest</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ProofOfReexportationRequest.Issuer_Party.Party">IssuerParty</ulink>
+         </entry>
+         <entry>Deleted</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ProofOfReexportationRequest.ImportingGuarantor_Party.Party">ImportingGuarantorParty</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ProofOfReexportationRequest.ExportingGuarantor_Party.Party">ExportingGuarantorParty</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ProofOfReexportationRequest.ImportingCustoms_Party.Party">ImportingCustomsParty</ulink>
+         </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-TransitCustomsDeclaration.Details">TransitCustomsDeclaration</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+   </tbody>
+</tgroup>

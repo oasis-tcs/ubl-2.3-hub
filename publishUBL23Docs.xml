@@ -480,42 +480,30 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   
  <!--start the distribution directory with the contents of the artefacts
      package and then the contents of the hub package-->
-  <!--<unzip src="${dir}/artefacts-UBL-2.3-${stage}-${version}.zip" 
-         dest="${dir}/UBL-2.3-${stage}-${version}"/>-->
   <copy todir="${dir}/UBL-2.3-${stage}-${version}">
-    <fileset 
-dir="${dir}/UBL-2.3-${stage}-${version}/artefacts-UBL-2.3-${stage}-${version}">
+    <fileset dir="${dir}/artefacts-UBL-2.3-${stage}-${version}">
       <include name="**"/>
     </fileset>
   </copy>
-  <!--directory is empty now-->
-  <!--<delete
-dir="${dir}/UBL-2.3-${stage}-${version}/artefacts-UBL-2.3-${stage}-${version}"/>-->
 
-  <!--<unzip src="${dir}/hub-UBL-2.3-${stage}-${version}.zip" 
-         dest="${dir}/UBL-2.3-${stage}-${version}"/>-->
   <copy todir="${dir}/UBL-2.3-${stage}-${version}">
-    <fileset 
-dir="${dir}/UBL-2.3-${stage}-${version}/hub-UBL-2.3-${stage}-${version}">
+    <fileset dir="${dir}/hub-UBL-2.3-${stage}-${version}">
       <include name="**"/>
     </fileset>
   </copy>
-  <!--<delete
-dir="${dir}/UBL-2.3-${stage}-${version}/hub-UBL-2.3-${stage}-${version}"/>-->
   
-  <!--peel off the STS results into the archive-->
-  <move file="${dir}/UBL-2.3-${stage}-${version}/iso-iec-19845-draft-sts"
-todir="${dir}/UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"
-        failonerror="false"/>
-  <!--use "copy" to distribute to all, "move" for only archive-->
-  <copy file="${dir}/UBL-2.3-${stage}-${version}/iso-iec-19845-draft.pdf"
-todir="${dir}/UBL-2.3-${stage}-${version}/"
-        failonerror="false"/>
   <!--artefacts archive moved to distribution archive-->  
   <move tofile="${dir}/UBL-2.3-${stage}-${version}-archive-only"
-file="${dir}/UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution"
+        file="${dir}/UBL-2.3-${stage}-${version}/archive-only-not-for-distribution"
    />
-  
+  <!--peel off the STS results into the archive-->
+  <move file="${dir}/UBL-2.3-${stage}-${version}/iso-iec-19845-draft-sts"
+        todir="${dir}/UBL-2.3-${stage}-${version}/archive-only"
+        failonerror="false"/>
+  <!--use "copy" to distribute ISO draft to all, "move" for only archive-->
+  <copy file="${dir}/UBL-2.3-${stage}-${version}/iso-iec-19845-draft.pdf"
+        todir="${dir}/UBL-2.3-${stage}-${version}/"
+        failonerror="false"/>
   <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
     <fileset dir="${dir}/UBL-2.3-${stage}-${version}"/>
   </touch>
