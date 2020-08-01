@@ -458,15 +458,6 @@
          </listitem>
          <listitem>
             <para>
-               <emphasis>
-                  <emphasis role="bold">
-                     <xref linkend="S-MANIFEST"/>
-                  </emphasis>
-               </emphasis>
-            </para>
-         </listitem>
-         <listitem>
-            <para>
                <xref linkend="S-FREIGHT-STATUS-REPORTING"/>
             </para>
          </listitem>
@@ -611,15 +602,6 @@
                <listitem>
                   <para>
                      <xref linkend="S-REPORTING-TRANSPORT-MEANS-PROGRESS-STATUS"/>
-                  </para>
-               </listitem>
-               <listitem>
-                  <para>
-                     <emphasis>
-                        <emphasis role="bold">
-                           <xref linkend="S-COMMON-TRANSPORTATION-REPORT"/>
-                        </emphasis>
-                     </emphasis>
                   </para>
                </listitem>
             </itemizedlist>

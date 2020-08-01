@@ -20,16 +20,18 @@
 	<!ENTITY pversion "NONE">
 	<!ENTITY version "2.3">
 	<!ENTITY pstage "csprd02">
-	<!ENTITY stage "csd03wd03">
+	<!ENTITY PSTAGE "CSPRD02">
+	<!ENTITY stage "csd03">
+	<!ENTITY STAGE "CSD03">
 	<!ENTITY isostage "WD">
-	<!ENTITY standard "Committee Specification Public Review Draft 03">
-	<!ENTITY stagetext "Committee Specification Public Review Draft 03">
+	<!ENTITY standard "Committee Specification Draft 03">
+	<!ENTITY stagetext "Committee Specification Draft 03">
 	<!ENTITY standard "Committee Specification Draft 03 / Working Draft 03xxxxx">
 	<!ENTITY stagetext "Committee Specification Draft 03 Working Draft 03xxxxx">
 	<!ENTITY this-loc "https://docs.oasis-open.org/ubl/&stage;-UBL-2.3">
 	<!ENTITY previous-loc "https://docs.oasis-open.org/ubl/&pstage;-UBL-2.3">
 	<!ENTITY latest-loc "https://docs.oasis-open.org/ubl">
-	<!ENTITY pubdate "26 June 2020">
+	<!ENTITY pubdate "29 July 2020">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2020">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -40,13 +42,13 @@
 	<!ENTITY summary-examples SYSTEM "summary-examples-ent.xml">
 	<!ENTITY summary-processes SYSTEM "summary-processes-ent.xml">
 	<!ENTITY summary-old2new-version-library SYSTEM 
-         "old2newDocBook-UBL-2.3-csprd03-UBL-2.2-library-ent.xml">
+         "old2newDocBook-UBL-2.3-csd03-UBL-2.2-library-ent.xml">
 	<!ENTITY summary-old2new-version-documents SYSTEM 
-         "old2newDocBook-UBL-2.3-csprd03-UBL-2.2-documents-ent.xml">
+         "old2newDocBook-UBL-2.3-csd03-UBL-2.2-documents-ent.xml">
 	<!ENTITY summary-old2new-stage-library SYSTEM 
-         "old2newDocBook-UBL-2.3-csprd03-UBL-2.3-csprd02-library-ent.xml">
+         "old2newDocBook-UBL-2.3-csd03-UBL-2.3-csprd02-library-ent.xml">
 	<!ENTITY summary-old2new-stage-documents SYSTEM 
-         "old2newDocBook-UBL-2.3-csprd03-UBL-2.3-csprd02-documents-ent.xml">
+         "old2newDocBook-UBL-2.3-csd03-UBL-2.3-csprd02-documents-ent.xml">
 ]>
 <article status="&standard;" conformance="ids quotes ebuzzwords">
   <articleinfo>
@@ -1450,7 +1452,7 @@
               <title>Procurement Process</title>
               <mediaobject>
                 <imageobject>
-                  <imagedata fileref="art/UBL-2.3-procurementProcess.png"/>
+                  <imagedata fileref="art/UBL-2.3-ProcurementProcess.png"/>
                 </imageobject>
                 <textobject>
                   <phrase>[Procurement Process Diagram]</phrase>
@@ -2479,7 +2481,7 @@
               condition for transport.</para>
           </section>
         </section>
-        <section id="S-MANIFEST">
+        <!--<section id="S-MANIFEST">
           <title>Manifest</title>
           <para>Manifest is the process by which a sending Logistics Operator (such as a Carrier or Freight Forwarder) communicates the quantity an nature of a load to receiving logistics operator (Such as Customs party, a Ground handler or a terminal operator.</para>
           <para>A <link linkend="S-MANIFEST-SCHEMA">Manifest</link> document is provided either through a <link linkend="S-MANIFEST-SCHEMA"> Manifest</link> document is often seen as the top level document for what a vessel, aeroplane, vagon or truck i carrying.</para>
@@ -2494,7 +2496,7 @@
               </textobject>
             </mediaobject>
           </figure>
-        </section>
+        </section>-->
         <section id="S-FREIGHT-STATUS-REPORTING">
           <title>Freight Status Reporting</title>
           <para>Freight Status Reporting is the process by which a Transport Service Provider (such as a Carrier or Freight Forwarder) communicates the status of shipments currently under their management to the Transport Users (such as a Freight Forwarder, Consignee, or Consignor).</para>
@@ -2907,7 +2909,7 @@
               </mediaobject>
             </figure>
           </section>
-          <section id="S-COMMON-TRANSPORTATION-REPORT">
+          <!--<section id="S-COMMON-TRANSPORTATION-REPORT">
             <title>Common Transportation Report</title>
             <para>The <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link> collects and reports information about events and status of a transport means. It can be used for requirements regarding boarder crossing, ship or shore or shore to ship reporting. It is
               meant to be mapped to the numerous single window declaration and for other reporting to authories.</para>
@@ -2922,7 +2924,7 @@
                 </textobject>
               </mediaobject>
             </figure>
-          </section>
+          </section>-->
         </section>
       </section>
       <section id="S-RETURN">
@@ -4753,9 +4755,9 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
           <!--reviewtext-->
           <para>
             <emphasis role="bold">Added UBL 2.3 document types for transportation: </emphasis>
-            <link linkend="S-EXPORT-CUSTOMS-DECLARATION-SCHEMA">Export Customs Declaration</link>, <link linkend="S-GOODS-CERTIFICATE-SCHEMA">Goods Certificate</link> , <link linkend="S-GOODS-ITEM-PASSPORT-SCHEMA">Goods Item Passport</link>, <link linkend="S-IMPORT-CUSTOMS-DECLARATION">Import
+            <link linkend="S-EXPORT-CUSTOMS-DECLARATION-SCHEMA">Export Customs Declaration</link>, <link linkend="S-GOODS-CERTIFICATE-SCHEMA">Goods Certificate</link> , <link linkend="S-GOODS-ITEM-PASSPORT-SCHEMA">Goods Item Passport</link>, <link linkend="S-IMPORT-CUSTOMS-DECLARATION-SCHEMA">Import
               Customs Declaration</link>, <link linkend="S-PROOF-OF-REEXPORTATION-SCHEMA">Proof Of Reexportation</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REMINDER-SCHEMA">Proof Of Reexportation Reminder</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REQUEST-SCHEMA">Proof Of Reexportation
-              Request</link>, <link linkend="S-TRANSIT-CUSTOMS-DECLARATION">Transit Customs Declaration</link></para>
+              Request</link>, <link linkend="S-TRANSIT-CUSTOMS-DECLARATION-SCHEMA">Transit Customs Declaration</link></para>
         </blockquote>
       </section>
       <section id="S-SCHEMA-CHANGES-FROM-UBL-2.2-TO-UBL-2.3">
@@ -4786,12 +4788,12 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
             </listitem>
           </itemizedlist>
           <para>The following table sums up the differences between the XML elements in the UBL 2.2 Common Library and those in the UBL 2.3 Common Library.</para>
-          <table id="T-SUMMARY-CHANGES-TO-LIBRARY-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-CSPRD03-TO-2.2">&summary-old2new-version-library;</table>
+          <table conformance="skip" id="T-SUMMARY-CHANGES-TO-LIBRARY-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-&STAGE;-TO-2.2"><title>Summary changes to Library Elements Universal Business Language UBL 2.3 &STAGE; to 2.2</title>&summary-old2new-version-library;</table>
         </section>
         <section id="S-CHANGES-TO-DOCUMENT-ELEMENTS-UBL-2.2-TO-UBL-2.3">
           <title>Changes to Document Elements, UBL 2.2 to UBL 2.3</title>
           <para>The following table sums up the differences between the XML elements in the UBL 2.2 document schemas and those in the UBL 2.3 document schemas.</para>
-          <table id="T-SUMMARY-CHANGES-TO-DOCUMENT-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-CSPRD03-TO-2.2">&summary-old2new-version-documents;</table>
+          <table conformance="skip" id="T-SUMMARY-CHANGES-TO-DOCUMENT-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-&STAGE;-TO-2.2"><title>Summary changes to Document Elements Universal Business Language UBL 2.3 &stage; to 2.2</title>&summary-old2new-version-documents;</table>
         </section>
       </section>
       <section id="S-SCHEMA-CHANGES-FROM-UBL-2.3-CSPRD02-TO-UBL-2.3-CSPRD03">
@@ -4805,12 +4807,12 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
         <section id="S-CHANGES-TO-LIBRARY-ELEMENTS-UBL-2.3-CSPRD02-TO-UBL-2.3-CSPRD03">
           <title>Changes to Library Elements, UBL 2.3 csprd02 to UBL 2.3 csprd03</title>
           <para>The following table sums up the differences between the XML elements in the common libraries of development versions.</para>
-          <table id="T-SUMMARY-CHANGES-TO-LIBRARY-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-CSPRD03-TO-2.3-CSPRD02">&summary-old2new-stage-library;</table>
+          <table conformance="skip" id="T-SUMMARY-CHANGES-TO-LIBRARY-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-&STAGE;-TO-2.3-&PSTAGE;"><title>Summary changes to Library Elements Universal Business Language UBL 2.3 &stage; to 2.3 &pstage;</title>&summary-old2new-stage-library;</table>
         </section>
         <section id="S-CHANGES-TO-DOCUMENT-ELEMENTS-UBL-2.3-CSPRD02-TO-UBL-2.3-CSPRD03">
           <title>Changes to Document Elements, UBL 2.3 csprd02 to UBL 2.3 csprd03</title>
           <para>The following table sums up the differences between the XML elements in the common libraries of development versions.</para>
-          <table id="T-SUMMARY-CHANGES-TO-DOCUMENT-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-CSPRD03-TO-2.3-CSPRD02">&summary-old2new-stage-documents;</table>
+          <table conformance="skip" id="T-SUMMARY-CHANGES-TO-DOCUMENT-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-&STAGE;-TO-2.3-&PSTAGE;"><title>Summary changes to Document Elements Universal Business Language UBL 2.3 &stage; to 2.3 &pstage;</title>&summary-old2new-stage-documents;</table>
         </section>
       </section>
       <section id="S-EDITORIAL-CHANGES-FROM-UBL-2.2-TO-UBL-2.3">
@@ -4835,11 +4837,11 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
           <xref linkend="A-REVISION-HISTORY"/> adds details of the changes from UBL 2.2 to UBL 2.3. The first subsection <xref linkend="S-THE-BUSINESS-AND-REGULATORY-IMPACT-OF-UBL-MAJOR-AND-MINOR-REVISIONS"/> has been entirely rewritten from UBL 2.2 to assist in the understanding of the impact of
           major and minor revisions.</para>
         <para>
-          <xref linkend="A-THE-UBL-2.3-DATA-MODEL"/> is unchanged from UBL 2.2 with the exception of revisions to a diagram.</para>
+          <xref linkend="A-THE-UBL-2.3-DATA-MODEL"/> is changed from UBL 2.2 to include revisions to a diagram and a summary of the use of the spreadsheet columns.</para>
         <para>
           <xref linkend="A-DATA-TYPE-QUALIFICATIONS-IN-UBL"/> is unchanged from UBL 2.2.</para>
         <para>
-          <xref linkend="A-UBL-2.3-CODE-LISTS-AND-TWO-PHASE-VALIDATION"/> is unchanged from UBL 2.2 with the exception of the list of code lists.</para>
+          <xref linkend="A-UBL-2.3-CODE-LISTS-AND-TWO-PHASE-VALIDATION"/> is changed from UBL 2.2 to revise the list of code lists and to include an illustrative example of a Schematron script for the UBL additional document constraints.</para>
         <para>
           <xref linkend="A-UBL-2.3-EXAMPLE-DOCUMENT-INSTANCES"/> includes a revised list of example instances.</para>
         <para>
@@ -5038,13 +5040,13 @@ xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
       <para>
         <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Period.Details" conformance="skip" role="DEN-Name" remap="Period. Details">Period</ulink>
-        </literal> will be found at line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Period.Details" conformance="skip" role="DEN-Row" remap="Period. Details">1595</ulink> and seen to contain a number of possible BBIE children, all of them optional; and the ASBIE <literal>
+        </literal> will be found at line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Period.Details" conformance="skip" role="DEN-Row" remap="Period. Details">1703</ulink> and seen to contain a number of possible BBIE children, all of them optional; and the ASBIE <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Invoice.Invoice_Period.Period" conformance="skip" role="DEN-Name" remap="Invoice. Invoice_ Period. Period">InvoicePeriod</ulink>
         </literal> in <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Invoice.Details" conformance="skip" role="DEN-Name" remap="Invoice. Details">Invoice</ulink>
         </literal> therefore has this structure, too. From this one could conclude that instantiations of the <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Period.Details" conformance="skip" role="DEN-Name" remap="Period. Details">Period</ulink>
-        </literal> structure (there are more than 50 of them in UBL) need not contain any of the seven optional BBIE elements specified after line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Period.Details" conformance="skip" role="DEN-Row" remap="Period. Details">1595</ulink>, and
+        </literal> structure (there are more than 50 of them in UBL) need not contain any of the seven optional BBIE elements specified after line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Period.Details" conformance="skip" role="DEN-Row" remap="Period. Details">1703</ulink>, and
         indeed the corresponding declaration of the complex type <literal>PeriodType</literal> in the CAC schema (<literal>
           <ulink url="xsd/common/UBL-CommonAggregateComponents-2.3.xsd">xsd/common/UBL-CommonAggregateComponents-2.3.xsd</ulink>
         </literal>) shows that an empty <literal>
@@ -5080,24 +5082,24 @@ xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-CustomerParty.Details" conformance="skip" role="DEN-Name" remap="Customer Party. Details">CustomerParty</ulink>
         </literal> ABIE. Checking in the Common Library, it is seen that both <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-SupplierParty.Details" conformance="skip" role="DEN-Name" remap="Supplier Party. Details">SupplierParty</ulink>
-        </literal> (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-SupplierParty.Details" conformance="skip" role="DEN-Row" remap="Supplier Party. Details">2150</ulink> of the Common Library) and <literal>
+        </literal> (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-SupplierParty.Details" conformance="skip" role="DEN-Row" remap="Supplier Party. Details">2329</ulink> of the Common Library) and <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-CustomerParty.Details" conformance="skip" role="DEN-Name" remap="Customer Party. Details">CustomerParty</ulink>
-        </literal> (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-CustomerParty.Details" conformance="skip" role="DEN-Row" remap="Customer Party. Details">598</ulink> of the Common Library) can contain an ASBIE named <literal>Party</literal> (as shown in lines <ulink
-          url="mod/summary/reports/UBL-Invoice-2.3.html#Table-SupplierParty.Party" conformance="skip" role="DEN-Row" remap="Supplier Party. Party">2154</ulink> and <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-CustomerParty.Party" conformance="skip" role="DEN-Row"
-          remap="Customer Party. Party">602</ulink>, respectively) and that each <literal>Party</literal> ASBIE is an instantiation of the <literal>
+        </literal> (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-CustomerParty.Details" conformance="skip" role="DEN-Row" remap="Customer Party. Details">640</ulink> of the Common Library) can contain an ASBIE named <literal>Party</literal> (as shown in lines <ulink
+          url="mod/summary/reports/UBL-Invoice-2.3.html#Table-SupplierParty.Party" conformance="skip" role="DEN-Row" remap="Supplier Party. Party">2333</ulink> and <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-CustomerParty.Party" conformance="skip" role="DEN-Row"
+          remap="Customer Party. Party">644</ulink>, respectively) and that each <literal>Party</literal> ASBIE is an instantiation of the <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Party.Details" conformance="skip" role="DEN-Name" remap="Party. Details">Party</ulink>
-        </literal> ABIE (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Party.Details" conformance="skip" role="DEN-Row" remap="Party. Details">1486</ulink>). Therefore both parties have the same structure (the BBIEs and ASBIEs following line <ulink
-          url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Party.Details" conformance="skip" role="DEN-Row" remap="Party. Details">1486</ulink>). Thus <literal>
+        </literal> ABIE (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Party.Details" conformance="skip" role="DEN-Row" remap="Party. Details">1594</ulink>). Therefore both parties have the same structure (the BBIEs and ASBIEs following line <ulink
+          url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Party.Details" conformance="skip" role="DEN-Row" remap="Party. Details">1594</ulink>). Thus <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Invoice.Accounting_SupplierParty.SupplierParty" conformance="skip" role="DEN-Name" remap="Invoice. Accounting_ Supplier Party. Supplier Party">AccountingSupplierParty</ulink>
         </literal> and <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Invoice.Accounting_CustomerParty.CustomerParty" conformance="skip" role="DEN-Name" remap="Invoice. Accounting_ Customer Party. Customer Party">AccountingCustomerParty</ulink>
         </literal> share the information components common to parties in general and differ in the information specific to suppliers and customers. Parties commonly have a <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Party.PartyName" conformance="skip" role="DEN-Name" remap="Party. Party Name">PartyName</ulink>
-        </literal> (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Party.PartyName" conformance="skip" role="DEN-Row" remap="Party. Party Name">1494</ulink>) that derives (the Associated Object Class column) from the ABIE <literal>
+        </literal> (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Party.PartyName" conformance="skip" role="DEN-Row" remap="Party. Party Name">1602</ulink>) that derives (the Associated Object Class column) from the ABIE <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-PartyName.Details" conformance="skip" role="DEN-Name" remap="Party Name. Details">PartyName</ulink>
-        </literal> (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-PartyName.Details" conformance="skip" role="DEN-Row" remap="Party Name. Details">1526</ulink>), which is a wrapper for the BBIE <literal>
+        </literal> (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-PartyName.Details" conformance="skip" role="DEN-Row" remap="Party Name. Details">1634</ulink>), which is a wrapper for the BBIE <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-PartyName.Name" conformance="skip" role="DEN-Name" remap="Party Name. Name">Name</ulink>
-        </literal> (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-PartyName.Name" conformance="skip" role="DEN-Row" remap="Party Name. Name">1527</ulink>). A conforming piece of the document instance might therefore look like this: </para>
+        </literal> (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-PartyName.Name" conformance="skip" role="DEN-Row" remap="Party Name. Name">1635</ulink>). A conforming piece of the document instance might therefore look like this: </para>
       <programlisting role="font-size-92%"><![CDATA[  <cac:AccountingSupplierParty>
     <cac:Party>
       <cac:PartyName>
@@ -5124,7 +5126,7 @@ xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
         </literal> first, it is found in the Common Library to be derived from <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-MonetaryTotal.Details" conformance="skip" role="DEN-Name" remap="Monetary Total. Details">MonetaryTotal</ulink>
         </literal> (line <literal>
-          <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-MonetaryTotal.Details" conformance="skip" role="DEN-Row" remap="Monetary Total. Details">1408</ulink>), which has a mandatory <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-MonetaryTotal.Payable_Amount.Amount"
+          <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-MonetaryTotal.Details" conformance="skip" role="DEN-Row" remap="Monetary Total. Details">1515</ulink>), which has a mandatory <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-MonetaryTotal.Payable_Amount.Amount"
             conformance="skip" role="DEN-Name" remap="Monetary Total. Payable_ Amount. Amount">PayableAmount</ulink>
         </literal> BBIE. A corresponding example instance fragment might be therefore be constructed as follows:</para>
       <programlisting role="font-size-92%"><![CDATA[  <cac:LegalMonetaryTotal>
@@ -5137,7 +5139,7 @@ xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Invoice.Legal_MonetaryTotal.MonetaryTotal" conformance="skip" role="DEN-Name" remap="Invoice. Legal_ Monetary Total. Monetary Total">LegalMonetaryTotal</ulink>
         </literal> element shown above except the <literal>currencyID</literal> attribute on <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-MonetaryTotal.Payable_Amount.Amount" conformance="skip" role="DEN-Name" remap="Monetary Total. Payable_ Amount. Amount">PayableAmount</ulink>
-        </literal>, which does not appear explicitly in the model line for that BBIE (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-MonetaryTotal.Payable_Amount.Amount" conformance="skip" role="DEN-Row" remap="Monetary Total. Payable_ Amount. Amount">1417</ulink>). This is because
+        </literal>, which does not appear explicitly in the model line for that BBIE (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-MonetaryTotal.Payable_Amount.Amount" conformance="skip" role="DEN-Row" remap="Monetary Total. Payable_ Amount. Amount">1524</ulink>). This is because
         UBL does not define the primitive data types upon which the model is built; instead it uses standard data type definitions from <xref linkend="ccts"/> and <xref linkend="xsd2"/>. In the case of <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-MonetaryTotal.Payable_Amount.Amount" conformance="skip" role="DEN-Name" remap="Monetary Total. Payable_ Amount. Amount">PayableAmount</ulink>
         </literal>, the CCTS data type (the Data Type column) is &#8220;Amount. Type&#8221; (the space is part of the name), and that type is defined in <xref linkend="ccts"/> itself (Table 8-1 of the CCTS 2.01 specification). There it will be seen that &#8220;Amount. Type&#8221; has two
@@ -6895,6 +6897,12 @@ No code list validation errors.</programlisting>
           </row>
         </thead>
         <tbody>
+          <row>
+            <entry>csd03</entry>
+            <entry>29 July 2020</entry>
+            <entry>GKH</entry>
+            <entry>More TSC additions; preparation of voting document.</entry>
+          </row>
           <row>
             <entry>csd03wd03</entry>
             <entry>26 June 2020</entry>

@@ -11,12 +11,18 @@ version=$3
 echo Building package...
 java -Dant.home=utilities/ant -classpath db/spec-0.8/validate/xjparse.jar:utilities/ant/lib/ant-launcher.jar:db/spec-0.8/validate/saxon9he.jar:. org.apache.tools.ant.launch.Launcher -buildfile publishUBL23Docs.xml -Ddir=$1 -Dstage=$UBLstage -Dversion=$version -Ddatetimelocal=$4 -Dsetareuser=$5 -Dsetarepass=$6 | tee hub.console.$3.txt
 serverReturn=${PIPESTATUS[0]}
+echo $serverReturn >hub.exitcode.$3.txt
+
+if [ -f $1/$package-$UBLstage-$version-archive-only.zip ]
+then
+7z a $1/$package-$UBLstage-$version-archive-only.zip hub.console.$3.txt hub.exitcode.$3.txt
+fi
 
 if [ ! -d $1 ]; then mkdir $1 ; fi
 if [ ! -d $1/hub-$package-$UBLstage-$version ]; then mkdir $1/hub-$package-$UBLstage-$version ; fi
 if [ ! -d $1/hub-$package-$UBLstage-$version/archive-only-not-in-final-distribution/ ]; then mkdir $1/hub-$package-$UBLstage-$version/archive-only-not-in-final-distribution/ ; fi
-mv hub.console.$3.txt $1/hub-$package-$UBLstage-$version/archive-only-not-in-final-distribution/
-echo $serverReturn >$1/hub-$package-$UBLstage-$version/archive-only-not-in-final-distribution/hub.exitcode.$3.txt
+mv  hub.console.$3.txt $1/hub-$package-$UBLstage-$version/archive-only-not-in-final-distribution/
+mv hub.exitcode.$3.txt $1/hub-$package-$UBLstage-$version/archive-only-not-in-final-distribution/
 
 # reduce GitHub storage costs by zipping results and deleting intermediate files
 pushd $1

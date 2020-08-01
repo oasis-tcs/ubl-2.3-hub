@@ -714,60 +714,12 @@
          </row>
          <row>
             <entry align="left">Party</entry>
-            <entry align="left">Receiving Logistic Operator</entry>
-            <entry align="left">The party who in the role of a logistic operator is receiving a <link linkend="S-MANIFEST-SCHEMA">Manifest</link>
-            </entry>
-            <entry align="left">A ground handling in an airport receives a <link linkend="S-MANIFEST-SCHEMA">Manifest</link> from a logistic operator.</entry>
-            <entry align="left"/>
-            <entry align="left"/>
-            <entry align="left">
-               <link linkend="S-MANIFEST-SCHEMA">Manifest</link>
-            </entry>
-         </row>
-         <row>
-            <entry align="left">Party</entry>
-            <entry align="left">Sending Logistic Operator</entry>
-            <entry align="left">The party who in the role of a logistic operator is sending a <link linkend="S-MANIFEST-SCHEMA">Manifest</link>
-            </entry>
-            <entry align="left">A logistic operator consolidates some goods in a terminal and ships it along with a <link linkend="S-MANIFEST-SCHEMA">Manifest</link> to a ground handler in an Airport</entry>
-            <entry align="left">Freight Forwarder</entry>
-            <entry align="left">
-               <link linkend="S-MANIFEST-SCHEMA">Manifest</link>
-            </entry>
-            <entry align="left"/>
-         </row>
-         <row>
-            <entry align="left">Party</entry>
             <entry align="left">Customs</entry>
             <entry align="left">The party who is receiving a Customs Declaration</entry>
             <entry align="left">A Customs Party receives a <link linkend="S-EXPORT-CUSTOMS-DECLARATION-SCHEMA">Export Customs Declaration</link> from a Exporter Party</entry>
             <entry align="left"/>
             <entry align="left">
                <link linkend="S-EXPORT-CUSTOMS-DECLARATION-SCHEMA">Export Customs Declaration</link>
-            </entry>
-            <entry align="left"/>
-         </row>
-         <row>
-            <entry align="left">Party</entry>
-            <entry align="left">Authority</entry>
-            <entry align="left">The party who is receiving a <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link>
-            </entry>
-            <entry align="left">An Authority party receives a <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link> from a Logistics operator as reporter</entry>
-            <entry align="left"/>
-            <entry align="left"/>
-            <entry align="left">
-               <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link>
-            </entry>
-         </row>
-         <row>
-            <entry align="left">Party</entry>
-            <entry align="left">Reporter</entry>
-            <entry align="left">The party who is sending a <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link>
-            </entry>
-            <entry align="left">A Logistic operator sends a <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link> to a harbour</entry>
-            <entry align="left">Logistics Operator</entry>
-            <entry align="left">
-               <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link>
             </entry>
             <entry align="left"/>
          </row>

@@ -11,6 +11,10 @@
   <echo message="version=${version}"/>
   <echo message="datetimelocal=${datetimelocal}"/>
 
+  <!--test skip-publish.txt to preserve the old genericode model file-->
+  <available property="skip-publish" file="skip-publish.txt"/>
+  <echo if:set="skip-publish" message="!!!!!!!!!!!!!! Incomplete execution requested: UBL-Entities-2.3.gc not being generated from the given spreadsheets; delete skip-publish.txt to restore normal operation!!!!!!!!!!!!!!!!"/>
+
   <!--copy all entity replacements generated from the artefacts, preserving
       the date and time stamp so that the file can be checked for changes-->
   <copy preservelastmodified="true" todir="." failonerror="false"
@@ -26,35 +30,51 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   <delete  file="${dir}/missing---UBL-2.3-pdf---missing.txt"/>
   <delete  file="${dir}/missing---iso-iec-19845-draft-pdf---missing.txt"/>
 
-  <antcallback target="-make-xml" return="validatedInputs"/>
+  <antcallback target="-check-xml" return="docs-UBL-xml-okay"/>
 
-  <!--if not attempting to update files, ignore the update of PDF and HTML
-      by making the assumption that the files are up-to-date already, but
-      then delete them -->
-  <condition property="not-attempting-to-produce-necessary-results">
-    <and>
-      <not>
-        <isset property="docs-UBL-xml-okay"/>
-      </not>
-      <equals arg1="${setareuser}" arg2=""/>
-    </and>
-  </condition>
-  <condition property="docs-UBL-okay">
-    <isset property="not-attempting-to-produce-necessary-results"/>
-  </condition>
-  <antcall target="-delete-results-not-being-produced"
-           if:set="validatedInputs"/>
+  <sequential if:set="skip-publish">
+    <copy preservelastmodified="true"
+          todir="${dir}">
+      <fileset dir=".">
+        <include name="UBL-2.3.xml"/>
+        <include name="UBL-2.3-preview.html"/>
+        <include name="UBL-2.3.html"/>
+        <include name="UBL-2.3.pdf"/>
+        <include name="iso-iec-19845-draft.pdf"/>
+      </fileset>
+    </copy>
+  </sequential>
+  <sequential>
+    <antcallback target="-make-xml" return="validatedInputs"/>
   
-  <!--At this point either the results are up-to-date because of no changes,
-      the results are not up-to-date and they've been deleted because there
-      is no access to the server, or the results are not up-to-date and the
-      server will be called to update them.
-      This allows someone without server access to process the XML to get
-      almost a complete result.
-  -->
-
-  <antcall target="-make-docs" if:set="validatedInputs"/>
+    <!--if not attempting to update files, ignore the update of PDF and HTML
+        by making the assumption that the files are up-to-date already, but
+        then delete them -->
+    <condition property="not-attempting-to-produce-necessary-results">
+      <and>
+        <not>
+          <isset property="docs-UBL-xml-okay"/>
+        </not>
+        <equals arg1="${setareuser}" arg2=""/>
+      </and>
+    </condition>
+    <condition property="docs-UBL-okay">
+      <isset property="not-attempting-to-produce-necessary-results"/>
+    </condition>
+    <antcall target="-delete-results-not-being-produced"
+             if:set="validatedInputs"/>
+    
+    <!--At this point either the results are up-to-date because of no changes,
+        the results are not up-to-date and they've been deleted because there
+        is no access to the server, or the results are not up-to-date and the
+        server will be called to update them.
+        This allows someone without server access to process the XML to get
+        almost a complete result.
+    -->
   
+    <antcall target="-make-docs" if:set="validatedInputs"/>
+  </sequential> 
+ 
   <antcall target="-package-docs"/>
 
   <!--At this point all of the documentation has been zipped up in its own
@@ -96,7 +116,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   </uptodate>  
 </target>
 
-<target name="-make-xml" depends="-check-xml" unless="docs-UBL-xml-okay">
+<target name="-make-xml" unless="docs-UBL-xml-okay">
   <delete file="${dir}/UBL-2.3.xml"/>
   <delete file="${dir}/UBL-2.3-assembled.xml"/>
   <!--create all entity replacements generated from contribution files-->
@@ -465,7 +485,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
 
 <target name="-check-package-distribution">
   <available property="ready-package-distribution"
-             file="${dir}/artefacts-UBL-2.3-${stage}-${version}.zip"/>
+             file="${dir}/artefacts-UBL-2.3-${stage}-${version}/mod/UBL-Entities-2.3.gc"/>
 </target>
 
 <target name="-package-distribution" depends="-check-package-distribution" 
@@ -493,13 +513,16 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   </copy>
   
   <!--artefacts archive moved to distribution archive-->  
-  <move tofile="${dir}/UBL-2.3-${stage}-${version}-archive-only"
-        file="${dir}/UBL-2.3-${stage}-${version}/archive-only-not-for-distribution"
-   />
-  <!--peel off the STS results into the archive-->
+  <move todir="${dir}/UBL-2.3-${stage}-${version}-archive-only">
+    <fileset dir="${dir}/UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution">
+      <include name="**"/>
+    </fileset>
+  </move>
+   
+  <!--peel off the STS results into the archive
   <move file="${dir}/UBL-2.3-${stage}-${version}/iso-iec-19845-draft-sts"
         todir="${dir}/UBL-2.3-${stage}-${version}/archive-only"
-        failonerror="false"/>
+        failonerror="false"/>-->
   <!--use "copy" to distribute ISO draft to all, "move" for only archive-->
   <copy file="${dir}/UBL-2.3-${stage}-${version}/iso-iec-19845-draft.pdf"
         todir="${dir}/UBL-2.3-${stage}-${version}/"
@@ -545,6 +568,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
      <arg value="gc-uri=${dir}/UBL-2.3-${stage}-${version}/mod/UBL-Entities-2.3.gc"/>
     <arg value="pub-version=2.3"/>
   </java>
+  <echo message="Integrity checking completed"/>
 </target>
 
 </project>

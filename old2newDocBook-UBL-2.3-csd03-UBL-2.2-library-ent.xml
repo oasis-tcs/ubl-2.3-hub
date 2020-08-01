@@ -1,5 +1,4 @@
-<title>Summary changes to Library Elements UBL 2.3</title>
-<tgroup cols="3"><!--Library UBL 2.3-->
+<!--Summary changes to Library Elements UBL 2.3--><tgroup cols="3"><!--Library UBL 2.3-->
    <colspec colwidth="35*"/>
    <colspec colwidth="35*"/>
    <colspec colwidth="30*"/>
@@ -278,6 +277,22 @@
       <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
          <entry>
             <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ContractingActivity.Details">ContractingActivity</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ContractingActivity.ActivityType.Text">ActivityType</ulink>
+         </entry>
+         <entry>Changed cardinality from 0..1 to 0..n</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
                    url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ContractingParty.Details">ContractingParty</ulink>
          </entry>
          <entry> </entry>
@@ -290,6 +305,22 @@
                    url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ContractingParty.ContractingRepresentationType">ContractingRepresentationType</ulink>
          </entry>
          <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ContractingPartyType.Details">ContractingPartyType</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ContractingPartyType.PartyType.Text">PartyType</ulink>
+         </entry>
+         <entry>Changed cardinality from 0..1 to 0..n</entry>
       </row>
       <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
          <entry>
@@ -514,6 +545,14 @@
          </entry>
          <entry> </entry>
          <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-DocumentReference.DocumentType.Text">DocumentType</ulink>
+         </entry>
+         <entry>Changed cardinality from 0..1 to 0..n</entry>
       </row>
       <row>
          <entry> </entry>
@@ -854,6 +893,22 @@
       <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
          <entry>
             <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-PartyLegalEntity.Details">PartyLegalEntity</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-PartyLegalEntity.CompanyLegalForm.Text">CompanyLegalForm</ulink>
+         </entry>
+         <entry>Changed cardinality from 0..1 to 0..n</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
                    url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-PaymentMeans.Details">PaymentMeans</ulink>
          </entry>
          <entry> </entry>
@@ -1034,6 +1089,22 @@
                    url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-QuotationLine.TaxInclusive_LineExtensionAmount.Amount">TaxInclusiveLineExtensionAmount</ulink>
          </entry>
          <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Regulation.Details">Regulation</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Regulation.Name">Name</ulink>
+         </entry>
+         <entry>Changed cardinality from 1 to 1..n</entry>
       </row>
       <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
          <entry>
@@ -1258,6 +1329,22 @@
                    url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-TenderLine.TaxInclusive_LineExtensionAmount.Amount">TaxInclusiveLineExtensionAmount</ulink>
          </entry>
          <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-TenderRequirement.Details">TenderRequirement</ulink>
+         </entry>
+         <entry> </entry>
+         <entry> </entry>
+      </row>
+      <row>
+         <entry> </entry>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-TenderRequirement.Name">Name</ulink>
+         </entry>
+         <entry>Changed cardinality from 1 to 1..n</entry>
       </row>
       <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
          <entry>

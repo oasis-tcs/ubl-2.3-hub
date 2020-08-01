@@ -111,6 +111,7 @@
                         concat('(
                                 ( Legend\d.png ) |
                                 ( art/oasis-spec.css ) |
+                                ( val/notices- ) |
                                 ( art/OASISLogo.jpg ) |
                                 ( ^UBL-',$pub-version,'\.(xml|html|pdf)$ )
                                )')"/>
@@ -336,7 +337,7 @@
     <xsl:for-each select="$updateDocumentSchemas
    [not(@linkend=concat('S-',translate(upper-case(normalize-space(.)),' ','-'),
                         '-SCHEMA'))]">
-      <xsl:text>Update list schema not pointed to correct section: </xsl:text>
+<xsl:text>Update annex list schema not pointing to correct schema section: </xsl:text>
       <xsl:value-of select="."/>
       <xsl:text>&#xa;</xsl:text>
     </xsl:for-each>

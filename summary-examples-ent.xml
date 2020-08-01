@@ -7,11 +7,6 @@
       </member>
       <member>
          <literal>
-            <ulink url="xml/UBL-CommonTransportationReport-2.3-Example.xml">xml/UBL-CommonTransportationReport-2.3-Example.xml</ulink>
-         </literal>
-      </member>
-      <member>
-         <literal>
             <ulink url="xml/UBL-CreditNote-2.0-Example.xml">xml/UBL-CreditNote-2.0-Example.xml</ulink>
          </literal>
       </member>
@@ -133,11 +128,6 @@
       <member>
          <literal>
             <ulink url="xml/UBL-Invoice-2.1-Example-Trivial.xml">xml/UBL-Invoice-2.1-Example-Trivial.xml</ulink>
-         </literal>
-      </member>
-      <member>
-         <literal>
-            <ulink url="xml/UBL-Manifest-2.3-Example.xml">xml/UBL-Manifest-2.3-Example.xml</ulink>
          </literal>
       </member>
       <member>

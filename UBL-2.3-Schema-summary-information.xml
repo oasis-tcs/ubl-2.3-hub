@@ -1111,7 +1111,7 @@
 		<receiverRole>Exporting Guarantor party</receiverRole>
 		<examples><example>UBL-ProofOfReexportationRequest-2.3-Example.xml</example></examples>
 	</schema>
-	
+<!--
 	<schema>
 		<name>Manifest</name>
 		<description>A document used to specify the quantity and nature of cargo and personel for a single shipment stage often expressed as a set of consignments.</description>
@@ -1133,5 +1133,5 @@
 		<receiverRole>Authority party</receiverRole>
 		<examples><example>UBL-CommonTransportationReport-2.3-Example.xml</example></examples>
 	</schema>
-
+-->
 </schemadocs>
