@@ -27,6 +27,8 @@
 
 <target name="-setare">
   <property name="servername"
+            value="run.setaresolutions.com"/>
+  <property name="servername"
             value="qatest-api.setaresolutions.com/v2"/>
   <property name="dateprefix" value=""/>
   
