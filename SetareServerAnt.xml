@@ -1,7 +1,7 @@
 <project default="-setare" xmlns:if="ant:if" xmlns:unless="ant:unless">
 
 <!--
-  2020-08-02 15:10z
+  2020-08-02 15:20z
   
   This Ant project interacts with the Setare Server API using curl.
   
@@ -237,6 +237,24 @@
 </target>
 
 <target name="-setare-retrieve-v2">
+  <!--
+    note this is particularly long in case the job gets queued before running
+  -->
+  <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
+  <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
+  <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
+  <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
+  <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
+  <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
+  <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
+  <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
+  <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
+  <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
+  <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
+  <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
+  <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
+  <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
+  <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
   <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
   <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
   <antcallback target="-setare-fetch-v2" return="fetch-okay" unless:set="fetch-okay"/>
