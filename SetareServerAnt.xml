@@ -1,7 +1,7 @@
 <project default="-setare" xmlns:if="ant:if" xmlns:unless="ant:unless">
 
 <!--
-  2020-07-06 18:00z
+  2020-08-02 15:10z
   
   This Ant project interacts with the Setare Server API using curl.
   
@@ -27,9 +27,9 @@
 
 <target name="-setare">
   <property name="servername"
-            value="run.setaresolutions.com"/>
-  <property name="servername"
             value="qatest-api.setaresolutions.com/v2"/>
+  <property name="servername"
+            value="run.setaresolutions.com"/>
   <property name="dateprefix" value=""/>
   
   <condition property="doAPIv1">
@@ -114,35 +114,22 @@
             pattern="YYYY-MM-dd HH:mm:ssZ"/>
   </tstamp>
   <echo message='Submitting "${dateprefix} ${submitTime}" to "${entrypoint}" ...'/>
-  <echo message='
-  &lt;exec executable="curl" errorproperty="errSubmit"
-        resultproperty="returnSubmit"
-        outputproperty="jobidReturn">
-    &lt;arg value="--request"/>&lt;arg value="POST"/>
-    &lt;arg value="--url"/>&lt;arg value="https://${servername}/jobs"/>
-    &lt;arg value="--form"/>&lt;arg value="entrypoint=${entrypoint}"/>
-    &lt;arg value="--form"/>&lt;arg value="files=@${fileupload};type=application/zip"/>
-    &lt;arg value="--form"/>&lt;arg value="note=${dateprefix} ${submitTime}"/>
-    &lt;arg value="--location"/>
-    &lt;arg value="--output"/>&lt;arg value="-"/>
-    &lt;arg value="--header"/>&lt;arg value="authorization: Bearer ${token}"/>
-    &lt;arg value="--header"/>&lt;arg value="accept: application/json"/>
-    &lt;arg value="--header"/>&lt;arg value="content-type: multipart/form-data; boundary=---011000010111000001101001"/>
-  &lt;/exec>
-    '/>
+<!--  <echo message='
+
+    '/>-->
   <exec executable="curl" errorproperty="errSubmit"
         resultproperty="returnSubmit"
         outputproperty="jobidReturn">
     <arg value="--request"/><arg value="POST"/>
     <arg value="--url"/><arg value="https://${servername}/jobs"/>
-    <arg value="--form"/><arg value="entrypoint=${entrypoint}"/>
-    <arg value="--form"/><arg value="files=@${fileupload};type=application/zip"/>
-    <arg value="--form"/><arg value="note=${dateprefix} ${submitTime}"/>
     <arg value="--location"/>
     <arg value="--output"/><arg value="-"/>
     <arg value="--header"/><arg value="authorization: Bearer ${token}"/>
     <arg value="--header"/><arg value="accept: application/json"/>
-    <arg value="--header"/><arg value="content-type: multipart/form-data; boundary=---011000010111000001101001"/>
+    <arg value="--form"/><arg value="files=@${fileupload};type=application/zip"/>
+    <arg value="--form"/><arg value="note=${dateprefix} ${submitTime}"/>
+    <arg value="--form"/><arg value="entrypoint=${entrypoint}"/>
+    <arg value="--verbose"/>
   </exec>
   <propertyregex property="jobid" input="${jobidReturn}"
                  regexp='.*"id"[^:]*:[^0-9]*([0-9]+).*' select="\1"/>
