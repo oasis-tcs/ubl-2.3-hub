@@ -1,7 +1,7 @@
 <project default="-setare" xmlns:if="ant:if" xmlns:unless="ant:unless">
 
 <!--
-  2020-08-02 15:20z
+  2020-09-15 23:50z
   
   This Ant project interacts with the Setare Server API using curl.
   
@@ -82,9 +82,12 @@
 
 <target name="-setare-authenticate-v2">
   <echo message="Authenticating..."/>
+  <condition property="onWindows">
+    <os family="windows"/>
+  </condition>
   <exec executable="curl" errorproperty="errAuthenticate" 
         resultproperty="returnAuthenticate"
-        outputproperty="tokenReturn">
+        outputproperty="tokenReturn" unless:set="onWindows">
     <arg value="--request"/><arg value="POST"/>
     <arg value="--url"/><arg value="https://${servername}/authenticate"/>
     <arg value="--location"/>
@@ -93,19 +96,33 @@
     <arg value="--data"/>
     <arg value='{"username":"${setareuser}","password":"${setarepass}"}'/>
   </exec>
+  <exec executable="curl" errorproperty="errAuthenticate" 
+        resultproperty="returnAuthenticate"
+        outputproperty="tokenReturn" if:set="onWindows">
+    <arg value="--request"/><arg value="POST"/>
+    <arg value="--url"/><arg value="https://${servername}/authenticate"/>
+    <arg value="--location"/>
+    <arg value="--header"/><arg value="content-type: application/json"/>
+    <arg value="--output"/><arg value="-"/>
+    <arg value="--data"/>
+    <arg value='{\"username\":\"${setareuser}\",\"password\":\"${setarepass}\"}'/>
+  </exec>
   <propertyregex property="token" input="${tokenReturn}"
                  regexp='"token"[^:]*:[^"]*"([^"]*)"' select="\1"/>
   <condition property="got-token">
     <and>
       <equals arg1="${returnAuthenticate}" arg2="0"/>
+      <isset property="token"/>
       <not>
         <equals arg1="${token}" arg2=""/>
       </not>
     </and>
   </condition>
   <!--<echo if:set="got-token" message="Returned token: ${token}"/>-->
-  <echo if:set="got-token" message="Token successfully returned from server"/>
-  <echo unless:set="got-token" message="Token was not returned from server"/>
+  <echo if:set="got-token"
+        message="Token successfully returned from server: ${token}"/>
+  <echo unless:set="got-token"
+        message="Token was not returned from server: ${tokenReturn} ${returnAuthenticate}"/>
 </target>
 
 <target name="-setare-submit-v2">
