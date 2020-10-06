@@ -8,7 +8,7 @@
   </condition>
   <!--documentation-->
   <echo message="stage=${stage}"/>
-  <echo message="version=${version}"/>
+  <echo message="version=${label}"/>
   <echo message="datetimelocal=${datetimelocal}"/>
 
   <!--test skip-publish.txt to preserve the old genericode model file-->
@@ -18,13 +18,13 @@
   <!--copy all entity replacements generated from the artefacts, preserving
       the date and time stamp so that the file can be checked for changes-->
   <copy preservelastmodified="true" todir="." failonerror="false"
-file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.2-documents-ent.xml"/>
+file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.2-documents-ent.xml"/>
   <copy preservelastmodified="true" todir="." failonerror="false"
-file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.2-library-ent.xml"/>
+file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.2-library-ent.xml"/>
   <copy preservelastmodified="true" todir="." failonerror="false"
-file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-documents-ent.xml"/>
+file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-documents-ent.xml"/>
   <copy preservelastmodified="true" todir="." failonerror="false"
-file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-library-ent.xml"/>
+file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-library-ent.xml"/>
   <!--remove any vestiges of a previous run indicating missing results-->
   <delete  file="${dir}/missing---UBL-2.3-html---missing.txt"/>
   <delete  file="${dir}/missing---UBL-2.3-pdf---missing.txt"/>
@@ -293,16 +293,16 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
 </target>
 
 <target name="-package-supplemental-html" if="html-supplemental-needed">
-  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/art"/>
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${label}/art"/>
   <copy preservelastmodified="true"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/art">
+        todir="${dir}/hub-UBL-2.3-${stage}-${label}/art">
     <fileset dir="htmlart">
      <include name="*"/>
     </fileset>
   </copy>
-  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/db"/>
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${label}/db"/>
   <copy preservelastmodified="true"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/db">
+        todir="${dir}/hub-UBL-2.3-${stage}-${label}/db">
     <fileset dir="db/spec-0.8/htmlruntime">
      <include name="**"/>
     </fileset>
@@ -310,9 +310,9 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
 </target>
 
 <target name="-package-supplemental-other" if="other-supplemental-needed">
-  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/art/artpdf"/>
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${label}/art/artpdf"/>
   <copy preservelastmodified="true"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/art/artpdf">
+        todir="${dir}/hub-UBL-2.3-${stage}-${label}/art/artpdf">
     <fileset dir="art">
      <include name="*"/>
     </fileset>
@@ -348,10 +348,10 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   <property name="not-attempting-to-produce-necessary-results" value="false"/>
   <!--<echo message="Diagnostics:${xml-made}, HTML:${html-made}, PDF:${pdf-made}, ISO:${iso-made}, SKIP:${not-attempting-to-produce-necessary-results} validatedInputs:${validatedInputs}"/>-->
 
-  <delete dir="${dir}/hub-UBL-2.3-${stage}-${version}"/>
-  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}"/>
+  <delete dir="${dir}/hub-UBL-2.3-${stage}-${label}"/>
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${label}"/>
   <copy preservelastmodified="true"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}">
+        todir="${dir}/hub-UBL-2.3-${stage}-${label}">
     <fileset dir="${dir}">
       <include name="UBL-2.3.xml"/>
       <include name="UBL-2.3-preview.html"/>
@@ -361,8 +361,8 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
       <include name="missing*missing.txt"/>
     </fileset>
   </copy>
-  <!--<mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/iso-iec-19845-draft-sts"/>
-  <copy preservelastmodified="true" todir="${dir}/hub-UBL-2.3-${stage}-${version}/iso-iec-19845-draft-sts">
+  <!--<mkdir dir="${dir}/hub-UBL-2.3-${stage}-${label}/iso-iec-19845-draft-sts"/>
+  <copy preservelastmodified="true" todir="${dir}/hub-UBL-2.3-${stage}-${label}/iso-iec-19845-draft-sts">
     <fileset dir=".">
       <include name="UBL-2.3.iso.graphics/**"/>
       <include name="iso-iec-19845-draft.xml"/>
@@ -383,39 +383,39 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
   </condition>
   <antcall target="-package-supplemental-other"/>
 
-  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"/>
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities"/>
   <condition property="ent-processes-okay">
     <length file="summary-processes-ent.xml" when="greater" length="2"/>
   </condition>
   <copy preservelastmodified="true" if:set="ent-processes-okay"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"
+        todir="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities"
         file="summary-processes-ent.xml"/>
   <condition property="ent-parties-okay">
     <length file="summary-parties-ent.xml" when="greater" length="2"/>
   </condition>
   <copy preservelastmodified="true" if:set="ent-parties-okay"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"
+        todir="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities"
         file="summary-parties-ent.xml"/>
   <condition property="ent-namespaces-okay">
     <length file="summary-namespaces-ent.xml" when="greater" length="2"/>
   </condition>
   <copy preservelastmodified="true" if:set="ent-namespaces-okay"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"
+        todir="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities"
         file="summary-namespaces-ent.xml"/>
   <condition property="ent-schemas-okay">
     <length file="summary-schemas-ent.xml" when="greater" length="2"/>
   </condition>
   <copy preservelastmodified="true" if:set="ent-schemas-okay"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"
+        todir="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities"
         file="summary-schemas-ent.xml"/>
   <condition property="ent-examples-okay">
     <length file="summary-examples-ent.xml" when="greater" length="2"/>
   </condition>
   <copy preservelastmodified="true" if:set="ent-examples-okay"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"
+        todir="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities"
         file="summary-examples-ent.xml"/>
   <copy preservelastmodified="true"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution">
+        todir="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution">
     <fileset dir=".">
       <include name="UBL.xml"/>
       <include name="UBL-2.3-Party-summary-information.xml"/>
@@ -423,36 +423,36 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
     </fileset>
   </copy>
   <move preservelastmodified="true"
-        todir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities">
+        todir="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/old-entities">
     <fileset dir="${dir}/old-entities">
       <include name="**"/>
     </fileset>
   </move>
   <condition property="ent-processes-same">
-    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities/summary-processes-ent.xml"
-                file2="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-processes-ent.xml"/>
+    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/old-entities/summary-processes-ent.xml"
+                file2="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities/summary-processes-ent.xml"/>
   </condition>
-  <delete if:set="ent-processes-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-processes-ent.xml"/>
+  <delete if:set="ent-processes-same" file="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities/summary-processes-ent.xml"/>
   <condition property="ent-parties-same">
-    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities/summary-parties-ent.xml"
-                file2="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-parties-ent.xml"/>
+    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/old-entities/summary-parties-ent.xml"
+                file2="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities/summary-parties-ent.xml"/>
   </condition>
-  <delete if:set="ent-parties-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-parties-ent.xml"/>
+  <delete if:set="ent-parties-same" file="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities/summary-parties-ent.xml"/>
   <condition property="ent-namespaces-same">
-    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities/summary-namespaces-ent.xml"
-                file2="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-namespaces-ent.xml"/>
+    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/old-entities/summary-namespaces-ent.xml"
+                file2="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities/summary-namespaces-ent.xml"/>
   </condition>
-  <delete if:set="ent-namespaces-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-namespaces-ent.xml"/>
+  <delete if:set="ent-namespaces-same" file="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities/summary-namespaces-ent.xml"/>
   <condition property="ent-schemas-same">
-    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities/summary-schemas-ent.xml"
-                file2="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-schemas-ent.xml"/>
+    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/old-entities/summary-schemas-ent.xml"
+                file2="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities/summary-schemas-ent.xml"/>
   </condition>
-  <delete if:set="ent-schemas-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-schemas-ent.xml"/>
+  <delete if:set="ent-schemas-same" file="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities/summary-schemas-ent.xml"/>
   <condition property="ent-examples-same">
-    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/old-entities/summary-examples-ent.xml"
-                file2="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-examples-ent.xml"/>
+    <filesmatch file1="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/old-entities/summary-examples-ent.xml"
+                file2="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities/summary-examples-ent.xml"/>
   </condition>
-  <delete if:set="ent-examples-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities/summary-examples-ent.xml"/>
+  <delete if:set="ent-examples-same" file="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities/summary-examples-ent.xml"/>
   <condition property="ent-all-same">
     <and>
       <isset property="ent-processes-same"/>
@@ -462,21 +462,21 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
       <isset property="ent-examples-same"/>
     </and>
   </condition>
-  <delete if:set="ent-all-same" dir="${dir}/hub-UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution/new-entities"/>
-  <touch unless:set="ent-all-same" file="${dir}/hub-UBL-2.3-${stage}-${version}/ATTENTION-new-entities.txt"/>
+  <delete if:set="ent-all-same" dir="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities"/>
+  <touch unless:set="ent-all-same" file="${dir}/hub-UBL-2.3-${stage}-${label}/ATTENTION-new-entities.txt"/>
 <!--
     Cannot create zip until console log and error exit files added to archive. 
     
-  <delete  file="${dir}/hub-UBL-2.3-${stage}-${version}.zip"/>
-  <zip destfile="${dir}/hub-UBL-2.3-${stage}-${version}.zip"
-       basedir="${dir}" includes="hub-UBL-2.3-${stage}-${version}/**"/>
-  <delete dir="${dir}/hub-UBL-2.3-${stage}-${version}"/>
-  <unzip src="${dir}/hub-UBL-2.3-${stage}-${version}.zip" 
+  <delete  file="${dir}/hub-UBL-2.3-${stage}-${label}.zip"/>
+  <zip destfile="${dir}/hub-UBL-2.3-${stage}-${label}.zip"
+       basedir="${dir}" includes="hub-UBL-2.3-${stage}-${label}/**"/>
+  <delete dir="${dir}/hub-UBL-2.3-${stage}-${label}"/>
+  <unzip src="${dir}/hub-UBL-2.3-${stage}-${label}.zip" 
          dest="${dir}"/>
 
   <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
     <fileset dir="${dir}">
-      <include name="hub-UBL-2.3-${stage}-${version}.zip"/>
+      <include name="hub-UBL-2.3-${stage}-${label}.zip"/>
     </fileset>
   </touch>
   -->
@@ -485,87 +485,91 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${version}/archive-only-not-in-final-dis
 
 <target name="-check-package-distribution">
   <available property="ready-package-distribution"
-             file="${dir}/artefacts-UBL-2.3-${stage}-${version}/mod/UBL-Entities-2.3.gc"/>
+             file="${dir}/artefacts-UBL-2.3-${stage}-${label}/mod/UBL-Entities-2.3.gc"/>
+  <echo unless:set="ready-package-distribution"
+        message="Documents only; distribution package skipped; artefacts not pre-prepared in ${dir}/artefacts-UBL-2.3-${stage}-${label}"/>
 </target>
 
 <target name="-package-distribution" depends="-check-package-distribution" 
         if="ready-package-distribution">
+  <echo message="Packaging results with artefacts..."/>
+  
   <!--old results no longer helpful-->
-  <delete  dir="${dir}/UBL-2.3-${stage}-${version}"/>
-  <mkdir   dir="${dir}/UBL-2.3-${stage}-${version}"/>
-  <delete  dir="${dir}/UBL-2.3-${stage}-${version}-archive-only"/>
-  <mkdir   dir="${dir}/UBL-2.3-${stage}-${version}-archive-only"/>
-  <delete file="${dir}/UBL-2.3-${stage}-${version}.zip"/>
-  <delete file="${dir}/UBL-2.3-${stage}-${version}-archive-only.zip"/>
+  <delete  dir="${dir}/UBL-2.3-${stage}-${label}"/>
+  <mkdir   dir="${dir}/UBL-2.3-${stage}-${label}"/>
+  <delete  dir="${dir}/UBL-2.3-${stage}-${label}-archive-only"/>
+  <mkdir   dir="${dir}/UBL-2.3-${stage}-${label}-archive-only"/>
+  <delete file="${dir}/UBL-2.3-${stage}-${label}.zip"/>
+  <delete file="${dir}/UBL-2.3-${stage}-${label}-archive-only.zip"/>
   
  <!--start the distribution directory with the contents of the artefacts
      package and then the contents of the hub package-->
-  <copy todir="${dir}/UBL-2.3-${stage}-${version}">
-    <fileset dir="${dir}/artefacts-UBL-2.3-${stage}-${version}">
+  <copy todir="${dir}/UBL-2.3-${stage}-${label}">
+    <fileset dir="${dir}/artefacts-UBL-2.3-${stage}-${label}">
       <include name="**"/>
     </fileset>
   </copy>
 
-  <copy todir="${dir}/UBL-2.3-${stage}-${version}">
-    <fileset dir="${dir}/hub-UBL-2.3-${stage}-${version}">
+  <copy todir="${dir}/UBL-2.3-${stage}-${label}">
+    <fileset dir="${dir}/hub-UBL-2.3-${stage}-${label}">
       <include name="**"/>
     </fileset>
   </copy>
   
   <!--artefacts archive moved to distribution archive-->  
-  <move todir="${dir}/UBL-2.3-${stage}-${version}-archive-only">
-    <fileset dir="${dir}/UBL-2.3-${stage}-${version}/archive-only-not-in-final-distribution">
+  <move todir="${dir}/UBL-2.3-${stage}-${label}-archive-only">
+    <fileset dir="${dir}/UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution">
       <include name="**"/>
     </fileset>
   </move>
    
   <!--peel off the STS results into the archive
-  <move file="${dir}/UBL-2.3-${stage}-${version}/iso-iec-19845-draft-sts"
-        todir="${dir}/UBL-2.3-${stage}-${version}/archive-only"
+  <move file="${dir}/UBL-2.3-${stage}-${label}/iso-iec-19845-draft-sts"
+        todir="${dir}/UBL-2.3-${stage}-${label}/archive-only"
         failonerror="false"/>-->
   <!--use "copy" to distribute ISO draft to all, "move" for only archive-->
-  <copy file="${dir}/UBL-2.3-${stage}-${version}/iso-iec-19845-draft.pdf"
-        todir="${dir}/UBL-2.3-${stage}-${version}/"
+  <copy file="${dir}/UBL-2.3-${stage}-${label}/iso-iec-19845-draft.pdf"
+        todir="${dir}/UBL-2.3-${stage}-${label}/"
         failonerror="false"/>
   <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
-    <fileset dir="${dir}/UBL-2.3-${stage}-${version}"/>
+    <fileset dir="${dir}/UBL-2.3-${stage}-${label}"/>
   </touch>
 
-  <zip destfile="${dir}/UBL-2.3-${stage}-${version}-archive-only.zip"
-       basedir="${dir}" includes="UBL-2.3-${stage}-${version}-archive-only/**"/>
-  <delete dir="${dir}/UBL-2.3-${stage}-${version}-archive-only"/>
-  <unzip src="${dir}/UBL-2.3-${stage}-${version}-archive-only.zip" 
+  <zip destfile="${dir}/UBL-2.3-${stage}-${label}-archive-only.zip"
+       basedir="${dir}" includes="UBL-2.3-${stage}-${label}-archive-only/**"/>
+  <delete dir="${dir}/UBL-2.3-${stage}-${label}-archive-only"/>
+  <unzip src="${dir}/UBL-2.3-${stage}-${label}-archive-only.zip" 
          dest="${dir}"/>
-  <zip destfile="${dir}/UBL-2.3-${stage}-${version}.zip"
-       basedir="${dir}" includes="UBL-2.3-${stage}-${version}/**"/>
-  <delete dir="${dir}/UBL-2.3-${stage}-${version}"/>
-  <unzip src="${dir}/UBL-2.3-${stage}-${version}.zip" 
+  <zip destfile="${dir}/UBL-2.3-${stage}-${label}.zip"
+       basedir="${dir}" includes="UBL-2.3-${stage}-${label}/**"/>
+  <delete dir="${dir}/UBL-2.3-${stage}-${label}"/>
+  <unzip src="${dir}/UBL-2.3-${stage}-${label}.zip" 
          dest="${dir}"/>
 
   <!--okay to stamp the ZIP files-->
   <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
     <fileset dir="${dir}">
-      <include name="UBL-2.3-${stage}-${version}.zip"/>
-      <include name="UBL-2.3-${stage}-${version}-archive-only.zip"/>
+      <include name="UBL-2.3-${stage}-${label}.zip"/>
+      <include name="UBL-2.3-${stage}-${label}-archive-only.zip"/>
     </fileset>
   </touch>
   
   <!--final consistency checks-->
   
-  <echo message="Creating: ${dir}/UBL-2.3-${stage}-${version}-dir-listing.xml..."/>
+  <echo message="Creating: ${dir}/UBL-2.3-${stage}-${label}-dir-listing.xml..."/>
   <exec executable="sh">
     <arg value="utilities/xml-dir/bin/xml-dir-listing"/>
     <arg value="-o"/>
-    <arg value="${dir}/UBL-2.3-${stage}-${version}-dir-listing.xml"/>
-    <arg value="${dir}/UBL-2.3-${stage}-${version}"/>    
+    <arg value="${dir}/UBL-2.3-${stage}-${label}-dir-listing.xml"/>
+    <arg value="${dir}/UBL-2.3-${stage}-${label}"/>    
   </exec>
-  <echo message="Creating: ${dir}/UBL-2.3-${stage}-${version}-gentext.xml..."/>
+  <echo message="Creating: ${dir}/UBL-2.3-${stage}-${label}-gentext.xml..."/>
   <java append="true" classname="net.sf.saxon.Transform">
      <arg value="-xsl:hub-integrity.xsl"/>
-     <arg value="-s:${dir}/UBL-2.3-${stage}-${version}-dir-listing.xml"/>
-     <arg value="-o:${dir}/UBL-2.3-${stage}-${version}-gentext.xml"/>
-     <arg value="hub-uri=${dir}/UBL-2.3-${stage}-${version}/UBL-2.3.xml"/>
-     <arg value="gc-uri=${dir}/UBL-2.3-${stage}-${version}/mod/UBL-Entities-2.3.gc"/>
+     <arg value="-s:${dir}/UBL-2.3-${stage}-${label}-dir-listing.xml"/>
+     <arg value="-o:${dir}/UBL-2.3-${stage}-${label}-gentext.xml"/>
+     <arg value="hub-uri=${dir}/UBL-2.3-${stage}-${label}/UBL-2.3.xml"/>
+     <arg value="gc-uri=${dir}/UBL-2.3-${stage}-${label}/mod/UBL-Entities-2.3.gc"/>
     <arg value="pub-version=2.3"/>
   </java>
   <echo message="Integrity checking completed"/>

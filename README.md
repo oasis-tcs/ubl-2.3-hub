@@ -13,11 +13,11 @@ and other policies. While they make use of public GitHub repositories, these rep
 development of open source [licensed](https://www.oasis-open.org/resources/open-repositories/licenses) 
 content.
 
-## Description
+## 1. Description
 
 For the development of the hub document associated with the UBL 2.3 delivery, and the packaging of the UBL 2.3 distribution results.
 
-## Contributions
+## 2. Contributions
 
 As stated in this repository's 
 [CONTRIBUTING](https://github.com/oasis-tcs/ubl-2.3-hub/blob/master/CONTRIBUTING.md) file, 
@@ -28,7 +28,7 @@ activity is invited to join as an OASIS TC Member. Public feedback is also accep
 subject to the terms of the 
 [OASIS Feedback License](https://www.oasis-open.org/policies-guidelines/ipr#appendixa). 
 
-## Licensing
+## 3. Licensing
 
 Please see the [LICENSE](https://github.com/oasis-tcs/ubl-2.3-hub/blob/master/LICENSE.md) file 
 for description of the license terms and OASIS policies applicable to the TC's work in this GitHub 
@@ -38,7 +38,7 @@ repository [LICENSE](https://github.com/oasis-tcs/ubl-2.3-hub/blob/master/LICENS
 
 ---
 
-## Further Description of this Repository
+## 4. Further Description of this Repository
 
 Distributions for UBL 2.0 through 2.3 have comprised two main collections of information, the documentation and the artefacts.
 
@@ -104,7 +104,11 @@ It is easy for committee members to contribute to the improvement of the hub doc
 
 ---
 
-## Offline use for production purposes by project editors
+## 5. Offline use for production purposes by project editors
+
+The use of GitHub Actions is suitable for development but not for creating the final distribution. This needs to be performed offline so that the target directory of the artefacts and the target directory of the hub document are the same directory. This triggers the hub document creation also to perform integrity checks regarding missing artefact files referenced from the hub document XML.
+
+The artefacts-production process is performed first, followed by this hub-production process. Alternatively, this hub process can be run offline independently without first having run the artefacts process, but then a complete distribution package is not created.
 
 Additional support subdirectory:
 - [`db`]( db ) - XML on-the-fly rendering runtime environment for DocBook from OASIS DocBook templates
@@ -130,19 +134,19 @@ Source files, processing stylesheets, and resulting entities generated in the bu
   - `summary-examples-ent.xml`
 
 The build process is:
-- `publishUBL23Docs.bat   ..\results stage label localDateTime {serverUsername serverPassword}`
-- `sh publishUBL23Docs.sh ../results stage label localDateTime {serverUsername serverPassword}`
+- `publishUBL23Docs.bat   ..\results {platform} {label} {localDateTime}  [ {serverUsername serverPassword} ]`
+- `sh publishUBL23Docs.sh ../results {platform} {label} {localDateTime}  [ {serverUsername serverPassword} ]`
   - pre-existing target directory (without trailing "/")
-  - stage (e.g. "csd02wd03", "csprd01", "os", etc., or any string for testing purposes e.g. "test")
-  - label (e.g. "CCYYMMDD-hhmmz" UTC time as in "20200406-0250z", or any string for testing purposes e.g. "test")
-  - localDateTime (e.g. "now" for current time, or "CCYYMMDD-hhmm" in local time as in "20200405-2250z" for EDT -0400)
+  - plaform (use "local" for the local machine)
+  - label (e.g. "CCYYMMDD-hhmmz" UTC/Zulu time as in "20200406-0250z", or any string for testing purposes e.g. "test")
+  - localDateTime (e.g. "now" for current time, or "CCYYMMDD-hhmm" in local time as in "20200405-2250" for EDT -0400)
   - serverUsername (for those editors with publishing privileges)
   - serverPassword (for those editors with publishing privileges)
 
 - examples:
-  - dry run without publishing - `publishUBL23Docs.bat ..\results test test now`
-  - dry run with publishing - `publishUBL23Docs.bat ..\results test test now serveruser serverpass`
-  - final run with publishing - `publishUBL23Docs.bat ..\results csprd03 20200511-1720z 20200511-1320`
+  - dry run without publishing - `publishUBL23Docs.bat ..\results local test now`
+  - dry run with publishing - `publishUBL23Docs.bat ..\results local test now serveruser serverpass`
+  - final run with publishing - `publishUBL23Docs.bat ..\results local 20200511-1720z 20200511-1320 serveruser serverpass`
 
 IMPORTANT NOTE!
 - without publishing privileges, the PDF and HTML files are not updated, but the process continues through completion for the purposes of consistency checking
@@ -159,7 +163,6 @@ The build result in the target directory:
 Note that in the archive directory are the files:
 - `hub.console.{label}.txt` - console log of the execution of the Ant build script
 - `hub.exitcode.{label}.txt` - exit code from the execution of the Ant build script
-
 
 
 ## Contact
