@@ -13,20 +13,20 @@ java -Dant.home=utilities/ant -classpath db/spec-0.8/validate/xjparse.jar:utilit
 serverReturn=${PIPESTATUS[0]}
 echo $serverReturn >hub.exitcode.$3.txt
 
-if [ -f $1/$package-$UBLstage-$version-archive-only.zip ]
+if [ -f $1/$package-$UBLstage-$label-archive-only.zip ]
 then
-7z a $1/$package-$UBLstage-$version-archive-only.zip hub.console.$3.txt hub.exitcode.$3.txt
+7z a $1/$package-$UBLstage-$label-archive-only.zip hub.console.$3.txt hub.exitcode.$3.txt
 fi
 
 if [ ! -d $1 ]; then mkdir $1 ; fi
-if [ ! -d $1/hub-$package-$UBLstage-$version ]; then mkdir $1/hub-$package-$UBLstage-$version ; fi
-if [ ! -d $1/hub-$package-$UBLstage-$version/archive-only-not-in-final-distribution/ ]; then mkdir $1/hub-$package-$UBLstage-$version/archive-only-not-in-final-distribution/ ; fi
-mv  hub.console.$3.txt $1/hub-$package-$UBLstage-$version/archive-only-not-in-final-distribution/
-mv hub.exitcode.$3.txt $1/hub-$package-$UBLstage-$version/archive-only-not-in-final-distribution/
+if [ ! -d $1/hub-$package-$UBLstage-$label ]; then mkdir $1/hub-$package-$UBLstage-$label ; fi
+if [ ! -d $1/hub-$package-$UBLstage-$label/archive-only-not-in-final-distribution/ ]; then mkdir $1/hub-$package-$UBLstage-$label/archive-only-not-in-final-distribution/ ; fi
+mv  hub.console.$3.txt $1/hub-$package-$UBLstage-$label/archive-only-not-in-final-distribution/
+mv hub.exitcode.$3.txt $1/hub-$package-$UBLstage-$label/archive-only-not-in-final-distribution/
 
 # reduce GitHub storage costs by zipping results and deleting intermediate files
 pushd $1
-7z a hub-$package-$UBLstage-$version.zip hub-$package-$UBLstage-$version
+7z a hub-$package-$UBLstage-$label.zip hub-$package-$UBLstage-$label
 popd
 
 if [ "$1" = "target" ]
@@ -38,7 +38,7 @@ then
 # further reduce GitHub storage costs by deleting repository files
 
 find . -not -name target -not -name .github -maxdepth 1 -exec rm -r -f {} \;
-mv $1/hub-$package-$UBLstage-$version.zip .
+mv $1/hub-$package-$UBLstage-$label.zip .
 rm -r -f $1
 
 fi

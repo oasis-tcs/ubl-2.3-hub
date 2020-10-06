@@ -138,8 +138,8 @@ The build process is:
 - `sh publishUBL23Docs.sh ../results {platform} {label} {localDateTime}  [ {serverUsername serverPassword} ]`
   - pre-existing target directory (without trailing "/")
   - plaform (use "local" for the local machine)
-  - label (e.g. "CCYYMMDD-hhmmz" UTC/Zulu time as in "20200406-0250z", or any string for testing purposes e.g. "test")
-  - localDateTime (e.g. "now" for current time, or "CCYYMMDD-hhmm" in local time as in "20200405-2250" for EDT -0400)
+  - label (e.g. "`CCYYMMDD-hhmmz`" UTC/Zulu time as in "`20200406-0250z`", or any string for testing purposes e.g. "`test`")
+  - localDateTime (e.g. "`now`" for current time, or "`CCYYMMDD-hhmm`" (no "`z`") in local time as in "`20200405-2250`" for EDT -0400)
   - serverUsername (for those editors with publishing privileges)
   - serverPassword (for those editors with publishing privileges)
 
