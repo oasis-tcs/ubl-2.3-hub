@@ -17,8 +17,8 @@
 <xsl:param name="ref-uri"/>
 <xsl:param name="pub-version" required="yes"/>
 
-<xsl:variable name="hub" select="document($hub-uri)"/>
-<xsl:variable name="gc" select="document($gc-uri)"/>
+<xsl:variable name="hub" select="document(translate($hub-uri,'\','/'))"/>
+<xsl:variable name="gc" select="document(translate($gc-uri,'\','/'))"/>
 
 <xsl:variable name="dir" select="/"/>
 

@@ -115,13 +115,14 @@ Additional support subdirectory:
 - [`utilities`]( utilities ) - tools used to generate outputs
 
 The artefacts must have already been created in the target directory, and they must have the same stage and label as the process invocation for the creation of the documentation and final results:
-- input artefacts:
-  - `artefacts-UBL-2.3-{stage}-{label}.zip`
+- input artefacts (for example, `UBLstage=csd04`, `UBLprevStage=csd03`, `label=20201104-1330z`):
+  - `artefacts-UBL-2.3-{UBLstage}-{label}.zip`
   - includes input entities used in published annexes:
-    - `old2newDocBook-UBL-2.3-csprd03-UBL-2.2-documents-ent.xml`
-    - `old2newDocBook-UBL-2.3-csprd03-UBL-2.2-library-ent.xml`
-    - `old2newDocBook-UBL-2.3-csprd03-UBL-2.3-csprd02-documents-ent.xml`
-    - `old2newDocBook-UBL-2.3-csprd03-UBL-2.3-csprd02-library-ent.xml`
+    - `old2newDocBook-UBL-2.3-{UBLstage}-UBL-2.2-documents-ent.xml`
+    - `old2newDocBook-UBL-2.3-{UBLstage}-UBL-2.2-library-ent.xml`
+    - `old2newDocBook-UBL-2.3-{UBLstage}-UBL-2.3-{UBLprevStage}-documents-ent.xml`
+    - `old2newDocBook-UBL-2.3-{UBLstage}-UBL-2.3-{UBLprevStage}-library-ent.xml`
+- note that if the artefacts directory was created online on GitHub and not offline on your machine, the label is an automatically-generated timestamp, so it will be necessary to rename the unpacked subdirectory changing the timestamp to be the same as the label you need to use offline
 
 Source files, processing stylesheets, and resulting entities generated in the building of the hub document:
 - `UBL-2.2.xml` and `UBL.xml` processed by `hub2processSummary.xsl`:
@@ -132,6 +133,8 @@ Source files, processing stylesheets, and resulting entities generated in the bu
   - `summary-namespaces-ent.xml`
   - `summary-schemas-ent.xml`
   - `summary-examples-ent.xml`
+
+Edit the build invocation `publishUBL23Docs.bat` or `publishUBL23Docs.sh` to include proper SET variables indicating the current stage and the previous stage.
 
 The build process is:
 - `publishUBL23Docs.bat   ..\results {platform} {label} {localDateTime}  [ {serverUsername serverPassword} ]`
@@ -144,6 +147,7 @@ The build process is:
   - serverPassword (for those editors with publishing privileges)
 
 - examples:
+- - argument signature: `publishUBL23Docs.bat ..\results {platform} {label} {date-time-stamp} { {pub-username} {pub-password} }`
   - dry run without publishing - `publishUBL23Docs.bat ..\results local test now`
   - dry run with publishing - `publishUBL23Docs.bat ..\results local test now serveruser serverpass`
   - final run with publishing - `publishUBL23Docs.bat ..\results local 20200511-1720z 20200511-1320 serveruser serverpass`
@@ -153,12 +157,12 @@ IMPORTANT NOTE!
 - opening the resulting UBL-2.3.xml in an XSLT-aware browser (e.g. Safari) allows one to peruse the final document as if it had been published in HTML
 
 The build result in the target directory:
-- `hub-UBL-2.3-{stage}-{label}.zip`
-- `hub-UBL-2.3-{stage}-{label}/`
-- `hub-UBL-2.3-{stage}-{label}/archive-only-not-in-final-distribution/` - archive artefacts
-- `UBL-2.3-{stage}-{label}.zip`
-- `UBL-2.3-{stage}-{label}/`
-- `UBL-2.3-{stage}-{label}/archive-only-not-in-final-distribution/` - archive artefacts
+- `hub-UBL-2.3-{UBLstage}-{label}.zip`
+- `hub-UBL-2.3-{UBLstage}-{label}/`
+- `hub-UBL-2.3-{UBLstage}-{label}/archive-only-not-in-final-distribution/` - archive artefacts
+- `UBL-2.3-{UBLstage}-{label}.zip`
+- `UBL-2.3-{UBLstage}-{label}/`
+- `UBL-2.3-{UBLstage}-{label}/archive-only-not-in-final-distribution/` - archive artefacts
 
 Note that in the archive directory are the files:
 - `hub.console.{label}.txt` - console log of the execution of the Ant build script

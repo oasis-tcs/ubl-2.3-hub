@@ -8,6 +8,7 @@
   </condition>
   <!--documentation-->
   <echo message="stage=${stage}"/>
+  <echo message="UBLprevStage=${UBLprevStage}"/>
   <echo message="version=${label}"/>
   <echo message="datetimelocal=${datetimelocal}"/>
 
@@ -22,9 +23,9 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distr
   <copy preservelastmodified="true" todir="." failonerror="false"
 file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.2-library-ent.xml"/>
   <copy preservelastmodified="true" todir="." failonerror="false"
-file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-documents-ent.xml"/>
+file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-${UBLprevStage}-documents-ent.xml"/>
   <copy preservelastmodified="true" todir="." failonerror="false"
-file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-csprd02-library-ent.xml"/>
+file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/old2newDocBook-UBL-2.3-${stage}-UBL-2.3-${UBLprevStage}-library-ent.xml"/>
   <!--remove any vestiges of a previous run indicating missing results-->
   <delete  file="${dir}/missing---UBL-2.3-html---missing.txt"/>
   <delete  file="${dir}/missing---UBL-2.3-pdf---missing.txt"/>
