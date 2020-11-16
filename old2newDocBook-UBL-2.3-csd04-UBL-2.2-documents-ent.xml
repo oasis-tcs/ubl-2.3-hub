@@ -13,6 +13,14 @@
       <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
          <entry>
             <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-CommonTransportationReport.Details">CommonTransportationReport</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
                    url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-ContractAwardNotice.Details">ContractAwardNotice</ulink>
          </entry>
          <entry> </entry>
@@ -193,6 +201,14 @@
                    url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Invoice.Accounting_CustomerParty.CustomerParty">AccountingCustomerParty</ulink>
          </entry>
          <entry>Changed cardinality from 1 to 0..1</entry>
+      </row>
+      <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
+         <entry>
+            <ulink conformance="skip"
+                   url="mod/summary/reports/All-UBL-2.3-Documents.html#Table-Manifest.Details">Manifest</ulink>
+         </entry>
+         <entry> </entry>
+         <entry>Added</entry>
       </row>
       <row><?dbhtml bgcolor="#DDDDDD"?><?dbfo bgcolor="#DDDDDD"?>
          <entry>
