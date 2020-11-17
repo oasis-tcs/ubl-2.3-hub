@@ -1,4 +1,4 @@
-<!--a total of 89 document types--><legalnotice role="namespaces">
+<!--a total of 91 document types--><legalnotice role="namespaces">
    <title>Declared XML Namespaces</title>
    <simplelist lang="none">
       <member>
@@ -33,6 +33,7 @@
       <member>urn:oasis:names:specification:ubl:schema:xsd:CataloguePricingUpdate-2</member>
       <member>urn:oasis:names:specification:ubl:schema:xsd:CatalogueRequest-2</member>
       <member>urn:oasis:names:specification:ubl:schema:xsd:CertificateOfOrigin-2</member>
+      <member>urn:oasis:names:specification:ubl:schema:xsd:CommonTransportationReport-2</member>
       <member>urn:oasis:names:specification:ubl:schema:xsd:ContractAwardNotice-2</member>
       <member>urn:oasis:names:specification:ubl:schema:xsd:ContractNotice-2</member>
       <member>urn:oasis:names:specification:ubl:schema:xsd:CreditNote-2</member>
@@ -63,6 +64,7 @@
       <member>urn:oasis:names:specification:ubl:schema:xsd:InventoryReport-2</member>
       <member>urn:oasis:names:specification:ubl:schema:xsd:Invoice-2</member>
       <member>urn:oasis:names:specification:ubl:schema:xsd:ItemInformationRequest-2</member>
+      <member>urn:oasis:names:specification:ubl:schema:xsd:Manifest-2</member>
       <member>urn:oasis:names:specification:ubl:schema:xsd:Order-2</member>
       <member>urn:oasis:names:specification:ubl:schema:xsd:OrderCancellation-2</member>
       <member>urn:oasis:names:specification:ubl:schema:xsd:OrderChange-2</member>

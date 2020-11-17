@@ -2481,22 +2481,12 @@
               condition for transport.</para>
           </section>
         </section>
-        <!--<section id="S-MANIFEST">
+        <section id="S-MANIFEST">
           <title>Manifest</title>
-          <para>Manifest is the process by which a sending Logistics Operator (such as a Carrier or Freight Forwarder) communicates the quantity an nature of a load to receiving logistics operator (Such as Customs party, a Ground handler or a terminal operator.</para>
-          <para>A <link linkend="S-MANIFEST-SCHEMA">Manifest</link> document is provided either through a <link linkend="S-MANIFEST-SCHEMA"> Manifest</link> document is often seen as the top level document for what a vessel, aeroplane, vagon or truck i carrying.</para>
-          <figure id="F-MANIFEST-PROCESS">
-            <title>Manifest Process</title>
-            <mediaobject>
-              <imageobject>
-                <imagedata fileref="art/UBL-2.3-ManifestProcess.png"/>
-              </imageobject>
-              <textobject>
-                <phrase>[Manifest Diagram]</phrase>
-              </textobject>
-            </mediaobject>
-          </figure>
-        </section>-->
+          <para>Manifest is the process by which a sending logistics operator (such as a carrier or freight forwarder) communicates the quantity an nature of a load to receiving logistics operator (such as customs party, a ground handler or a terminal operator.</para>
+          <para>A <link linkend="S-MANIFEST-SCHEMA">Manifest</link> document is often seen as the top level document for what a vessel, airplane, wagon or truck is carrying.</para>
+          <!--<figure id="F-MANIFEST-PROCESS"><title>Manifest Process</title><mediaobject><imageobject><imagedata fileref="art/UBL-2.3-ManifestProcess.png"/></imageobject><textobject> <phrase>[Manifest Diagram]</phrase> </textobject></mediaobject></figure>-->
+        </section>
         <section id="S-FREIGHT-STATUS-REPORTING">
           <title>Freight Status Reporting</title>
           <para>Freight Status Reporting is the process by which a Transport Service Provider (such as a Carrier or Freight Forwarder) communicates the status of shipments currently under their management to the Transport Users (such as a Freight Forwarder, Consignee, or Consignor).</para>
@@ -2909,22 +2899,12 @@
               </mediaobject>
             </figure>
           </section>
-          <!--<section id="S-COMMON-TRANSPORTATION-REPORT">
+          <section id="S-COMMON-TRANSPORTATION-REPORT">
             <title>Common Transportation Report</title>
-            <para>The <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link> collects and reports information about events and status of a transport means. It can be used for requirements regarding boarder crossing, ship or shore or shore to ship reporting. It is
-              meant to be mapped to the numerous single window declaration and for other reporting to authories.</para>
-            <figure id="F-COMMON-TRANSPORTATION-REPORT">
-              <title>Common Transportation Report</title>
-              <mediaobject>
-                <imageobject>
-                  <imagedata fileref="art/UBL-2.3-CommonTransportationReportProcess.png"/>
-                </imageobject>
-                <textobject>
-                  <phrase>[Common Transportation Report Progress]</phrase>
-                </textobject>
-              </mediaobject>
-            </figure>
-          </section>-->
+            <para>The <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link> collects and reports information about events and status of a transport means. It can be used for requirements regarding border crossing, ship to shore, or shore to ship reporting. It is
+              meant to be mapped to numerous single window declarations and for other reporting to authorities.</para>
+            <!--<figure id="F-COMMON-TRANSPORTATION-REPORT"><title>Common Transportation Report</title><mediaobject><imageobject><imagedata fileref="art/UBL-2.3-CommonTransportationReportProcess.png"/></imageobject><textobject> <phrase>[Common Transportation Report Progress]</phrase> </textobject></mediaobject></figure>-->
+          </section>
         </section>
       </section>
       <section id="S-RETURN">
@@ -4754,9 +4734,9 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
         <blockquote>
           <!--reviewtext-->
           <para>
-            <emphasis role="bold">Added UBL 2.3 document types for transportation: </emphasis>
+            <emphasis role="bold">Added UBL 2.3 document types for transportation: </emphasis> <link linkend="S-COMMON-TRANSPORTATION-REPORT">Common Transportation Report</link>,
             <link linkend="S-EXPORT-CUSTOMS-DECLARATION-SCHEMA">Export Customs Declaration</link>, <link linkend="S-GOODS-CERTIFICATE-SCHEMA">Goods Certificate</link> , <link linkend="S-GOODS-ITEM-PASSPORT-SCHEMA">Goods Item Passport</link>, <link linkend="S-IMPORT-CUSTOMS-DECLARATION-SCHEMA">Import
-              Customs Declaration</link>, <link linkend="S-PROOF-OF-REEXPORTATION-SCHEMA">Proof Of Reexportation</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REMINDER-SCHEMA">Proof Of Reexportation Reminder</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REQUEST-SCHEMA">Proof Of Reexportation
+              Customs Declaration</link>, <link linkend="S-MANIFEST">Manifest</link>, <link linkend="S-PROOF-OF-REEXPORTATION-SCHEMA">Proof Of Reexportation</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REMINDER-SCHEMA">Proof Of Reexportation Reminder</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REQUEST-SCHEMA">Proof Of Reexportation
               Request</link>, <link linkend="S-TRANSIT-CUSTOMS-DECLARATION-SCHEMA">Transit Customs Declaration</link></para>
         </blockquote>
       </section>
@@ -4788,12 +4768,18 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
             </listitem>
           </itemizedlist>
           <para>The following table sums up the differences between the XML elements in the UBL 2.2 Common Library and those in the UBL 2.3 Common Library.</para>
-          <table conformance="skip" id="T-SUMMARY-CHANGES-TO-LIBRARY-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-&STAGE;-TO-2.2"><title>Summary changes to Library Elements Universal Business Language UBL 2.3 &STAGE; to 2.2</title>&summary-old2new-version-library;</table>
+          <table conformance="skip" id="T-SUMMARY-CHANGES-TO-LIBRARY-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-&STAGE;-TO-2.2">
+            <title>Summary changes to Library Elements Universal Business Language UBL 2.3 &STAGE; to 2.2</title>
+            &summary-old2new-version-library;
+          </table>
         </section>
         <section id="S-CHANGES-TO-DOCUMENT-ELEMENTS-UBL-2.2-TO-UBL-2.3">
           <title>Changes to Document Elements, UBL 2.2 to UBL 2.3</title>
           <para>The following table sums up the differences between the XML elements in the UBL 2.2 document schemas and those in the UBL 2.3 document schemas.</para>
-          <table conformance="skip" id="T-SUMMARY-CHANGES-TO-DOCUMENT-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-&STAGE;-TO-2.2"><title>Summary changes to Document Elements Universal Business Language UBL 2.3 &stage; to 2.2</title>&summary-old2new-version-documents;</table>
+          <table conformance="skip" id="T-SUMMARY-CHANGES-TO-DOCUMENT-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-&STAGE;-TO-2.2">
+            <title>Summary changes to Document Elements Universal Business Language UBL 2.3 &stage; to 2.2</title>
+            &summary-old2new-version-documents;
+          </table>
         </section>
       </section>
       <section id="S-SCHEMA-CHANGES-FROM-UBL-2.3-CSD03-TO-UBL-2.3-CSD04">
@@ -4807,12 +4793,18 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
         <section id="S-CHANGES-TO-LIBRARY-ELEMENTS-UBL-2.3-CSD02-TO-UBL-2.3-CSD03">
           <title>Changes to Library Elements, UBL 2.3 csd02 to UBL 2.3 csd03</title>
           <para>The following table sums up the differences between the XML elements in the common libraries of development versions.</para>
-          <table conformance="skip" id="T-SUMMARY-CHANGES-TO-LIBRARY-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-&STAGE;-TO-2.3-&PSTAGE;"><title>Summary changes to Library Elements Universal Business Language UBL 2.3 &stage; to 2.3 &pstage;</title>&summary-old2new-stage-library;</table>
+          <table conformance="skip" id="T-SUMMARY-CHANGES-TO-LIBRARY-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-&STAGE;-TO-2.3-&PSTAGE;">
+            <title>Summary changes to Library Elements Universal Business Language UBL 2.3 &stage; to 2.3 &pstage;</title>
+            &summary-old2new-stage-library;
+          </table>
         </section>
         <section id="S-CHANGES-TO-DOCUMENT-ELEMENTS-UBL-2.3-CSPRD02-TO-UBL-2.3-CSPRD03">
           <title>Changes to Document Elements, UBL 2.3 csprd02 to UBL 2.3 csprd03</title>
           <para>The following table sums up the differences between the XML elements in the common libraries of development versions.</para>
-          <table conformance="skip" id="T-SUMMARY-CHANGES-TO-DOCUMENT-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-&STAGE;-TO-2.3-&PSTAGE;"><title>Summary changes to Document Elements Universal Business Language UBL 2.3 &stage; to 2.3 &pstage;</title>&summary-old2new-stage-documents;</table>
+          <table conformance="skip" id="T-SUMMARY-CHANGES-TO-DOCUMENT-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-&STAGE;-TO-2.3-&PSTAGE;">
+            <title>Summary changes to Document Elements Universal Business Language UBL 2.3 &stage; to 2.3 &pstage;</title>
+            &summary-old2new-stage-documents;
+          </table>
         </section>
       </section>
       <section id="S-EDITORIAL-CHANGES-FROM-UBL-2.2-TO-UBL-2.3">
@@ -6938,3 +6930,4 @@ No code list validation errors.</programlisting>
     </informaltable>
   </appendix>
 </article>
+<?oxy_options track_changes="on"?>

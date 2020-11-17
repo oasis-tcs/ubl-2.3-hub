@@ -583,7 +583,7 @@
           <sends><schema>Transit Customs Declaration</schema></sends>
           <receives><schema>Application Response</schema></receives>
    </entry>  
-   <!--
+
    <entry>
           <actor>Party</actor>
           <role>Receiving Logistic Operator</role>
@@ -603,7 +603,7 @@
           <sends><schema>Manifest</schema></sends>
           <receives/>
    </entry>
-  -->
+
  <entry>
           <actor>Party</actor>
           <role>Customs</role>
@@ -613,7 +613,7 @@
           <sends><schema>Export Customs Declaration</schema></sends>
           <receives/>
    </entry>  
-<!--
+
 <entry>
           <actor>Party</actor>
           <role>Authority</role>
@@ -633,5 +633,5 @@
           <sends><schema>Common Transportation Report</schema></sends>
           <receives/>
    </entry>  
-  -->
+
 </roletable>
