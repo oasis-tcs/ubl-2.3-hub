@@ -31,7 +31,21 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distr
   <delete  file="${dir}/missing---UBL-2.3-pdf---missing.txt"/>
   <delete  file="${dir}/missing---iso-iec-19845-draft-pdf---missing.txt"/>
 
-  <antcallback target="-check-xml" return="docs-UBL-xml-okay"/>
+  <!--preserve old entities for archive and copmarison-->
+  <delete dir="${dir}/old-entities"/>
+  <mkdir  dir="${dir}/old-entities"/>
+  <copy todir="${dir}/old-entities" preservelastmodified="true">
+    <fileset dir=".">
+      <include name="summary-processes-ent.xml"/>
+      <include name="summary-parties-ent.xml"/>
+      <include name="summary-namespaces-ent.xml"/>
+      <include name="summary-schemas-ent.xml"/>
+      <include name="summary-examples-ent.xml"/>
+    </fileset>
+  </copy>
+
+  <!--comment out the following check in order to force publishing-->
+  <!--<antcallback target="-check-xml" return="docs-UBL-xml-okay"/>-->
 
   <sequential if:set="skip-publish">
     <copy preservelastmodified="true"
@@ -86,18 +100,6 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distr
 </target>
 
 <target name="-check-xml">
-  <!--preserve old entities for archive and copmarison-->
-  <delete dir="${dir}/old-entities"/>
-  <mkdir  dir="${dir}/old-entities"/>
-  <copy todir="${dir}/old-entities" preservelastmodified="true">
-    <fileset dir=".">
-      <include name="summary-processes-ent.xml"/>
-      <include name="summary-parties-ent.xml"/>
-      <include name="summary-namespaces-ent.xml"/>
-      <include name="summary-schemas-ent.xml"/>
-      <include name="summary-examples-ent.xml"/>
-    </fileset>
-  </copy>
   <uptodate targetfile="${dir}/UBL-2.3.xml"
             property=  "docs-UBL-xml-okay">
     <srcfiles dir=".">

@@ -108,7 +108,7 @@ It is easy for committee members to contribute to the improvement of the hub doc
 
 The use of GitHub Actions is suitable for development but not for creating the final distribution. This needs to be performed offline so that the target directory of the artefacts and the target directory of the hub document are the same directory. This triggers the hub document creation also to perform integrity checks regarding missing artefact files referenced from the hub document XML.
 
-The artefacts-production process is performed first, followed by this hub-production process. Alternatively, this hub process can be run offline independently without first having run the artefacts process, but then a complete distribution package is not created.
+The artefacts-production process is performed first, either locally or on GitHub, followed by this hub-production process. Alternatively, this hub process can be run offline independently without first having run the artefacts process, but then a complete distribution package is not created.
 
 Additional support subdirectory:
 - [`db`]( db ) - XML on-the-fly rendering runtime environment for DocBook from OASIS DocBook templates

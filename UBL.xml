@@ -2485,7 +2485,7 @@
           <title>Manifest</title>
           <para>Manifest is the process by which a sending logistics operator (such as a carrier or freight forwarder) communicates the quantity an nature of a load to receiving logistics operator (such as customs party, a ground handler or a terminal operator.</para>
           <para>A <link linkend="S-MANIFEST-SCHEMA">Manifest</link> document is often seen as the top level document for what a vessel, airplane, wagon or truck is carrying.</para>
-          <!--<figure id="F-MANIFEST-PROCESS"><title>Manifest Process</title><mediaobject><imageobject><imagedata fileref="art/UBL-2.3-ManifestProcess.png"/></imageobject><textobject> <phrase>[Manifest Diagram]</phrase> </textobject></mediaobject></figure>-->
+          <figure id="F-MANIFEST-PROCESS"><title>Manifest Process</title><mediaobject><imageobject><imagedata fileref="art/UBL-2.3-ManifestProcess.png"/></imageobject><textobject> <phrase>[Manifest Diagram]</phrase> </textobject></mediaobject></figure>
         </section>
         <section id="S-FREIGHT-STATUS-REPORTING">
           <title>Freight Status Reporting</title>
@@ -2903,7 +2903,7 @@
             <title>Common Transportation Report</title>
             <para>The <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link> collects and reports information about events and status of a transport means. It can be used for requirements regarding border crossing, ship to shore, or shore to ship reporting. It is
               meant to be mapped to numerous single window declarations and for other reporting to authorities.</para>
-            <!--<figure id="F-COMMON-TRANSPORTATION-REPORT"><title>Common Transportation Report</title><mediaobject><imageobject><imagedata fileref="art/UBL-2.3-CommonTransportationReportProcess.png"/></imageobject><textobject> <phrase>[Common Transportation Report Progress]</phrase> </textobject></mediaobject></figure>-->
+            <figure id="F-COMMON-TRANSPORTATION-REPORT"><title>Common Transportation Report</title><mediaobject><imageobject><imagedata fileref="art/UBL-2.3-CommonTransportationReportProcess.png"/></imageobject><textobject> <phrase>[Common Transportation Report Progress]</phrase> </textobject></mediaobject></figure>
           </section>
         </section>
       </section>
@@ -4734,9 +4734,9 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
         <blockquote>
           <!--reviewtext-->
           <para>
-            <emphasis role="bold">Added UBL 2.3 document types for transportation: </emphasis> <link linkend="S-COMMON-TRANSPORTATION-REPORT">Common Transportation Report</link>,
+            <emphasis role="bold">Added UBL 2.3 document types for transportation: </emphasis> <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link>,
             <link linkend="S-EXPORT-CUSTOMS-DECLARATION-SCHEMA">Export Customs Declaration</link>, <link linkend="S-GOODS-CERTIFICATE-SCHEMA">Goods Certificate</link> , <link linkend="S-GOODS-ITEM-PASSPORT-SCHEMA">Goods Item Passport</link>, <link linkend="S-IMPORT-CUSTOMS-DECLARATION-SCHEMA">Import
-              Customs Declaration</link>, <link linkend="S-MANIFEST">Manifest</link>, <link linkend="S-PROOF-OF-REEXPORTATION-SCHEMA">Proof Of Reexportation</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REMINDER-SCHEMA">Proof Of Reexportation Reminder</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REQUEST-SCHEMA">Proof Of Reexportation
+              Customs Declaration</link>, <link linkend="S-MANIFEST-SCHEMA">Manifest</link>, <link linkend="S-PROOF-OF-REEXPORTATION-SCHEMA">Proof Of Reexportation</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REMINDER-SCHEMA">Proof Of Reexportation Reminder</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REQUEST-SCHEMA">Proof Of Reexportation
               Request</link>, <link linkend="S-TRANSIT-CUSTOMS-DECLARATION-SCHEMA">Transit Customs Declaration</link></para>
         </blockquote>
       </section>
@@ -4786,20 +4786,20 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
         <title>Schema changes from UBL 2.3 csd03 to UBL 2.3 csd04</title>
         <section id="S-SCHEMA-CHANGES-DURING-DEVELOPMENT">
           <title>Schema Changes During Development</title>
-          <para>The following two tables show the differences between the XML elements in UBL 2.3 csprd03 and those in UBL 2.3 csprd02.</para>
+          <para>The following two tables show the differences between the XML elements in UBL 2.3 csd03 and those in UBL 2.3 csd04.</para>
           <para>During development such changes may not be backward compatible to a previous development version, but never will these not be backward compatible to all previously released final versions.</para>
           <para>This is a temporary annex and will not be included in the final version of UBL 2.3.</para>
         </section>
-        <section id="S-CHANGES-TO-LIBRARY-ELEMENTS-UBL-2.3-CSD02-TO-UBL-2.3-CSD03">
-          <title>Changes to Library Elements, UBL 2.3 csd02 to UBL 2.3 csd03</title>
+        <section id="S-CHANGES-TO-LIBRARY-ELEMENTS-UBL-2.3-CSD03-TO-UBL-2.3-CSD04">
+          <title>Changes to Library Elements, UBL 2.3 csd03 to UBL 2.3 csd04</title>
           <para>The following table sums up the differences between the XML elements in the common libraries of development versions.</para>
           <table conformance="skip" id="T-SUMMARY-CHANGES-TO-LIBRARY-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-&STAGE;-TO-2.3-&PSTAGE;">
             <title>Summary changes to Library Elements Universal Business Language UBL 2.3 &stage; to 2.3 &pstage;</title>
             &summary-old2new-stage-library;
           </table>
         </section>
-        <section id="S-CHANGES-TO-DOCUMENT-ELEMENTS-UBL-2.3-CSPRD02-TO-UBL-2.3-CSPRD03">
-          <title>Changes to Document Elements, UBL 2.3 csprd02 to UBL 2.3 csprd03</title>
+        <section id="S-CHANGES-TO-DOCUMENT-ELEMENTS-UBL-2.3-CSD03-TO-UBL-2.3-CSD04">
+          <title>Changes to Document Elements, UBL 2.3 csd03 to UBL 2.3 csd04</title>
           <para>The following table sums up the differences between the XML elements in the common libraries of development versions.</para>
           <table conformance="skip" id="T-SUMMARY-CHANGES-TO-DOCUMENT-ELEMENTS-UNIVERSAL-BUSINESS-LANGUAGE-UBL-2.3-&STAGE;-TO-2.3-&PSTAGE;">
             <title>Summary changes to Document Elements Universal Business Language UBL 2.3 &stage; to 2.3 &pstage;</title>
@@ -5032,13 +5032,13 @@ xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
       <para>
         <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Period.Details" conformance="skip" role="DEN-Name" remap="Period. Details">Period</ulink>
-        </literal> will be found at line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Period.Details" conformance="skip" role="DEN-Row" remap="Period. Details">1706</ulink> and seen to contain a number of possible BBIE children, all of them optional; and the ASBIE <literal>
+        </literal> will be found at line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Period.Details" conformance="skip" role="DEN-Row" remap="Period. Details">1709</ulink> and seen to contain a number of possible BBIE children, all of them optional; and the ASBIE <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Invoice.Invoice_Period.Period" conformance="skip" role="DEN-Name" remap="Invoice. Invoice_ Period. Period">InvoicePeriod</ulink>
         </literal> in <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Invoice.Details" conformance="skip" role="DEN-Name" remap="Invoice. Details">Invoice</ulink>
         </literal> therefore has this structure, too. From this one could conclude that instantiations of the <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Period.Details" conformance="skip" role="DEN-Name" remap="Period. Details">Period</ulink>
-        </literal> structure (there are more than 50 of them in UBL) need not contain any of the seven optional BBIE elements specified after line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Period.Details" conformance="skip" role="DEN-Row" remap="Period. Details">1706</ulink>, and
+        </literal> structure (there are more than 50 of them in UBL) need not contain any of the seven optional BBIE elements specified after line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Period.Details" conformance="skip" role="DEN-Row" remap="Period. Details">1709</ulink>, and
         indeed the corresponding declaration of the complex type <literal>PeriodType</literal> in the CAC schema (<literal>
           <ulink url="xsd/common/UBL-CommonAggregateComponents-2.3.xsd">xsd/common/UBL-CommonAggregateComponents-2.3.xsd</ulink>
         </literal>) shows that an empty <literal>
@@ -5074,10 +5074,10 @@ xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2"
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-CustomerParty.Details" conformance="skip" role="DEN-Name" remap="Customer Party. Details">CustomerParty</ulink>
         </literal> ABIE. Checking in the Common Library, it is seen that both <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-SupplierParty.Details" conformance="skip" role="DEN-Name" remap="Supplier Party. Details">SupplierParty</ulink>
-        </literal> (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-SupplierParty.Details" conformance="skip" role="DEN-Row" remap="Supplier Party. Details">2343</ulink> of the Common Library) and <literal>
+        </literal> (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-SupplierParty.Details" conformance="skip" role="DEN-Row" remap="Supplier Party. Details">2348</ulink> of the Common Library) and <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-CustomerParty.Details" conformance="skip" role="DEN-Name" remap="Customer Party. Details">CustomerParty</ulink>
         </literal> (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-CustomerParty.Details" conformance="skip" role="DEN-Row" remap="Customer Party. Details">640</ulink> of the Common Library) can contain an ASBIE named <literal>Party</literal> (as shown in lines <ulink
-          url="mod/summary/reports/UBL-Invoice-2.3.html#Table-SupplierParty.Party" conformance="skip" role="DEN-Row" remap="Supplier Party. Party">2347</ulink> and <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-CustomerParty.Party" conformance="skip" role="DEN-Row"
+          url="mod/summary/reports/UBL-Invoice-2.3.html#Table-SupplierParty.Party" conformance="skip" role="DEN-Row" remap="Supplier Party. Party">2352</ulink> and <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-CustomerParty.Party" conformance="skip" role="DEN-Row"
           remap="Customer Party. Party">644</ulink>, respectively) and that each <literal>Party</literal> ASBIE is an instantiation of the <literal>
           <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Party.Details" conformance="skip" role="DEN-Name" remap="Party. Details">Party</ulink>
         </literal> ABIE (line <ulink url="mod/summary/reports/UBL-Invoice-2.3.html#Table-Party.Details" conformance="skip" role="DEN-Row" remap="Party. Details">1597</ulink>). Therefore both parties have the same structure (the BBIEs and ASBIEs following line <ulink
@@ -6889,6 +6889,12 @@ No code list validation errors.</programlisting>
           </row>
         </thead>
         <tbody>
+          <row>
+            <entry>csd04</entry>
+            <entry>25 November 2020</entry>
+            <entry>GKH</entry>
+            <entry>More TSC additions; preparation of voting document.</entry>
+          </row>
           <row>
             <entry>csd03</entry>
             <entry>29 July 2020</entry>
