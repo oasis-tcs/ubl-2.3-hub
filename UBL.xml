@@ -19,8 +19,8 @@
 	<!ENTITY name "UBL">
 	<!ENTITY pversion "NONE">
 	<!ENTITY version "2.3">
-	<!ENTITY pstage "csdd03">
-	<!ENTITY PSTAGE "CSDD03">
+	<!ENTITY pstage "csd03">
+	<!ENTITY PSTAGE "CSD03">
 	<!ENTITY stage "csd04">
 	<!ENTITY STAGE "CSD04">
 	<!ENTITY isostage "WD">
@@ -31,7 +31,7 @@
 	<!ENTITY this-loc "https://docs.oasis-open.org/ubl/&stage;-UBL-2.3">
 	<!ENTITY previous-loc "https://docs.oasis-open.org/ubl/&pstage;-UBL-2.3">
 	<!ENTITY latest-loc "https://docs.oasis-open.org/ubl">
-	<!ENTITY pubdate "15 November 2020">
+	<!ENTITY pubdate "25 November 2020">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2020">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -2485,7 +2485,17 @@
           <title>Manifest</title>
           <para>Manifest is the process by which a sending logistics operator (such as a carrier or freight forwarder) communicates the quantity an nature of a load to receiving logistics operator (such as customs party, a ground handler or a terminal operator.</para>
           <para>A <link linkend="S-MANIFEST-SCHEMA">Manifest</link> document is often seen as the top level document for what a vessel, airplane, wagon or truck is carrying.</para>
-          <figure id="F-MANIFEST-PROCESS"><title>Manifest Process</title><mediaobject><imageobject><imagedata fileref="art/UBL-2.3-ManifestProcess.png"/></imageobject><textobject> <phrase>[Manifest Diagram]</phrase> </textobject></mediaobject></figure>
+          <figure id="F-MANIFEST-PROCESS">
+            <title>Manifest Process</title>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="art/UBL-2.3-ManifestProcess.png"/>
+              </imageobject>
+              <textobject>
+                <phrase>[Manifest Diagram]</phrase>
+              </textobject>
+            </mediaobject>
+          </figure>
         </section>
         <section id="S-FREIGHT-STATUS-REPORTING">
           <title>Freight Status Reporting</title>
@@ -2903,7 +2913,17 @@
             <title>Common Transportation Report</title>
             <para>The <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link> collects and reports information about events and status of a transport means. It can be used for requirements regarding border crossing, ship to shore, or shore to ship reporting. It is
               meant to be mapped to numerous single window declarations and for other reporting to authorities.</para>
-            <figure id="F-COMMON-TRANSPORTATION-REPORT"><title>Common Transportation Report</title><mediaobject><imageobject><imagedata fileref="art/UBL-2.3-CommonTransportationReportProcess.png"/></imageobject><textobject> <phrase>[Common Transportation Report Progress]</phrase> </textobject></mediaobject></figure>
+            <figure id="F-COMMON-TRANSPORTATION-REPORT">
+              <title>Common Transportation Report</title>
+              <mediaobject>
+                <imageobject>
+                  <imagedata fileref="art/UBL-2.3-CommonTransportationReportProcess.png"/>
+                </imageobject>
+                <textobject>
+                  <phrase>[Common Transportation Report Progress]</phrase>
+                </textobject>
+              </mediaobject>
+            </figure>
           </section>
         </section>
       </section>
@@ -4734,9 +4754,10 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
         <blockquote>
           <!--reviewtext-->
           <para>
-            <emphasis role="bold">Added UBL 2.3 document types for transportation: </emphasis> <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link>,
-            <link linkend="S-EXPORT-CUSTOMS-DECLARATION-SCHEMA">Export Customs Declaration</link>, <link linkend="S-GOODS-CERTIFICATE-SCHEMA">Goods Certificate</link> , <link linkend="S-GOODS-ITEM-PASSPORT-SCHEMA">Goods Item Passport</link>, <link linkend="S-IMPORT-CUSTOMS-DECLARATION-SCHEMA">Import
-              Customs Declaration</link>, <link linkend="S-MANIFEST-SCHEMA">Manifest</link>, <link linkend="S-PROOF-OF-REEXPORTATION-SCHEMA">Proof Of Reexportation</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REMINDER-SCHEMA">Proof Of Reexportation Reminder</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REQUEST-SCHEMA">Proof Of Reexportation
+            <emphasis role="bold">Added UBL 2.3 document types for transportation: </emphasis>
+            <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link>, <link linkend="S-EXPORT-CUSTOMS-DECLARATION-SCHEMA">Export Customs Declaration</link>, <link linkend="S-GOODS-CERTIFICATE-SCHEMA">Goods
+            Certificate</link><?oxy_delete author="admin" timestamp="20201118T193907-0500" content=" "?>, <link linkend="S-GOODS-ITEM-PASSPORT-SCHEMA">Goods Item Passport</link>, <link linkend="S-IMPORT-CUSTOMS-DECLARATION-SCHEMA">Import Customs Declaration</link>, <link linkend="S-MANIFEST-SCHEMA"
+              >Manifest</link>, <link linkend="S-PROOF-OF-REEXPORTATION-SCHEMA">Proof Of Reexportation</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REMINDER-SCHEMA">Proof Of Reexportation Reminder</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REQUEST-SCHEMA">Proof Of Reexportation
               Request</link>, <link linkend="S-TRANSIT-CUSTOMS-DECLARATION-SCHEMA">Transit Customs Declaration</link></para>
         </blockquote>
       </section>
