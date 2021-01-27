@@ -19,7 +19,7 @@ set UBLprevStage=csd03
 set label=%~3
 
 echo Building package...
-java "-Dant.home=utilities/ant" -classpath "db/spec-0.8/validate/xjparse.jar;utilities/ant/lib/ant-launcher.jar;db/spec-0.8/validate/saxon9he.jar;." org.apache.tools.ant.launch.Launcher -buildfile publishUBL23Docs.xml "-Ddir=%~1" "-Dstage=%UBLstage%" "-DUBLprevStage=%UBLprevStage%" "-Dlabel=%label%" "-Ddatetimelocal=%~4" "-Dsetareuser=%~5" "-Dsetarepass=%~6" >"hub.console.%label%.txt"
+java "-Dant.home=utilities/ant" -classpath "db/spec-0.8/validate/xjparse.jar;utilities/ant/lib/ant-launcher.jar;db/spec-0.8/validate/saxon9he.jar;." org.apache.tools.ant.launch.Launcher -buildfile publishUBL23Docs.xml "-Ddir=%~1" "-Dstage=%UBLstage%" "-DUBLprevStage=%UBLprevStage%" "-Dlabel=%label%" "-Ddatetimelocal=%~4" "-Drealtauser=%~5" "-Drealtapass=%~6" >"hub.console.%label%.txt"
 set serverReturn=%errorlevel%
 
 if not exist "%~1\" mkdir "%~1" 2>&1

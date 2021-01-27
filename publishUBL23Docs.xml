@@ -70,7 +70,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distr
         <not>
           <isset property="docs-UBL-xml-okay"/>
         </not>
-        <equals arg1="${setareuser}" arg2=""/>
+        <equals arg1="${realtauser}" arg2=""/>
       </and>
     </condition>
     <condition property="docs-UBL-okay">
@@ -257,13 +257,13 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distr
       <include name="UBL-2.3.xml"/>
     </fileset>
     <fileset dir=".">
-      <include name="setare-user-parameters.xml"/>
+      <include name="realta-user-parameters.xml"/>
       <include name="art/**"/>
     </fileset>
   </zip>
   <!--create publishing outputs-->
   <echo message="Submitting print job..."/>
-  <property name="serverScript" location="SetareServerAnt.xml"/> 
+  <property name="serverScript" location="RealtaServerAnt.xml"/> 
   <ant antfile="${serverScript}" dir="${dir}">
     <property name="entrypoint" value="OASIS-spec2pdfhtml-ISO-pdf"/>
     <property name="fileupload"
