@@ -136,6 +136,11 @@ Source files, processing stylesheets, and resulting entities generated in the bu
 
 Edit the build invocation `publishUBL23Docs.bat` or `publishUBL23Docs.sh` to include proper SET variables indicating the current stage and the previous stage.
 
+When preparing a version that is not a draft, that is, CS or above (restoring all of these for the next draft):
+- comment out the revision log annex
+- comment out the informative annex describing the ISO/IEC 19845 layout using ISO Directives Part 2
+- modify the SET variable isDraft to be false
+
 The build process is:
 - `publishUBL23Docs.bat   ..\results {platform} {label} {localDateTime}  [ {serverUsername serverPassword} ]`
 - `sh publishUBL23Docs.sh ../results {platform} {label} {localDateTime}  [ {serverUsername serverPassword} ]`

@@ -2,8 +2,6 @@
 <?xml-stylesheet type="text/xsl" 
   href="db/spec-0.8/stylesheets/oasis-specification-html-offline.xsl"?>
 <!--
-  $Id: UBL-2.3.xml,v 1.53 2020/04/27 20:30:02 admin Exp $
-
   Search strings: 
   - use "reviewtext" to find:
      - the annex for release notes
@@ -19,21 +17,23 @@
 	<!ENTITY name "UBL">
 	<!ENTITY pversion "NONE">
 	<!ENTITY version "2.3">
-	<!ENTITY pstage "csd03">
-	<!ENTITY PSTAGE "CSD03">
-	<!ENTITY stage "csd04">
-	<!ENTITY STAGE "CSD04">
+	<!ENTITY pstage "csd04">
+	<!ENTITY PSTAGE "CSD04">
+	<!ENTITY stage "cs01">
+	<!ENTITY STAGE "CS01">
 	<!ENTITY isostage "WD">
-	<!ENTITY standard "Committee Specification Draft 04">
-	<!ENTITY stagetext "Committee Specification Draft 04">
+	<!ENTITY standard "Committee Specification 01">
+	<!ENTITY stagetext "Committee Specification 01">
+	<!ENTITY standard "Committee Specification Draft 04xxxxxx">
+	<!ENTITY stagetext "Committee Specification Draft 04xxxxxx">
 	<!ENTITY standard "Committee Specification Draft 04 / Working Draft 03xxxxx">
 	<!ENTITY stagetext "Committee Specification Draft 04 Working Draft 03xxxxx">
 	<!ENTITY this-loc "https://docs.oasis-open.org/ubl/&stage;-UBL-2.3">
 	<!ENTITY previous-loc "https://docs.oasis-open.org/ubl/&pstage;-UBL-2.3">
 	<!ENTITY latest-loc "https://docs.oasis-open.org/ubl">
-	<!ENTITY pubdate "25 November 2020">
+	<!ENTITY pubdate "19 January 2021">
 	<!--remove time from pub date-->
-	<!ENTITY pubyear "2020">
+	<!ENTITY pubyear "2021">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
 	<!ENTITY reldate-iso "ccyy-mm">
 	<!ENTITY summary-parties SYSTEM "summary-parties-ent.xml">
@@ -42,13 +42,15 @@
 	<!ENTITY summary-examples SYSTEM "summary-examples-ent.xml">
 	<!ENTITY summary-processes SYSTEM "summary-processes-ent.xml">
 	<!ENTITY summary-old2new-version-library SYSTEM 
-         "old2newDocBook-UBL-2.3-csd04-UBL-2.2-library-ent.xml">
+         "old2newDocBook-UBL-2.3-cs01-UBL-2.2-library-ent.xml">
 	<!ENTITY summary-old2new-version-documents SYSTEM 
-         "old2newDocBook-UBL-2.3-csd04-UBL-2.2-documents-ent.xml">
+         "old2newDocBook-UBL-2.3-cs01-UBL-2.2-documents-ent.xml">
+<!--
 	<!ENTITY summary-old2new-stage-library SYSTEM 
          "old2newDocBook-UBL-2.3-csd04-UBL-2.3-csd03-library-ent.xml">
 	<!ENTITY summary-old2new-stage-documents SYSTEM 
          "old2newDocBook-UBL-2.3-csd04-UBL-2.3-csd03-documents-ent.xml">
+-->
 ]>
 <article status="&standard;" conformance="ids quotes ebuzzwords">
   <articleinfo>
@@ -4756,7 +4758,7 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
           <para>
             <emphasis role="bold">Added UBL 2.3 document types for transportation: </emphasis>
             <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link>, <link linkend="S-EXPORT-CUSTOMS-DECLARATION-SCHEMA">Export Customs Declaration</link>, <link linkend="S-GOODS-CERTIFICATE-SCHEMA">Goods
-            Certificate</link><?oxy_delete author="admin" timestamp="20201118T193907-0500" content=" "?>, <link linkend="S-GOODS-ITEM-PASSPORT-SCHEMA">Goods Item Passport</link>, <link linkend="S-IMPORT-CUSTOMS-DECLARATION-SCHEMA">Import Customs Declaration</link>, <link linkend="S-MANIFEST-SCHEMA"
+            Certificate</link>, <link linkend="S-GOODS-ITEM-PASSPORT-SCHEMA">Goods Item Passport</link>, <link linkend="S-IMPORT-CUSTOMS-DECLARATION-SCHEMA">Import Customs Declaration</link>, <link linkend="S-MANIFEST-SCHEMA"
               >Manifest</link>, <link linkend="S-PROOF-OF-REEXPORTATION-SCHEMA">Proof Of Reexportation</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REMINDER-SCHEMA">Proof Of Reexportation Reminder</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REQUEST-SCHEMA">Proof Of Reexportation
               Request</link>, <link linkend="S-TRANSIT-CUSTOMS-DECLARATION-SCHEMA">Transit Customs Declaration</link></para>
         </blockquote>
@@ -4803,6 +4805,7 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
           </table>
         </section>
       </section>
+<!--
       <section id="S-SCHEMA-CHANGES-FROM-UBL-2.3-CSD03-TO-UBL-2.3-CSD04">
         <title>Schema changes from UBL 2.3 csd03 to UBL 2.3 csd04</title>
         <section id="S-SCHEMA-CHANGES-DURING-DEVELOPMENT">
@@ -4828,6 +4831,7 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
           </table>
         </section>
       </section>
+-->
       <section id="S-EDITORIAL-CHANGES-FROM-UBL-2.2-TO-UBL-2.3">
         <title>Editorial changes from UBL 2.2 to UBL 2.3</title>
         <para>As this is a very lengthy specification, this guidance to the reader reflects where UBL 2.3 has not changed substantially or substantively from UBL 2.2. Editorial changes that are related to grammar, spelling, and turn of phrase are not enumerated.</para>
@@ -6849,7 +6853,7 @@ No code list validation errors.</programlisting>
   </appendix>
   <appendix id="A-ACKNOWLEDGEMENTS" role="non-normative">
     <title>Acknowledgements</title>
-    <para>The OASIS UBL Technical Committee thanks SyncroSoft for its contribution of oXygen licenses used in DocBook authoring of UBL documentation; Setare Solutions for support in generating PDF and HTML documents from DocBook originals; and Crane Softwrights for the generation of the summary
+    <para>The OASIS UBL Technical Committee thanks SyncroSoft for its contribution of oXygen licenses used in DocBook authoring of UBL documentation; Réalta Online Publishing Solutions for support in generating PDF and HTML documents from DocBook originals; and Crane Softwrights for the generation of the summary
       reports.</para>
     <para>The following persons and companies participated as members of the OASIS UBL Technical Committee during the years of its development (2017–&pubyear;).</para>
     <simplelist lang="none">
@@ -6880,7 +6884,8 @@ No code list validation errors.</programlisting>
       <member>Matt Vickers, Xero</member>
     </simplelist>
   </appendix>
-  <appendix id="A-TEMPORARY-ANNEX---RENDERING-PER-ISO-IEC-DIRECTIVES-PART-2" role="non-normative">
+<!--
+  <appendix id="A-TEMPORARY-ANNEX-\-\-RENDERING-PER-ISO-IEC-DIRECTIVES-PART-2" role="non-normative">
     <title>Temporary Annex - Rendering per ISO/IEC Directives, Part 2</title>
     <note>
       <para>This temporary appendix will be removed in the final version of the committee specification.</para>
@@ -6890,7 +6895,9 @@ No code list validation errors.</programlisting>
         <ulink url="iso-iec-19845-draft.pdf">iso-iec-19845-draft.pdf</ulink>
       </literal>. This rendering is not included in the final distribution but its content is submitted directly to ITTF for publishing.</para>
   </appendix>
-  <appendix id="A-TEMPORARY-ANNEX---CHANGE-LOG" role="non-normative">
+-->
+<!--
+  <appendix id="A-TEMPORARY-ANNEX-\-\-CHANGE-LOG" role="non-normative">
     <title>Temporary Annex - Change Log</title>
     <note>
       <para>This temporary appendix will be removed in the final version of the committee specification.</para>
@@ -6956,5 +6963,5 @@ No code list validation errors.</programlisting>
       </tgroup>
     </informaltable>
   </appendix>
+-->
 </article>
-<?oxy_options track_changes="on"?>

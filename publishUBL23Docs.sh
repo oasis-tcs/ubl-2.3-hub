@@ -5,12 +5,13 @@ if [ -f hub.console.$3.txt ]; then rm hub.console.$3.txt ; fi
 if [ "$4" = "" ] || ( [ "$5" != "" ] && [ "$6" = "" ] ); then echo Missing results directory, platform, label, date-stamp, user, and password arguments ; exit 1 ; fi
 
 package=UBL-2.3
-UBLstage=csd04
-UBLprevStage=csd03
+UBLstage=cs01
+UBLprevStage=csd04
 label=$3
+isDraft=false
 
 echo Building package for $package $UBLstage...
-java -Dant.home=utilities/ant -classpath db/spec-0.8/validate/xjparse.jar:utilities/ant/lib/ant-launcher.jar:db/spec-0.8/validate/saxon9he.jar:. org.apache.tools.ant.launch.Launcher -buildfile publishUBL23Docs.xml -Ddir=$1 -Dstage=$UBLstage -DUBLprevStage=$UBLprevStage -Dlabel=$label -Ddatetimelocal=$4 -Drealtauser=$5 -Drealtapass=$6 | tee hub.console.$3.txt
+java -Dant.home=utilities/ant -classpath db/spec-0.8/validate/xjparse.jar:utilities/ant/lib/ant-launcher.jar:db/spec-0.8/validate/saxon9he.jar:. org.apache.tools.ant.launch.Launcher -buildfile publishUBL23Docs.xml -Ddir=$1 -Dstage=$UBLstage -DUBLprevStage=$UBLprevStage -Dlabel=$label -Ddatetimelocal=$4 -Drealtauser=$5 -Drealtapass=$6 "-DisDraft=$isDraft" | tee hub.console.$3.txt
 serverReturn=${PIPESTATUS[0]}
 echo $serverReturn >hub.exitcode.$3.txt
 

@@ -3,6 +3,8 @@
 <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
 
 <target name="make">
+  <property name="consoleFile" location="${dir}/publish.console.${datetimelocal}"/>
+  <record name="${consoleFile}" action="start"/>
   <condition property="is-dos">
     <os family="windows"/>
   </condition>
@@ -11,6 +13,7 @@
   <echo message="UBLprevStage=${UBLprevStage}"/>
   <echo message="version=${label}"/>
   <echo message="datetimelocal=${datetimelocal}"/>
+  <echo message="isDraft=${isDraft}"/>
 
   <!--test skip-publish.txt to preserve the old genericode model file-->
   <available property="skip-publish" file="skip-publish.txt"/>
@@ -364,13 +367,24 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distr
       <include name="missing*missing.txt"/>
     </fileset>
   </copy>
-  <!--<mkdir dir="${dir}/hub-UBL-2.3-${stage}-${label}/iso-iec-19845-draft-sts"/>
+  
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution"/>
+  <move unless:true="isDraft" preservelastmodified="true"
+        todir="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution">
+    <!--the ISO file is in the docs directory only for drafts; move it to archive if not a draft-->
+    <fileset dir="${dir}/hub-UBL-2.3-${stage}-${label}">
+      <include name="iso-iec-19845-draft.pdf"/>
+    </fileset>
+  </move>
+  <!--uncomment this when it comes time to preserve XML for ISO; work also needs to be done unpacking Realta returns
+  <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/iso-iec-19845-draft-sts"/>
   <copy preservelastmodified="true" todir="${dir}/hub-UBL-2.3-${stage}-${label}/iso-iec-19845-draft-sts">
     <fileset dir=".">
-      <include name="UBL-2.3.iso.graphics/**"/>
+      <include name="UBL-2.3.sts.graphics/**"/>
       <include name="iso-iec-19845-draft.xml"/>
     </fileset>
-  </copy>-->
+  </copy>
+  -->
 
   <condition property="html-supplemental-needed">
     <or>
@@ -386,6 +400,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distr
   </condition>
   <antcall target="-package-supplemental-other"/>
 
+  <!--determine if any attention needed to entity files-->
   <mkdir dir="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities"/>
   <condition property="ent-processes-okay">
     <length file="summary-processes-ent.xml" when="greater" length="2"/>
@@ -466,7 +481,8 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distr
     </and>
   </condition>
   <delete if:set="ent-all-same" dir="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution/new-entities"/>
-  <touch unless:set="ent-all-same" file="${dir}/hub-UBL-2.3-${stage}-${label}/ATTENTION-new-entities.txt"/>
+  <echo unless:set="ent-all-same" file="${dir}/hub-UBL-2.3-${stage}-${label}/ATTENTION-new-entities.txt"
+        message="The entities in ubl-2.3-hub have changed since the last execution. This may be benign if the last execution was interrupted. It may be significant. Both old and new are in the archive-only directory. The unset variables indicate the entity files that are not the same: ${ent-processes-same} ${ent-parties-same} ${ent-namespaces-same} ${ent-schemas-same} ${ent-examples-same}"/>
 <!--
     Cannot create zip until console log and error exit files added to archive. 
     
@@ -531,13 +547,42 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distr
         todir="${dir}/UBL-2.3-${stage}-${label}/archive-only"
         failonerror="false"/>-->
   <!--use "copy" to distribute ISO draft to all, "move" for only archive-->
-  <copy file="${dir}/UBL-2.3-${stage}-${label}/iso-iec-19845-draft.pdf"
-        todir="${dir}/UBL-2.3-${stage}-${label}/"
+  <move unless:true="isDraft"
+        file="${dir}/UBL-2.3-${stage}-${label}/iso-iec-19845-draft.pdf"
+        todir="${dir}/UBL-2.3-${stage}-${label}-archive-only"
         failonerror="false"/>
+
   <touch datetime="${datetimelocal}" pattern="yyyyMMdd-HHmm">
     <fileset dir="${dir}/UBL-2.3-${stage}-${label}"/>
   </touch>
 
+  <!--final consistency checks before packaging-->
+  
+  <echo message="Creating: ${dir}/UBL-2.3-${stage}-${label}-dir-listing.xml..."/>
+  <exec executable="sh">
+    <arg value="utilities/xml-dir/bin/xml-dir-listing"/>
+    <arg value="-o"/>
+    <arg value="${dir}/UBL-2.3-${stage}-${label}-dir-listing.xml"/>
+    <arg value="${dir}/UBL-2.3-${stage}-${label}"/>    
+  </exec>
+  <echo message="Creating: ${dir}/UBL-2.3-${stage}-${label}-gentext.xml..."/>
+  <java append="true" classname="net.sf.saxon.Transform">
+     <arg value="-xsl:hub-integrity.xsl"/>
+     <arg value="-s:${dir}/UBL-2.3-${stage}-${label}-dir-listing.xml"/>
+     <arg value="-o:${dir}/UBL-2.3-${stage}-${label}-gentext.xml"/>
+     <arg value="hub-uri=${dir}/UBL-2.3-${stage}-${label}/UBL-2.3.xml"/>
+     <arg value="gc-uri=${dir}/UBL-2.3-${stage}-${label}/mod/UBL-Entities-2.3.gc"/>
+    <arg value="pub-version=2.3"/>
+  </java>
+  <echo message="Integrity checking completed before packaging"/>
+
+  <!--add console record to archive-->
+  <record name="${consoleFile}" action="stop"/>
+  <copy file="${consoleFile}"
+        todir="${dir}/UBL-2.3-${stage}-${label}-archive-only"
+        failonerror="false"/>
+
+  <!--create ZIPs from directories and recreate directories to test ZIPs-->
   <zip destfile="${dir}/UBL-2.3-${stage}-${label}-archive-only.zip"
        basedir="${dir}" includes="UBL-2.3-${stage}-${label}-archive-only/**"/>
   <delete dir="${dir}/UBL-2.3-${stage}-${label}-archive-only"/>
@@ -557,7 +602,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distr
     </fileset>
   </touch>
   
-  <!--final consistency checks-->
+  <!--final consistency checks of unzipped ZIPs-->
   
   <echo message="Creating: ${dir}/UBL-2.3-${stage}-${label}-dir-listing.xml..."/>
   <exec executable="sh">
@@ -575,7 +620,7 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distr
      <arg value="gc-uri=${dir}/UBL-2.3-${stage}-${label}/mod/UBL-Entities-2.3.gc"/>
     <arg value="pub-version=2.3"/>
   </java>
-  <echo message="Integrity checking completed"/>
+  <echo message="Integrity checking completed after packaging ZIPs"/>
 </target>
 
 </project>
