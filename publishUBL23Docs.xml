@@ -3,7 +3,8 @@
 <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
 
 <target name="make">
-  <property name="consoleFile" location="${dir}/publish.console.${datetimelocal}"/>
+  <mkdir dir="${dir}"/>
+  <property name="consoleFile" location="${dir}/publish.console.${datetimelocal}.txt"/>
   <record name="${consoleFile}" action="start"/>
   <condition property="is-dos">
     <os family="windows"/>
@@ -499,6 +500,12 @@ file="${dir}/artefacts-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distr
     </fileset>
   </touch>
   -->
+
+  <record name="${consoleFile}" action="stop"/>
+  <copy file="${consoleFile}"
+        todir="${dir}/hub-UBL-2.3-${stage}-${label}/archive-only-not-in-final-distribution"
+        failonerror="false"/>
+  <record name="${consoleFile}" action="start"/>
 
 </target>
 
