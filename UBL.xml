@@ -17,21 +17,21 @@
 	<!ENTITY name "UBL">
 	<!ENTITY pversion "NONE">
 	<!ENTITY version "2.3">
-	<!ENTITY pstage "csd04">
-	<!ENTITY PSTAGE "CSD04">
-	<!ENTITY stage "cs01">
-	<!ENTITY STAGE "CS01">
+	<!ENTITY pstage "cs01">
+	<!ENTITY PSTAGE "CS01">
+	<!ENTITY stage "csd05">
+	<!ENTITY STAGE "CSD05">
 	<!ENTITY isostage "WD">
-	<!ENTITY standard "Committee Specification 01">
-	<!ENTITY stagetext "Committee Specification 01">
-	<!ENTITY standard "Committee Specification Draft 04xxxxxx">
-	<!ENTITY stagetext "Committee Specification Draft 04xxxxxx">
+	<!ENTITY standard "Committee Specification Draft 05">
+	<!ENTITY stagetext "Committee Specification Draft 05">
+	<!ENTITY standard "Committee Specification 01xxxxxx">
+	<!ENTITY stagetext "Committee Specification 01xxxxxx">
 	<!ENTITY standard "Committee Specification Draft 04 / Working Draft 03xxxxx">
 	<!ENTITY stagetext "Committee Specification Draft 04 Working Draft 03xxxxx">
 	<!ENTITY this-loc "https://docs.oasis-open.org/ubl/&stage;-UBL-2.3">
 	<!ENTITY previous-loc "https://docs.oasis-open.org/ubl/&pstage;-UBL-2.3">
 	<!ENTITY latest-loc "https://docs.oasis-open.org/ubl">
-	<!ENTITY pubdate "19 January 2021">
+	<!ENTITY pubdate "12 May 2021">
 	<!--remove time from pub date-->
 	<!ENTITY pubyear "2021">
 	<!ENTITY pubdate-iso "ccyy-mm-dd">
@@ -4580,6 +4580,9 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
         <listitem>
           <para>at this time there are no ASBIEs associating the common library ABIE with the DEN “Performance Data Line. Details”</para>
         </listitem>
+        <listitem>
+          <para>the cardinality of the BBIE named <phrase lang="none">ElectronicPaymentUsageIndicator</phrase> in the ABIE named <phrase lang="none">PostAwardProcess</phrase> is incorrectly specified as “0..n” instead of “0..1”</para>
+        </listitem>
       </itemizedlist>
     </section>
   </appendix>
@@ -4757,10 +4760,9 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
           <!--reviewtext-->
           <para>
             <emphasis role="bold">Added UBL 2.3 document types for transportation: </emphasis>
-            <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link>, <link linkend="S-EXPORT-CUSTOMS-DECLARATION-SCHEMA">Export Customs Declaration</link>, <link linkend="S-GOODS-CERTIFICATE-SCHEMA">Goods
-            Certificate</link>, <link linkend="S-GOODS-ITEM-PASSPORT-SCHEMA">Goods Item Passport</link>, <link linkend="S-IMPORT-CUSTOMS-DECLARATION-SCHEMA">Import Customs Declaration</link>, <link linkend="S-MANIFEST-SCHEMA"
-              >Manifest</link>, <link linkend="S-PROOF-OF-REEXPORTATION-SCHEMA">Proof Of Reexportation</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REMINDER-SCHEMA">Proof Of Reexportation Reminder</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REQUEST-SCHEMA">Proof Of Reexportation
-              Request</link>, <link linkend="S-TRANSIT-CUSTOMS-DECLARATION-SCHEMA">Transit Customs Declaration</link></para>
+            <link linkend="S-COMMON-TRANSPORTATION-REPORT-SCHEMA">Common Transportation Report</link>, <link linkend="S-EXPORT-CUSTOMS-DECLARATION-SCHEMA">Export Customs Declaration</link>, <link linkend="S-GOODS-CERTIFICATE-SCHEMA">Goods Certificate</link>, <link
+              linkend="S-GOODS-ITEM-PASSPORT-SCHEMA">Goods Item Passport</link>, <link linkend="S-IMPORT-CUSTOMS-DECLARATION-SCHEMA">Import Customs Declaration</link>, <link linkend="S-MANIFEST-SCHEMA">Manifest</link>, <link linkend="S-PROOF-OF-REEXPORTATION-SCHEMA">Proof Of Reexportation</link>,
+              <link linkend="S-PROOF-OF-REEXPORTATION-REMINDER-SCHEMA">Proof Of Reexportation Reminder</link>, <link linkend="S-PROOF-OF-REEXPORTATION-REQUEST-SCHEMA">Proof Of Reexportation Request</link>, <link linkend="S-TRANSIT-CUSTOMS-DECLARATION-SCHEMA">Transit Customs Declaration</link></para>
         </blockquote>
       </section>
       <section id="S-SCHEMA-CHANGES-FROM-UBL-2.2-TO-UBL-2.3">
@@ -4805,7 +4807,7 @@ xmlns="urn:oasis:names:specification:ubl:schema:xsd:TransportationStatus-2">
           </table>
         </section>
       </section>
-<!--
+      <!--
       <section id="S-SCHEMA-CHANGES-FROM-UBL-2.3-CSD03-TO-UBL-2.3-CSD04">
         <title>Schema changes from UBL 2.3 csd03 to UBL 2.3 csd04</title>
         <section id="S-SCHEMA-CHANGES-DURING-DEVELOPMENT">
@@ -6853,8 +6855,8 @@ No code list validation errors.</programlisting>
   </appendix>
   <appendix id="A-ACKNOWLEDGEMENTS" role="non-normative">
     <title>Acknowledgements</title>
-    <para>The OASIS UBL Technical Committee thanks SyncroSoft for its contribution of oXygen licenses used in DocBook authoring of UBL documentation; Réalta Online Publishing Solutions for support in generating PDF and HTML documents from DocBook originals; and Crane Softwrights for the generation of the summary
-      reports.</para>
+    <para>The OASIS UBL Technical Committee thanks SyncroSoft for its contribution of oXygen licenses used in DocBook authoring of UBL documentation; Réalta Online Publishing Solutions for support in generating PDF and HTML documents from DocBook originals; and Crane Softwrights for the generation
+      of the summary reports.</para>
     <para>The following persons and companies participated as members of the OASIS UBL Technical Committee during the years of its development (2017–&pubyear;).</para>
     <simplelist lang="none">
       <member>Todd Albers, Federal Reserve Bank of Minneapolis</member>
@@ -6884,7 +6886,7 @@ No code list validation errors.</programlisting>
       <member>Matt Vickers, Xero</member>
     </simplelist>
   </appendix>
-<!--
+  <!--
   <appendix id="A-TEMPORARY-ANNEX-\-\-RENDERING-PER-ISO-IEC-DIRECTIVES-PART-2" role="non-normative">
     <title>Temporary Annex - Rendering per ISO/IEC Directives, Part 2</title>
     <note>
@@ -6896,7 +6898,7 @@ No code list validation errors.</programlisting>
       </literal>. This rendering is not included in the final distribution but its content is submitted directly to ITTF for publishing.</para>
   </appendix>
 -->
-<!--
+  <!--
   <appendix id="A-TEMPORARY-ANNEX-\-\-CHANGE-LOG" role="non-normative">
     <title>Temporary Annex - Change Log</title>
     <note>
