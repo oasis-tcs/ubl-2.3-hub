@@ -5,8 +5,8 @@ if [ -f hub.console.$3.txt ]; then rm hub.console.$3.txt ; fi
 if [ "$4" = "" ] || ( [ "$5" != "" ] && [ "$6" = "" ] ); then echo Missing results directory, platform, label, date-stamp, user, and password arguments ; exit 1 ; fi
 
 package=UBL-2.3
-UBLstage=cs01
-UBLprevStage=csd04
+UBLstage=csd05
+UBLprevStage=cs01
 label=$3
 isDraft=false
 
