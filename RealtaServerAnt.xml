@@ -1,7 +1,7 @@
 <project default="-realta" xmlns:if="ant:if" xmlns:unless="ant:unless">
 
 <!--
-  2021-01-27 02:00z
+  2021-01-27 16:40z
   
   This Ant project interacts with the Realta Server API using curl.
   
@@ -204,13 +204,8 @@
 <target name="-realta-unpack-v2" unless="skipunpack">
   <echo message="Unzipping ${fileupload}.realta.zip PDF/HTML results..."/>
   <dirname property="targetdir" file="${fileupload}"/>
-  <unzip src="${fileupload}.realta.zip" dest="${targetdir}">
-    <patternset>
-      <include name="*.pdf"/>
-      <include name="*.html"/>
-    </patternset>
-  </unzip>
-  <echo message="Disposing of temporary ${fileupload}.realta.zip submission..."/>
+  <unzip src="${fileupload}.realta.zip" dest="${targetdir}"/>
+  <echo message="Disposing of temporary ${fileupload}.realta.zip results..."/>
   <delete file="${fileupload}.realta.zip"/>
 </target>
   
