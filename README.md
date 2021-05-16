@@ -1,3 +1,11 @@
+
+# NOTICE - The content of this git repository is retired with all files and processes moved
+
+Please find the continued work here: https://github.com/oasis-tcs/ubl
+
+No more changes are expected to be made in this repository.
+
+---
 # README
 
 Members of the [Universal Business Language (UBL) TC](https://www.oasis-open.org/committees/ubl/) 
